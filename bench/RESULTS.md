@@ -41,7 +41,7 @@ acusação perdida é um humano revisando) essa troca é deliberada, e o pré-re
 ```bash
 npm run bench          # lane completa (~140s, o `impeccable` é CLI de terceiro via npx)
 npm run bench:quick    # kernel + judge (~4s)
-npm test               # 102 asserções, inclui o determinismo da lane
+npm test               # 158 asserções, inclui o determinismo da lane
 ```
 
 Relatório de máquina: `bench/results/lane-a.json`.
@@ -55,9 +55,14 @@ Relatório de máquina: `bench/results/lane-a.json`.
 | `impeccable` | 3.6.0, via `npx --yes impeccable` |
 | sha256 do JSON (3 execuções) | `595c71866674c924...` |
 
-Reprodução em Windows: rode com saída redirecionada para arquivo (`node bench/run-lane-a.mjs > out.txt`).
-Redirecionar `stderr` junto de `stdout` e rodar em processo sem TTY faz o `npx` do `impeccable`
-morrer com `stdin is not a tty` — o adapter é reportado como `unavailable`, **nunca como 0**.
+Reprodução em Windows, sem TTY: chame o Node pelo **caminho absoluto**
+(`C:/nvm4w/nodejs/node.exe bench/run-lane-a.mjs`, visto neste host). Com o nome curto `node`, em
+processo sem TTY neste host, o comando é interceptado por um wrapper de shell que imprime
+`stdin is not a tty` e sai 1 — a lane morre **antes** de escrever o JSON e o arquivo anterior fica
+intacto. Consequência prática: **hash repetido não é prova de determinismo quando o exit code é
+diferente de 0** — confira o exit antes de ler o sha256. Com o caminho absoluto, a mesma lane roda
+headless em background e reproduz `595c71866674c924...`.
+(O adapter `impeccable` também roda com `stdio: ['ignore','pipe','pipe']` e `npx --yes`, defensivo.)
 
 ## Ameaças à validade (declaradas, não resolvidas)
 

@@ -300,9 +300,12 @@ export function runImpeccable(filePath) {
   const abs = resolve(REPO_ROOT, filePath);
   const tmp = makeTempDir('pd-impeccable-');
   try {
-    const out = execFileSync('npx', ['impeccable', 'detect', abs], {
+    // Defensivo: sem TTY o filho nao deve esperar nada de stdin, e --yes evita qualquer prompt do
+    // npx (pacote ausente na cache). Nao e a causa da lane morrer headless neste host — isso e o
+    // `node` de nome curto sendo interceptado por wrapper de shell (ver bench/RESULTS.md).
+    const out = execFileSync('npx', ['--yes', 'impeccable', 'detect', abs], {
       encoding: 'utf8',
-      stdio: ['pipe', 'pipe', 'pipe'],
+      stdio: ['ignore', 'pipe', 'pipe'],
       shell: true,
       cwd: tmp,
       timeout: IMPECCABLE_TIMEOUT_MS
