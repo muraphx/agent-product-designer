@@ -15,14 +15,21 @@ Sem `npx`? Clone e rode direto:
 
 ```bash
 git clone https://github.com/muraphx/agent-product-designer && cd agent-product-designer
-node install.mjs --client all        # claude | hermes | agents | codex | chatgpt
+node install.mjs --client all        # claude | hermes | agents | codex | chatgpt | chatgpt-web
 node gates/run.mjs examples/landing  # veredito dos três portões
-npm test                             # 158 asserções
+npm test                             # 197 asserções
 ```
 
 Usando no **ChatGPT desktop**: passo a passo verificado em [`docs/chatgpt-desktop.md`](docs/chatgpt-desktop.md)
 — `node install.mjs --client chatgpt` grava a memória MCP em `~/.codex/config.toml`, as skills em
 `~/.codex/skills` e o kernel em `~/.codex/AGENTS.md`; reinicie o app e confira em `Settings → MCP servers`.
+
+Usando no **ChatGPT na web** (`chatgpt.com/plugins`): o app da web não abre processo local, então o
+mesmo agente é exposto por rede — `node bin/remote-server.mjs` (MCP Streamable HTTP em `POST /mcp`,
+as mesmas 6 ferramentas) + `cloudflared tunnel --url http://127.0.0.1:8787` para HTTPS, e o conector
+é criado em *Add custom MCP server*. Receita completa, com a saída real da prova por HTTPS e os
+limites: [`docs/chatgpt-web-plugin.md`](docs/chatgpt-web-plugin.md) (para uso contínuo sem expor nada,
+o **Secure MCP Tunnel** da OpenAI).
 
 ## Os três portões
 
@@ -59,9 +66,12 @@ python dist/chatgpt/gates.py <alvo>   # paridade contra o runner Node medida em 
 plugin.json            manifesto (Agent Plugins Spec 1.0.0)
 mcp.json / .mcp.json   memória MCP: spec e Claude, mesmo servidor
 AGENTS.md              kernel sempre-ativo (leia isto primeiro)
-install.mjs            instalador: --client claude|hermes|agents|codex|chatgpt|all
+install.mjs            instalador: --client claude|hermes|agents|codex|chatgpt|chatgpt-web|all
 budgets/caps.yaml      o teto numérico, com dono único por regra
+bin/pd-core.mjs        memória, cobertura, teto e execução dos portões — uma implementação só
 bin/memory-server.mjs  servidor MCP stdio: record_decision, list_decisions, coverage_gaps, read_caps
+bin/remote-server.mjs  servidor MCP Streamable HTTP (ChatGPT web): pd_kernel_rules, pd_read_caps,
+                       pd_run_gates, pd_record_decision, pd_list_decisions, pd_coverage_gaps
 gates/                 r1, r2, r3 + biblioteca de leitura determinística (caps.mjs, scan.mjs)
 dist/chatgpt/          port stdlib-only dos portões (gates.py) + paridade medida (PARITY.md)
 skills/                design-process, strategy-trace, anti-slop, product-designer
@@ -70,10 +80,12 @@ examples/landing/      alvo de referência: página real que passa nos três por
 tests/                 fixtures com UM defeito cada + suíte que prova acusação e silêncio
                        swap.mjs: troca skills/ e o teto por outra disciplina e exige que o kernel siga de pé
                        mcp-smoke.mjs: sobe o servidor de memória e conversa MCP por stdio, de verdade
+                       remote-smoke.mjs: sobe o servidor HTTP e conversa MCP por rede, de verdade
 prereg/lane-a.md       pré-registro do benchmark, congelado antes de medir
 bench/                 corpus rotulado, métricas, juiz e adapters medidos; RESULTS.md é o placar
 docs/delivery/phase-2/ artefato da fase 2: strategy.md + tokens + decisões + o relatório (que passa nos portões)
 docs/chatgpt-desktop.md como usar no ChatGPT desktop, com a saída real do instalador e da prova de ponta a ponta
+docs/chatgpt-web-plugin.md como usar como plugin/conector MCP no ChatGPT na web (servidor HTTP + túnel)
 docs/degradation.md    o que cada client ganha e o que ele perde
 docs/research/         Double Diamond de pesquisa: 00 brief … 05 plano de entrega
 legacy/                esqueleto anterior + diagnóstico do que estava errado
@@ -100,6 +112,7 @@ Memória é dado do usuário: vive no diretório de dados do client, nunca no re
 |---|---|
 | Claude Code | `.claude-plugin/marketplace.json` + `plugin.json` + `skills/` + `.mcp.json` |
 | ChatGPT desktop / Codex | `~/.codex/config.toml` (`[mcp_servers.pd-memory]`) + `~/.codex/skills/` + bloco em `~/.codex/AGENTS.md` |
+| ChatGPT web (conector/plugin) | `bin/remote-server.mjs` (MCP Streamable HTTP em `POST /mcp`) atrás de HTTPS — túnel ou host; o conector é criado em `chatgpt.com/plugins` |
 | Cursor | `AGENTS.md` + `skills/` |
 | Hermes Agent | `skills/` (copiadas para o diretório de skills do profile) |
 | Qualquer outro | `~/.agents/` (diretório portátil de Agent Skills) |

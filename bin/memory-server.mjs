@@ -6,88 +6,24 @@
 // Agent Plugins Spec 1.0.0 — funciona igual em Claude, Codex, Cursor e Hermes.
 //
 // Sem dependencia externa. JSON-RPC 2.0 delimitado por linha, como manda o transporte
-// stdio do MCP.
+// stdio do MCP. A logica (memoria, cobertura, teto) vive em bin/pd-core.mjs e e a MESMA
+// usada pelo servidor HTTP (bin/remote-server.mjs) — os dois nao podem divergir.
+//
+//   node bin/memory-server.mjs             # fala stdio com o host
+//   node bin/memory-server.mjs --selftest  # grava, recusa e sai
 
-import fs from 'node:fs';
-import path from 'node:path';
 import readline from 'node:readline';
-import { fileURLToPath } from 'node:url';
-import { loadCaps, flatCaps } from '../gates/lib/caps.mjs';
+import {
+  appendDecision,
+  readDecisions,
+  coverageGaps,
+  readCaps,
+  workspace,
+  memoryFile,
+} from './pd-core.mjs';
 
 const PROTOCOL = '2024-11-05';
 const SERVER = { name: 'pd-memory', version: '0.1.0' };
-const HERE = path.dirname(fileURLToPath(import.meta.url));
-
-function envPath(key, fallback) {
-  const v = process.env[key];
-  const chosen = v && v.trim() !== '' && !v.includes('${') ? v : fallback;
-  return path.resolve(chosen);
-}
-
-// Sem PD_WORKSPACE o host GUI (ChatGPT desktop) resolve o cwd errado: a memoria cairia em
-// qualquer lugar. Aqui o cwd e so o ultimo recurso, e memoria/teto derivam do workspace.
-const WORKSPACE = envPath('PD_WORKSPACE', process.cwd());
-const MEMORY_FILE = envPath('PD_MEMORY_FILE', path.join(WORKSPACE, 'decision-log', 'decisions.jsonl'));
-const WORKSPACE_CAPS = path.join(WORKSPACE, 'budgets', 'caps.yaml');
-// Workspace de cliente nao traz o teto do pacote: cai para o que veio junto do servidor.
-const CAPS_FILE = envPath('PD_CAPS_FILE', fs.existsSync(WORKSPACE_CAPS) ? WORKSPACE_CAPS : path.join(HERE, '..', 'budgets', 'caps.yaml'));
-
-const REQUIRED = ['id', 'decision', 'strategy_ref'];
-
-function readDecisions() {
-  if (!fs.existsSync(MEMORY_FILE)) return [];
-  return fs
-    .readFileSync(MEMORY_FILE, 'utf8')
-    .split(/\r?\n/)
-    .filter((l) => l.trim() !== '')
-    .map((l, i) => {
-      try {
-        return JSON.parse(l);
-      } catch {
-        throw new Error(`linha ${i + 1} de ${MEMORY_FILE} nao e JSON valido`);
-      }
-    });
-}
-
-function appendDecision(entry) {
-  const missing = REQUIRED.filter((k) => !entry[k] || String(entry[k]).trim() === '');
-  if (missing.length) throw new Error(`decisao incompleta: falta ${missing.join(', ')}`);
-  if (!Array.isArray(entry.evidence) || entry.evidence.filter((e) => String(e).trim() !== '').length === 0) {
-    throw new Error('decisao sem evidencia: campo evidence (lista, nao vazia) e obrigatorio');
-  }
-  const record = {
-    id: String(entry.id),
-    decision: String(entry.decision),
-    strategy_ref: String(entry.strategy_ref),
-    evidence: entry.evidence.map(String),
-    covers: (entry.covers || []).map(String),
-    affects: (entry.affects || []).map(String),
-    status: String(entry.status || 'active'),
-    recorded_at: new Date().toISOString(),
-  };
-  fs.mkdirSync(path.dirname(MEMORY_FILE), { recursive: true });
-  fs.appendFileSync(MEMORY_FILE, JSON.stringify(record) + '\n', 'utf8');
-  return record;
-}
-
-function tokenPaths() {
-  const file = path.join(WORKSPACE, 'design', 'tokens.json');
-  if (!fs.existsSync(file)) return null;
-  const tokens = JSON.parse(fs.readFileSync(file, 'utf8'));
-  return Object.entries(tokens).flatMap(([g, v]) => Object.keys(v).map((k) => `${g}.${k}`));
-}
-
-function coverageGaps() {
-  const paths = tokenPaths();
-  if (paths === null) return { error: 'design/tokens.json ausente' };
-  const covered = new Set();
-  for (const d of readDecisions()) {
-    if ((d.status || 'active') !== 'active') continue;
-    for (const c of d.covers || []) covered.add(String(c).trim());
-  }
-  const uncovered = paths.filter((p) => !covered.has(p));
-  return { tokens: paths.length, covered: paths.length - uncovered.length, uncovered };
-}
 
 const TOOLS = [
   {
@@ -143,11 +79,8 @@ function callTool(name, args = {}) {
     }
     case 'coverage_gaps':
       return coverageGaps();
-    case 'read_caps': {
-      if (!fs.existsSync(CAPS_FILE)) throw new Error(`teto ausente: ${CAPS_FILE}`);
-      const caps = loadCaps(CAPS_FILE);
-      return { file: CAPS_FILE, caps, flat: flatCaps(caps) };
-    }
+    case 'read_caps':
+      return readCaps();
     default:
       throw new Error(`ferramenta desconhecida: ${name}`);
   }
@@ -163,7 +96,7 @@ function handle(msg) {
         protocolVersion: PROTOCOL,
         capabilities: { tools: {} },
         serverInfo: SERVER,
-        instructions: `Memoria de decisoes do agente product designer. Arquivo: ${MEMORY_FILE}. Workspace: ${WORKSPACE}.`,
+        instructions: `Memoria de decisoes do agente product designer. Arquivo: ${memoryFile()}. Workspace: ${workspace()}.`,
       },
     };
   }

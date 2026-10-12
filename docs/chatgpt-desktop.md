@@ -3,6 +3,9 @@
 O ChatGPT desktop **não tem sistema de plugin próprio**. Ele roda no mesmo host do Codex e consome
 três coisas, todas em `~/.codex/`:
 
+> Para o **ChatGPT na web** (`chatgpt.com`), que é outra superfície — custom MCP server por HTTPS, sem
+> processo local — ver [`docs/chatgpt-web-plugin.md`](chatgpt-web-plugin.md).
+
 | O que | Caminho | Papel |
 |---|---|---|
 | MCP servers | `~/.codex/config.toml` → `[mcp_servers.*]` | a memória de decisões do agente (`pd-memory`) |

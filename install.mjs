@@ -6,6 +6,7 @@
 //   node install.mjs --client agents     diretorio portatil ~/.agents (qualquer client que leia AGENTS.md)
 //   node install.mjs --client codex      bloco de inclusao no ~/.codex/AGENTS.md
 //   node install.mjs --client chatgpt    ChatGPT desktop: MCP + skills + AGENTS.md (mesmo host do Codex)
+//   node install.mjs --client chatgpt-web ChatGPT web: prova o servidor MCP remoto e imprime os enderecos
 //   node install.mjs --validate          valida o empacotamento
 //
 // Opcoes: --workspace <dir> (workspace do MCP de memoria), --dry-run, --force.
@@ -222,6 +223,42 @@ ${TOML_END}`;
   console.log(`  nota ChatGPT desktop: reinicie o app; o workspace do MCP e ${ws}`);
 }
 
+// ChatGPT web (chatgpt.com): nao existe "instalar plugin" por linha de comando — o connector e
+// adicionado na interface. O que o instalador pode fazer e (1) provar que o servidor remoto sobe,
+// (2) dizer o endereco exato a colar e (3) apontar o tunel. Nada aqui escreve no host.
+function installChatgptWeb() {
+  const port = argOf('--port') || process.env.PD_HTTP_PORT || '8787';
+  const entry = path.join(ROOT, 'bin', 'remote-server.mjs');
+  if (!fs.existsSync(entry)) {
+    fail('chatgpt-web: servidor', `ausente: ${entry}`);
+    return;
+  }
+  const r = spawnSync(process.execPath, [entry, '--selftest'], { encoding: 'utf8', cwd: ROOT, timeout: 120000 });
+  const out = (r.stdout || '').trim();
+  let tools = null;
+  try {
+    tools = JSON.parse(out).tools;
+  } catch {
+    tools = null;
+  }
+  if (r.status === 0 && Array.isArray(tools)) report('chatgpt-web: servidor responde JSON-RPC', `${tools.length} ferramentas: ${tools.join(', ')}`);
+  else fail('chatgpt-web: servidor responde JSON-RPC', (out || r.stderr || `exit ${r.status}`).slice(0, 300));
+
+  const tunnel = which('cloudflared');
+  if (tunnel) report('chatgpt-web: tunel disponivel', tunnel);
+  else warn('chatgpt-web: tunel', 'cloudflared ausente: instale ou use o Secure MCP Tunnel da OpenAI');
+
+  console.log(`
+  ChatGPT web (chatgpt.com/plugins) — o endpoint precisa ser HTTPS publico:
+    1. terminal 1:  node bin/remote-server.mjs
+    2. terminal 2:  cloudflared tunnel --url http://127.0.0.1:${port}
+    3. copie a URL https://...trycloudflare.com e use https://.../mcp
+    4. em chatgpt.com/plugins → + → Add custom MCP server → cole a URL → Create as a plugin
+       autenticacao na interface: OAuth ou nenhuma. Header Bearer (PD_HTTP_TOKEN) vale para
+       curl/Codex; para a web com auth de verdade use OAuth ou o Secure MCP Tunnel.
+  Guia completo: docs/chatgpt-web-plugin.md`);
+}
+
 function validate() {
   const cli = which('claude');
   if (cli) {
@@ -239,7 +276,8 @@ function validate() {
     ['tests/build-fixtures.mjs', 'fixtures de teste'],
     ['tests/all.mjs', 'testes de empacotamento'],
     ['tests/swap.mjs', 'testes de troca de disciplina'],
-    ['tests/mcp-smoke.mjs', 'testes do MCP'],
+    ['tests/mcp-smoke.mjs', 'testes do MCP (stdio)'],
+    ['tests/remote-smoke.mjs', 'testes do MCP remoto (ChatGPT web)'],
   ];
   for (const [file, label] of suites) {
     const r = spawnSync(process.execPath, [path.join(ROOT, ...file.split('/'))], { encoding: 'utf8', cwd: ROOT });
@@ -261,6 +299,7 @@ if (client === 'all' || client === 'agents') {
 }
 if (client === 'all' || client === 'codex') appendBlock(path.join(HOME, '.codex', 'AGENTS.md'), 'codex: AGENTS.md');
 if (client === 'chatgpt') installChatgpt();
+if (client === 'all' || client === 'chatgpt-web') installChatgptWeb();
 if (has('--validate') || client === 'all') validate();
 
 console.log(`\n${ok} acoes confirmadas, ${problems.length} problemas`);
