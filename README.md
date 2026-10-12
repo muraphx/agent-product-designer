@@ -106,7 +106,14 @@ Memória é dado do usuário: vive no diretório de dados do client, nunca no re
 
 O instalador imprime o caminho/comando exato de cada ação e **relê o destino** para confirmar.
 Nada é sobrescrito sem `--force`. `node install.mjs --validate` roda o validador oficial do Claude
-mais a suíte de empacotamento.
+mais as quatro suítes (`build-fixtures` + `105` + `30` + `23` asserções) e sai com exit 1 se algo falhar.
+
+Reprodutibilidade verificada em clone limpo (`git clone --depth 1` → `node install.mjs --validate`
+→ `5 acoes confirmadas, 0 problemas`) e via `npx --yes github:muraphx/agent-product-designer --validate`.
+Duas armadilhas já corrigidas e registradas aqui porque voltariam a morder: o repo tem `.gitattributes`
+com `* -text` (com `core.autocrlf=true` um clone Windows converte o corpus para CRLF e o sha256 de
+`bench/corpus/labeled.jsonl` deixa de bater), e a validação constrói `tests/fixtures/` antes das suítes
+(ele é gitignored; sem ele todo alvo de fixture vira `exit 2`).
 
 A tabela acima diz o que funciona; `docs/degradation.md` diz o que **quebra** em cada client — Claude
 Code e Hermes não leem `AGENTS.md`, então ali o kernel deixa de ser sempre-ativo e vira skill de
