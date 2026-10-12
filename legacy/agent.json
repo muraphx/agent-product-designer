@@ -1,0 +1,22 @@
+{
+  "name": "agent-product-designer",
+  "version": "2.0.0",
+  "description": "Universal AI Product Designer Agent equipped with the elite tri-skill stack: Impeccable (Craft Floor & Vocabulary), Hallmark (Macrostructural Variety), and LottieFiles Motion Design (Spring Physics & Choreography).",
+  "archetype": "product-designer",
+  "recommended_models": {
+    "primary": "claude-3-7-sonnet / gpt-4o / glm-4-plus",
+    "vision_auxiliary": "gemini-1.5-pro / claude-3-7-sonnet"
+  },
+  "gates_enabled": true,
+  "skills": [
+    "skills/impeccable",
+    "skills/hallmark",
+    "skills/motion-design"
+  ],
+  "connectors": [
+    "connectors/hermes",
+    "connectors/claude",
+    "connectors/chatgpt",
+    "connectors/cursor"
+  ]
+}

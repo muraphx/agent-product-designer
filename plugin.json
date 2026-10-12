@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "agent-product-designer",
+  "version": "0.1.0",
+  "description": "Agente de product design com tres portoes bloqueantes: sem slop, sem decisao sem estrategia, sem excesso. Kernel portatil (skills + MCP) que recusa entregar artefato reprovado.",
+  "author": {
+    "name": "Murilo Oliveira",
+    "url": "https://github.com/muraphx"
+  },
+  "homepage": "https://github.com/muraphx/agent-product-designer",
+  "repository": "https://github.com/muraphx/agent-product-designer",
+  "license": "MIT",
+  "keywords": [
+    "product-design",
+    "design-system",
+    "agent-skills",
+    "anti-slop",
+    "design-review",
+    "strategy-trace"
+  ]
+}

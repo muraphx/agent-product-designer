@@ -1,0 +1,28 @@
+# Teto numerico (R3 — sem excessos)
+#
+# Formato: YAML estrito (chaves, mapa aninhado por indentacao de 2 espacos, comentarios com #).
+# Parser: gates/lib/caps.mjs — rejeita qualquer construcao fora desse subconjunto.
+# Regra: mudar um teto e uma decisao. Exige entrada em decision-log/ e bump de version.
+#
+# Dono de cada regra (sem duplicacao entre portoes):
+#   r1 = tell qualitativo (gradiente de IA, emoji, glow, frase de catalogo, contraste, centered)
+#   r2 = rastro (token coberto por decisao, referencia viva, evidencia)
+#   r3 = contagem contra teto numerico (este arquivo)
+
+version: 1
+
+tokens:
+  colors_max: 12
+  accent_max: 1
+  font_families_max: 2
+  font_weights_max: 3
+  radii_max: 3
+  shadows_max: 3
+  motion_durations_max: 3
+
+layout:
+  sections_max: 9
+  elements_per_section_max: 14
+
+copy:
+  words_max: 1200

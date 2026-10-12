@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "pd-memory": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/bin/memory-server.mjs"
+      ],
+      "env": {
+        "PD_MEMORY_FILE": "${CLAUDE_PLUGIN_ROOT}/decision-log/decisions.jsonl",
+        "PD_CAPS_FILE": "${CLAUDE_PLUGIN_ROOT}/budgets/caps.yaml"
+      },
+      "cwd": "${CLAUDE_PLUGIN_ROOT}"
+    }
+  }
+}

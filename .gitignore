@@ -1,0 +1,5 @@
+node_modules/
+decision-log/decisions.jsonl
+**/decisions.jsonl
+tests/fixtures/
+*.log

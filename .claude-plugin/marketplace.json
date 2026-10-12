@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/marketplace.schema.json",
+  "name": "agent-product-designer",
+  "description": "Agente product designer com tres portoes bloqueantes: sem AI slop, sem decisao sem estrategia, sem excessos.",
+  "owner": {
+    "name": "Murilo Oliveira",
+    "url": "https://github.com/muraphx"
+  },
+  "plugins": [
+    {
+      "name": "agent-product-designer",
+      "source": "./",
+      "description": "Agente product designer com tres portoes bloqueantes: sem AI slop, sem decisao sem estrategia, sem excessos."
+    }
+  ]
+}

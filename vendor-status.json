@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-10-12",
+  "rule": "skill de terceiro so conta como instalada se estiver completa: SKILL.md com frontmatter valido, name == diretorio, e toda referencia citada presente no disco",
+  "own_skills": ["design-process", "strategy-trace", "anti-slop"],
+  "vendored": [
+    {
+      "name": "impeccable",
+      "source": "https://github.com/pbakaus/impeccable",
+      "version": "4.5.2",
+      "license": "Apache-2.0",
+      "license_file": "vendor-licenses/impeccable-APACHE-2.0.txt",
+      "files": 57,
+      "complete": true,
+      "note": "revencorizada do tarball oficial apos a versao anterior ter 2 de ~24 referencias"
+    },
+    {
+      "name": "hallmark",
+      "source": "https://github.com/nutlope/hallmark",
+      "version": "1.1.0",
+      "license": "MIT",
+      "license_file": "vendor-licenses/hallmark-MIT.txt",
+      "files": 107,
+      "complete": true,
+      "note": "a versao anterior citava 28 referencias e nao trazia nenhuma; SKILL.md upstream e byte-identico ao que ja estava em uso"
+    },
+    {
+      "name": "motion-design",
+      "source": "https://awesomeskill.ai/skill/lottiefiles-motion-design-skill-motion-design",
+      "version": "1.0.0",
+      "license": "MIT (declarada na origem)",
+      "license_file": null,
+      "files": 17,
+      "complete": true,
+      "pending": "o pacote distribuido nao inclui arquivo de licenca; licenca declarada aguarda confirmacao do autor"
+    }
+  ],
+  "honest_gaps": [
+    "motion-design: sem arquivo de licenca no pacote de origem",
+    "impeccable: skill upstream declara allowed-tools com Bash(npx impeccable *) — o binario npx NAO esta vendorizado neste repo"
+  ]
+}

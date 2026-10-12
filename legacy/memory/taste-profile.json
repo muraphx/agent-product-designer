@@ -1,0 +1,32 @@
+{
+  "theme": "dark-first",
+  "density": "comfortable",
+  "typography": {
+    "font_family_sans": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    "font_family_mono": "ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace",
+    "scale": "major-second (1.125)"
+  },
+  "spacing_base": 4,
+  "border_radius": {
+    "sm": "6px",
+    "md": "10px",
+    "lg": "16px"
+  },
+  "colors": {
+    "canvas": "#0b0d13",
+    "surface": "#131722",
+    "border": "#23293b",
+    "accent": "#6366f1",
+    "wcag_target": "AA (4.5:1 minimum)"
+  },
+  "motion": {
+    "type": "spring",
+    "default_spring": { "stiffness": 300, "damping": 30, "mass": 1 }
+  },
+  "anti_patterns": [
+    "generic purple AI hero gradients",
+    "walls of unstyled text",
+    "missing loading/error states",
+    "static pixel layouts without responsiveness"
+  ]
+}

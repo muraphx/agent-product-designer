@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agente Product Designer — a melhor tese</title>
+<style>
+  :root{
+    --ink:#efe9e2; --ink-dim:#a49a8d; --ink-faint:#6d6459;
+    --paper:#0e0d0c; --panel:#151312; --panel-2:#1b1917; --rule:#2a2622;
+    --ochre:#d9a441; --ochre-dim:#8a6a29; --moss:#7fa07a; --rust:#c1663f;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"Cascadia Mono","SF Mono",Consolas,"Liberation Mono",monospace;
+    --w:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--paper)}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 40px 96px}
+  .wrap{max-width:var(--w);margin:0 auto}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ochre);padding-top:56px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .kicker .dot{width:5px;height:5px;background:var(--ochre);display:inline-block;transform:rotate(45deg)}
+  .kicker .sep{color:var(--ink-faint)}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,6.4vw,72px);line-height:1.02;
+    letter-spacing:-.02em;margin:26px 0 0;max-width:22ch;text-wrap:balance}
+  h1 em{font-style:italic;color:var(--ochre)}
+  .lede{margin-top:26px;max-width:64ch;font-size:19px;color:var(--ink-dim);line-height:1.55}
+  .lede b{color:var(--ink);font-weight:600}
+  .verdict{margin-top:44px;border:1px solid var(--rule);border-left:3px solid var(--ochre);
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));padding:28px 32px;
+    display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+  .verdict .vh{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint)}
+  .verdict .vt{font-family:var(--serif);font-size:26px;line-height:1.2;margin-top:10px}
+  .verdict .vs{margin-top:10px;color:var(--ink-dim);font-size:15px;max-width:60ch}
+  .verdict .score{text-align:right}
+  .verdict .score .n{font-family:var(--serif);font-size:56px;line-height:1;color:var(--ochre)}
+  .verdict .score .l{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+  .diamonds{margin:52px 0 8px}
+  .diamonds svg{width:100%;height:auto;display:block}
+  .dlabels{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:12px}
+  .dlabels div{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+  .dlabels div b{display:block;color:var(--ink-dim);letter-spacing:.02em;font-family:var(--sans);font-size:13px;text-transform:none;margin-top:4px;font-weight:400}
+  section{margin-top:76px;padding-top:30px;border-top:1px solid var(--rule)}
+  .shead{display:flex;gap:18px;align-items:baseline}
+  .snum{font-family:var(--mono);font-size:12px;color:var(--ochre);letter-spacing:.1em;padding-top:6px}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.1;letter-spacing:-.01em}
+  .phase{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-left:auto;padding-top:8px;white-space:nowrap}
+  .sintro{margin:18px 0 0;color:var(--ink-dim);max-width:76ch}
+  h3{font-family:var(--sans);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);margin:38px 0 14px;font-weight:600}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px}
+  th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);font-weight:400;padding:0 14px 10px 0;border-bottom:1px solid var(--rule);vertical-align:bottom}
+  td{padding:13px 14px 13px 0;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-dim)}
+  td:first-child{color:var(--ink)}
+  td.num{font-family:var(--mono);font-size:14px;color:var(--ochre);white-space:nowrap}
+  code{font-family:var(--mono);font-size:12.8px;background:#211e1b;color:#e2d5c2;padding:1.5px 5px;border-radius:2px}
+  .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2.5px 7px;border:1px solid var(--rule);color:var(--ink-dim);white-space:nowrap}
+  .tag.works{color:var(--moss);border-color:#33402f}
+  .tag.dormant{color:var(--ochre);border-color:#3d3520}
+  .tag.never{color:var(--rust);border-color:#3f2a22}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+  .stats .card{padding:18px 18px 20px}
+  .stats .n{font-family:var(--serif);font-size:34px;line-height:1;color:var(--ochre);display:block;margin-bottom:8px}
+  .stats .n small{font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:.04em}
+  .stats p{font-size:13.5px;color:var(--ink-dim);line-height:1.5}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+  .card{border:1px solid var(--rule);background:var(--panel);padding:20px 20px 22px}
+  .card h4{font-family:var(--serif);font-weight:400;font-size:20px;margin-bottom:6px}
+  .card .meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+  .card p{font-size:14px;color:var(--ink-dim);line-height:1.55}
+  .card p b{color:var(--ink)}
+  .card ul{margin:10px 0 0 15px;font-size:13.5px;color:var(--ink-dim)}
+  .card li{margin-bottom:5px}
+  .prob{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+  .prob > div{border-top:1px solid var(--rule);padding-top:14px}
+  .prob b{display:block;color:var(--ink);font-weight:600;margin-bottom:5px;font-size:15px}
+  .prob span{color:var(--ink-dim);font-size:14px}
+  .anti{margin-top:26px;border:1px dashed #3a342c;padding:18px 20px;background:#121110}
+  .anti b{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:8px}
+  .anti p{color:var(--ink-dim);font-size:14.5px}
+  .rank td:first-child{font-family:var(--mono);font-size:13px;color:var(--ink-faint);width:34px}
+  .rank td:nth-child(3){font-family:var(--mono);font-size:15px;color:var(--ink-dim);white-space:nowrap}
+  .rank tr.win td{background:#191713}
+  .rank tr.win td:first-child{color:var(--ochre)}
+  .rank tr.win td:nth-child(3){color:var(--ochre)}
+  .rank .killed b{color:var(--ink-dim);font-weight:400}
+  .small{font-size:12.5px;color:var(--ink-faint);margin-top:12px;font-family:var(--mono);letter-spacing:.03em;line-height:1.7}
+  .thesis{border:1px solid var(--rule);border-top:2px solid var(--ochre);background:var(--panel);padding:28px 30px;margin-top:12px}
+  .thesis blockquote{font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--ink)}
+  .thesis blockquote b{color:var(--ochre);font-weight:400}
+  .layers{margin-top:8px}
+  .layer{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--rule)}
+  .layer .ln{font-family:var(--mono);font-size:11px;color:var(--ochre);letter-spacing:.1em;padding-top:4px}
+  .layer b{display:block;font-size:16px;color:var(--ink);margin-bottom:3px}
+  .layer span{color:var(--ink-dim);font-size:14.5px}
+  .tree{font-family:var(--mono);font-size:12.6px;line-height:1.75;color:var(--ink-dim);
+    background:#121110;border:1px solid var(--rule);padding:20px 22px;overflow-x:auto;white-space:pre}
+  .tree i{color:var(--ochre);font-style:normal}
+  .tree u{color:var(--ink);text-decoration:none}
+  .phases td:first-child{width:64px;font-family:var(--mono);color:var(--ochre);white-space:nowrap}
+  .phases td:last-child{width:120px;font-family:var(--mono);font-size:13px;color:var(--ink-faint);white-space:nowrap}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  .two ul{margin-left:17px;color:var(--ink-dim);font-size:14.5px}
+  .two li{margin-bottom:9px}
+  .two li b{color:var(--ink);font-weight:600}
+  .checks{list-style:none;margin:14px 0 0}
+  .checks li{position:relative;padding-left:30px;margin-bottom:10px;color:var(--ink-dim);font-size:14.5px}
+  .checks li:before{content:"[ ]";position:absolute;left:0;top:1px;font-family:var(--mono);font-size:12px;color:var(--ochre)}
+  .checks li b{color:var(--ink);font-weight:600}
+  .gate td:first-child{font-family:var(--mono);color:var(--ochre);width:64px}
+  .gate td:nth-child(3){font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+  .gate .now{color:var(--ochre)}
+  .gate .lock{color:var(--ink-faint)}
+  footer{margin-top:80px;padding-top:22px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-faint);
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;line-height:1.9}
+  @media (max-width:880px){
+    body{padding:0 20px 64px}
+    .verdict{grid-template-columns:1fr}
+    .verdict .score{text-align:left}
+    .cards,.prob,.two,.stats{grid-template-columns:1fr}
+    .dlabels{grid-template-columns:repeat(2,1fr);gap:10px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">
+    <span class="dot"></span><span>processo double diamond de pesquisa</span>
+    <span class="sep">/</span><span>não a arquitetura do agente</span>
+    <span class="sep">/</span><span>12 out 2026</span>
+    <span class="sep">/</span><span>Murilo Oliveira</span>
+  </div>
+
+  <h1>O agente não vende gosto.<br><em>Vende prova e rastro.</em></h1>
+
+  <p class="lede">
+    Cinco frentes de pesquisa independentes, <b>119 achados com fonte</b>, cinco teses pontuadas por script
+    em sete critérios ponderados, seis critérios de morte declarados antes de pontuar. Sobreviveu uma.
+    Ela é chata — e é exatamente por isso que ninguém publicou.
+  </p>
+
+  <div class="verdict">
+    <div>
+      <div class="vh">Tese vencedora · winner do corte em 6.5</div>
+      <div class="vt">T1 · Prova Primeiro</div>
+      <div class="vs">Kernel portátil no padrão <b>Agent Plugins 1.0.0</b> + três detectores bloqueantes
+      (sem slop · sem decisão sem estratégia · sem excessos) + <b>cinco números publicados</b> com as ameaças
+      à validade ao lado. Gosto entra como conteúdo reaproveitado — impeccable (Apache-2.0, 80.181★),
+      hallmark (MIT) e motion (MIT) — nunca como promessa.</div>
+    </div>
+    <div class="score"><div class="n">9.12</div><div class="l">de 10 ponderado</div></div>
+  </div>
+
+  <div class="diamonds">
+    <svg viewBox="0 0 1120 150" role="img" aria-label="Dois diamantes: descobrir, definir, desenvolver, entregar">
+      <g fill="none" stroke="#3a342c" stroke-width="1">
+        <path d="M20 75 L290 8 L560 75 L290 142 Z"/>
+        <path d="M560 75 L830 8 L1100 75 L830 142 Z"/>
+      </g>
+      <line x1="290" y1="8" x2="290" y2="142" stroke="#d9a441" stroke-width="1" stroke-opacity=".65"/>
+      <line x1="830" y1="8" x2="830" y2="142" stroke="#d9a441" stroke-width="1" stroke-opacity=".65"/>
+      <g fill="#6d6459" font-family="ui-monospace,Consolas,monospace" font-size="10.5" letter-spacing="1.6">
+        <text x="20" y="79" text-anchor="start">01</text>
+        <text x="560" y="79" text-anchor="end">02</text>
+      </g>
+      <g fill="#6d6459" font-family="ui-monospace,Consolas,monospace" font-size="10.5" letter-spacing="1.6">
+        <text x="560" y="79" text-anchor="start">03</text>
+        <text x="1100" y="79" text-anchor="end">04</text>
+      </g>
+      <text x="560" y="83" text-anchor="middle" fill="#3a342c" font-family="ui-monospace,Consolas,monospace" font-size="11">◆</text>
+    </svg>
+    <div class="dlabels">
+      <div>1 · Descobrir<b>119 achados, 5 frentes, tudo com URL</b></div>
+      <div>2 · Definir<b>1 problema, 3 HMW, 6 insights</b></div>
+      <div>3 · Desenvolver<b>5 teses, 6 mortes declaradas</b></div>
+      <div>4 · Entregar<b>8 critérios de pronto + o que publicar</b></div>
+    </div>
+  </div>
+
+  <!-- 01 DESCOBRIR -->
+  <section>
+    <div class="shead">
+      <div class="snum">01</div>
+      <h2>Descobrir: a escassez mudou de lugar</h2>
+      <div class="phase">diamante 1 · divergir</div>
+    </div>
+    <p class="sintro">
+      A pergunta não era "como gerar design melhor" — isso já está resolvido e é grátis. A pergunta era
+      <em>onde está o vazio</em>. Cinco frentes de pesquisa independentes (empacotamento multi-client,
+      landscape de concorrentes, o que dá para medir, memória e orquestração, demanda e economia) mais
+      três rodadas de inspeção do disco responderam a mesma coisa por caminhos diferentes.
+    </p>
+
+    <div class="stats">
+      <div class="card"><span class="n">0.578<small> vs 0.170</small></span>
+        <p>F1 do seu juiz determinístico contra o do impeccable, sobre corpus de 48 páginas rotuladas.
+        1,5 s contra 57 s. 17/17 testes passando.</p></div>
+      <div class="card"><span class="n">56%</span>
+        <p>das skills instaladas <em>nunca são invocadas</em> (eval da Vercel). Instalação não mede adoção —
+        e o formato não devolve sinal nenhum para quem publica.</p></div>
+      <div class="card"><span class="n">80.181<small>★</small></span>
+        <p>impeccable, Apache-2.0, 24 comandos, 59 regras determinísticas, push no mesmo dia.
+        <b>Nenhuma acurácia publicada.</b> Dono da dimensão em que você não deve competir.</p></div>
+      <div class="card"><span class="n">1.392</span>
+        <p>skills de design num corpus de 111.810 (1,2%), crescendo +715 por dia, com 816 clusters
+        byte-idênticos fixando o preço no piso: o arquivo genérico satura.</p></div>
+    </div>
+
+    <h3>O vazio, confirmado por duas frentes independentes</h3>
+    <div class="anti" style="border-style:solid;border-color:#3d3520;background:#141310">
+      <b style="color:var(--ochre)">o espaço vazio</b>
+      <p>Nenhum concorrente é <em>simultaneamente</em>: (a) template de repositório reproduzível,
+      (b) que define o <em>processo</em> e não só o output, (c) que entrega artefato com
+      <em>proveniência</em> (decisão → fonte), e (d) que publica <em>harness de avaliação com score
+      reproduzível</em>. Nenhum conduz design de descoberta (entrevista, síntese, teste).
+      Nenhum mede a jornada. O mais perto de "isto é bom design?" que o mercado tem é
+      <b>preferência humana</b> — 79,9% de acurácia preditiva no Design2Code — e ninguém usa isso como métrica.</p>
+    </div>
+
+    <h3>As contradições do ecossistema (não são bugs do seu projeto)</h3>
+    <table>
+      <thead><tr><th>Contradição</th><th>Por que isso importa</th></tr></thead>
+      <tbody>
+        <tr><td><b>Três formatos de MCP</b> — <code>.mcp.json</code> (Claude Code), <code>mcp.json</code> (padrão e Cursor), <code>mcp_servers</code> no <code>config.yaml</code> (Hermes)</td>
+            <td>Não existe arquivo único consumível pelos quatro clients. O MCP tem que ser declarado por client.</td></tr>
+        <tr><td><b>Placeholders incompatíveis</b> — Cursor declara que <em>não</em> expande <code>${PLUGIN_ROOT}</code> do padrão</td>
+            <td>Um <code>mcp.json</code> em conformidade com a spec quebra no Cursor. Conformidade não é portabilidade.</td></tr>
+        <tr><td><b>OpenAI contradiz a própria doc</b> — documenta consumir o pacote portátil, mas o gerador produz layout de compatibilidade</td>
+            <td>O "funciona no ChatGPT" precisa ser provado por instalação, não por leitura da documentação.</td></tr>
+        <tr><td><b>Reuso assimétrico</b> — Cursor lê <code>.claude/</code> e <code>.agents/</code>; Claude Code e Codex <em>não</em> leem <code>.cursor/</code></td>
+            <td>Existe um caminho de mão única: escrever uma vez no lugar certo e ser lido por três.</td></tr>
+        <tr><td><b>Só skill e MCP viajam</b> — memória, rules, hooks, subagents e commands <em>não</em> são portáveis</td>
+            <td>Isso não é limitação: é o que define a arquitetura. O que precisa viajar vira skill + arquivo + <code>AGENTS.md</code>.</td></tr>
+        <tr><td><b>Migração de mão única</b> — Hermes importa memória dos outros; nada exporta a dele de volta</td>
+            <td>O pacote não pode depender de memória proprietária de nenhum client.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>O ativo já existe — e está desconectado</h3>
+    <table>
+      <thead><tr><th>Ativo no disco</th><th>Estado</th><th>Evidência</th></tr></thead>
+      <tbody>
+        <tr><td>IDENTITY.md 1.6K + GATES.md 1014B</td><td><span class="tag works">works</span></td><td>Constituição e portas existem; nenhum client jamais carregou o par.</td></tr>
+        <tr><td>agent.json 715B</td><td><span class="tag dormant">dormant</span></td><td>Declara 5 skills (<code>strategy-jtbd</code>, <code>visual-craft</code>, <code>motion-physics</code>, <code>friction-audit</code>, <code>prototype-builder</code>) — <b>nenhuma existe em disco</b>.</td></tr>
+        <tr><td>connectors/ hermes + chatgpt</td><td><span class="tag dormant">dormant</span></td><td>Prometidos no json, ausentes no disco (só claude e cursor têm ponteiro).</td></tr>
+        <tr><td>skills/impeccable 13.593 B</td><td><span class="tag dormant">dormant</span></td><td>Byte a byte igual à cópia do Hermes (v4.3.1), mas com <b>2 de ~24 references</b>.</td></tr>
+        <tr><td>skills/motion-design 12.895 B</td><td><span class="tag dormant">dormant</span></td><td>Upstream tem 17 arquivos (<code>director/</code>, <code>patterns/</code>, <code>reference/</code>); chegou <b>1</b>.</td></tr>
+        <tr><td>skills/hallmark 68.018 B</td><td><span class="tag dormant">dormant</span></td><td>Copiado sem versão pinada, sem lockfile — o upstream está parado desde 06/08/2026.</td></tr>
+        <tr><td>memory/taste-profile.json 1.3K</td><td><span class="tag dormant">dormant</span></td><td>Memória sem leitor (nenhum script abre) e que se autocontradiz: <code>accent #6366f1</code> viola seu próprio anti-pattern "purple AI hero gradients".</td></tr>
+        <tr><td>designcourt (juiz determinístico)</td><td><span class="tag works">works</span></td><td>38 tells, corpus 48 páginas, MCP com <code>plan</code>/<code>judge</code>/<code>decide</code>, 17/17 testes, F1 0.578 vs 0.170, escape 6.7% vs 40%.</td></tr>
+        <tr><td>design-canon (walker de jornada)</td><td><span class="tag works">works</span></td><td>Já empacotado com <code>plugin.json</code> Agent Plugins, <code>.claude-plugin/</code>, <code>.codex-plugin/</code> e <code>marketplace.json</code>. O pré-registro (<code>BENCHMARK.md</code>) já existe.</td></tr>
+        <tr><td>eval do artefato que o próprio agente produz</td><td><span class="tag never">never</span></td><td>Nenhum repo de design roda eval do próprio output. É o buraco real — e é o produto.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 02 DEFINIR -->
+  <section>
+    <div class="shead">
+      <div class="snum">02</div>
+      <h2>Definir: o problema é prova, não geração</h2>
+      <div class="phase">diamante 1 · convergir</div>
+    </div>
+    <p class="sintro">
+      Três clusters (processo e decisão · medição e confiança · distribuição e contexto) viraram seis
+      insights, um problema e três perguntas "como poderíamos".
+    </p>
+
+    <div class="thesis" style="border-top-color:var(--rule)">
+      <blockquote style="font-size:20px">Como dar a um agente de product design — rodando no mesmo pacote em
+      Hermes, Claude, Codex/ChatGPT e Cursor — uma <b>prova reproduzível</b> de que a entrega é boa
+      (separando o que a máquina detecta do que só humano julga), com cada decisão de design
+      <b>rastreada</b> a uma estratégia declarada antes, sem virar mais um rule-pack de slop e sem que a
+      memória o faça piorar com o tempo?</blockquote>
+    </div>
+
+    <h3>Os seis insights que fecharam a fase</h3>
+    <div class="prob">
+      <div><b>I1 · O diferencial não é gosto, é rastro.</b><span>Gosto virou commodity grátis: 80.181★ no impeccable, plataforma entregando design no plano Free, 816 clusters byte-idênticos. Quem prova e rastreia não tem concorrente.</span></div>
+      <div><b>I2 · Provar exige separar detectar de julgar.</b><span>Máquina afirma só o determinístico (axe-core: 57% das issues automatizáveis, zero falso positivo rebaixando o incerto para <code>incomplete</code>). "É bom?" é julgamento humano — e um avaliador humano único tem só 42% de chance de achar o problema maior.</span></div>
+      <div><b>I3 · O processo é portável — se você aceitar a forma.</b><span>Só skill e MCP viajam entre clients. Então o método vira <code>AGENTS.md</code> + skills + arquivos versionados, com o mesmo resultado nos quatro.</span></div>
+      <div><b>I4 · O benchmark é parte do produto.</b><span>Num mercado em que 36% das skills auditadas tinham prompt injection e 6,3 problemas por skill, medir é o único canal de confiança que sobrou.</span></div>
+      <div><b>I5 · Burro de contexto, teimoso de estado.</b><span>Prompt focado de 300 tokens bate um haystack de 113k com a mesma informação (−30% de acurácia entre sessões sem desenho de memória). A memória que ajuda é arquivo curado + índice, com estado reafirmado a cada milestone.</span></div>
+      <div><b>I6 · Suas três regras duras são o desenho técnico.</b><span>"Sem slop / sem decisão sem estratégia / sem excessos" = detector determinístico + proveniência obrigatória + tetos numéricos. Sua intuição de leigo acertou o que a evidência recomenda.</span></div>
+    </div>
+
+    <h3>As três perguntas</h3>
+    <div class="cards">
+      <div class="card"><div class="meta">HMW-1 · núcleo</div><h4>Provar</h4>
+        <p>Como tornar o julgamento de qualidade <b>reproduzível e público</b> — com o κ do próprio juiz
+        exposto, pré-registro antes de rodar e baseline sem-agente ao lado?</p></div>
+      <div class="card"><div class="meta">HMW-2 · método</div><h4>Rastrear</h4>
+        <p>Como forçar <b>estratégia → decisão → artefato</b> de modo que nenhuma escolha visual exista sem
+        rastro — e que o rastro seja legível por um leigo?</p></div>
+      <div class="card"><div class="meta">HMW-3 · sustentação</div><h4>Sustentar</h4>
+        <p>Como manter contexto e orquestração sob controle, com <b>gate humano instrumentado</b> — você
+        aprova ou rejeita, e isso é medido?</p></div>
+    </div>
+
+    <div class="anti">
+      <b>Anti-escopo (declarado agora, não depois)</b>
+      <p>Não é gerador de imagem. Não substitui Figma nem o Maestri Canvas. Não é marketplace, cobrança ou
+      dashboard web. Não faz multi-agente de escrita. Não é design system de empresa. Não tenta "gerar UI
+      bonita do zero" (commodity). Não persegue contagem de comandos e regras. E não usa similaridade de
+      texto como proxy de qualidade — a associação medida com julgamento humano é <em>negativa</em>.</p>
+    </div>
+  </section>
+
+  <!-- 03 DESENVOLVER -->
+  <section>
+    <div class="shead">
+      <div class="snum">03</div>
+      <h2>Desenvolver: cinco teses, uma sobreviveu</h2>
+      <div class="phase">diamante 2 · divergir</div>
+    </div>
+    <p class="sintro">
+      Sete critérios com peso, pontuados por <code>scripts/score_theses.py</code> — rode e o placar se
+      reproduz. Seis critérios de morte (K1–K6) declarados <em>antes</em> de pontuar: tese que morre por
+      K1–K6 sai agora, independente do score.
+    </p>
+
+    <table class="rank">
+      <thead><tr><th>#</th><th>Tese</th><th>Score</th><th>Por que ganha ou perde</th></tr></thead>
+      <tbody>
+        <tr class="win"><td>1</td><td><b>Prova Primeiro</b><br><span class="small">kernel portátil + juiz + rastro</span></td>
+          <td>9.12</td>
+          <td>Única com portabilidade total, diferenciação verificável e processo próprio. O benchmark
+          público que você pediu <em>é</em> o produto, não um anexo — e ela reusa o juiz, o walker e o
+          pré-registro que já existem no seu disco.</td></tr>
+        <tr><td>2</td><td>Serviço MCP<br><span class="small">design-decision-as-a-service</span></td>
+          <td>7.02</td>
+          <td>Maior alcance e prova auditável num só lugar, mas exige deploy, auth e custo operacional.
+          Vira <b>fase 3 do mesmo kernel</b> — mesmo juiz, sem fork.</td></tr>
+        <tr><td>3</td><td class="killed">Estúdio multiagente <b>— morre por K4</b><br><span class="small">5 especialistas em paralelo</span></td>
+          <td>6.06</td>
+          <td>Escrita paralela é o cenário medido como frágil: −70% em tarefa sequencial, 15× tokens,
+          "ganhos frequentemente mínimos". Multi-agente fica só na <b>leitura</b>: fan-out de descoberta,
+          fan-in determinístico, um escritor.</td></tr>
+        <tr><td>4</td><td class="killed">Perfil Hermes <b>— morre por K1</b><br><span class="small">SOUL.md + skills + cron</span></td>
+          <td>5.78</td>
+          <td>O caminho mais barato que existe (você já domina o provisionamento) — mas
+          <code>SOUL.md</code>/<code>USER.md</code>/<code>MEMORY.md</code> não são lidos por nenhum outro
+          client, e memória não é empacotável no padrão. Contra seu pedido textual.</td></tr>
+        <tr><td>5</td><td class="killed">Orquestrador fino <b>— morre por K2 e K6</b><br><span class="small">aponta para skills de terceiros</span></td>
+          <td>5.28</td>
+          <td>Com o valor terceirizado, o diferencial vira lista de links com sotaque. E o terceiro já
+          parou: <code>hallmark</code> sem push desde 06/08/2026. Skills de terceiros entram como
+          <b>conteúdo</b>, nunca como <b>proposta de valor</b>.</td></tr>
+      </tbody>
+    </table>
+    <p class="small">pesos · diferenciação verificável 0.22 · portabilidade 0.18 · reuso ativo 0.18 ·
+    escalabilidade 0.14 · cobertura do papel 0.10 · custo de materialização 0.10 · risco de dependência 0.08<br>
+    corte em 6.5 · mortes por K1–K6 são terminais: o score não as salva</p>
+  </section>
+
+  <!-- 04 ENTREGAR -->
+  <section>
+    <div class="shead">
+      <div class="snum">04</div>
+      <h2>Entregar: prova antes de pixel</h2>
+      <div class="phase">diamante 2 · convergir</div>
+    </div>
+
+    <div class="thesis">
+      <blockquote>Kernel portátil onde o diferencial não são comandos de design — é a <b>prova
+      reproduzível</b> de que a entrega é boa, com cada escolha visual <b>rastreada</b> à estratégia que a
+      autorizou. Trocando <code>skills/</code>, <code>budgets/</code> e o corpus do juiz, o mesmo kernel
+      vira agente full-stack — sem tocar em gates, prova ou gate humano.</blockquote>
+    </div>
+
+    <h3>As quatro camadas (o que o agente faz, na ordem em que a qualidade se decide)</h3>
+    <div class="layers">
+      <div class="layer"><div class="ln">L1</div><div><b>Decidir — antes de escrever qualquer pixel</b>
+        <span>Estratégia declarada primeiro: problema, público, anti-escopo, métrica. Sem isso, o agente
+        recusa começar. É o que separa "agente que desenha" de "agente que decide".</span></div></div>
+      <div class="layer"><div class="ln">L2</div><div><b>Produzir — o pacote de skills</b>
+        <span>Processo de design (4 fases) · design system · documentação · delivery · motion · anti-slop.
+        Gosto emprestado dos melhores: impeccable (Apache-2.0, vendorizado completo), hallmark (MIT),
+        motion (MIT, os 17 arquivos).</span></div></div>
+      <div class="layer"><div class="ln">L3</div><div><b>Provar — detectores bloqueantes</b>
+        <span>R1 detector determinístico de slop (0 falso positivo; incerto vira <code>incomplete</code>) ·
+        R2 proveniência obrigatória (decisão sem rastro ⇒ build falha) · R3 tetos numéricos versionados
+        (cor, peso, raio, sombra, movimento, densidade).</span></div></div>
+      <div class="layer"><div class="ln">L4</div><div><b>Julgar e lembrar — com leitor de verdade</b>
+        <span>Painel de juízes leigos em A/B cego com κ publicado · walker de jornada real medindo passos e
+        drift · memória em arquivo curado + índice, consultada sob demanda, com estado reafirmado a cada
+        milestone.</span></div></div>
+    </div>
+
+    <h3>O repositório</h3>
+    <div class="tree"><u>plugin.json</u>                     <i># Agent Plugins 1.0.0 — o único manifesto portátil</i>
+<u>AGENTS.md</u>                       <i># regras que SEMPRE valem — único canal lido pelos 4 clients</i>
+<u>mcp.json</u>                        <i># portátil; declaração por client (placeholders divergem)</i>
+<u>skills/</u>                         <i># O PACOTE — é isto que troca para virar outro agente</i>
+│   ├── design-process/           <i># Descobrir→Definir→Desenvolver→Entregar como procedimento</i>
+│   ├── design-system/            <i># tokens, estados, governança      (superfície que você escolheu)</i>
+│   ├── documentation/            <i># leitura, hierarquia, densidade   (superfície que você escolheu)</i>
+│   ├── delivery/                 <i># handoff, specs, checklists       (superfície que você escolheu)</i>
+│   ├── strategy-trace/           <i># R2 — como escrever o decision-log</i>
+│   ├── anti-slop/                <i># R1 — o detector e o que fazer com "incomplete"</i>
+│   ├── motion/                   <i># os 17 arquivos + fechar o loop até animação executável</i>
+│   └── vendor/                   <i># impeccable COMPLETO (hoje: 2 de ~24 refs) + hallmark, pinados</i>
+<u>skills.lock</u>                     <i># versão + hash de cada skill de terceiro</i>
+<u>budgets/caps.yaml</u>               <i># R3 — tetos numéricos versionados</i>
+<u>decision-log/</u>                   <i># R2 — um arquivo por entrega: decisão → fonte → artefato</i>
+<u>prereg/benchmark.md</u>             <i># critério de vitória escrito ANTES de rodar</i>
+<u>judge/</u>  <u>walker/</u>                <i># o juiz determinístico e o walker de jornada, versionados</i>
+<u>panel/</u>                          <i># protocolo dos juízes leigos + planilha de κ</i>
+<u>evals/</u>                          <i># briefs reais + corpus rotulado: a prova</i>
+<u>dist/</u>                           <i># manifestos gerados: .claude-plugin/ .codex-plugin/ .cursor-plugin/</i></div>
+
+    <h3>O que será publicado (com as ameaças à validade ao lado)</h3>
+    <table>
+      <thead><tr><th>Número</th><th>Meta</th><th>Ameaça à validade, declarada antes</th></tr></thead>
+      <tbody>
+        <tr><td>F1 do detector + precisão/recall por classe + taxa de escape</td><td class="num">F1 ≥ 0.70 · escape ≤ 10% · 0 falso positivo</td>
+            <td>Overfitting ao corpus; 48 páginas é pouco; corpus em inglês. Baselines: modelo puro, site médio da web, impeccable.</td></tr>
+        <tr><td>κ do painel de juízes leigos</td><td class="num">κ ≥ 0.60</td>
+            <td>Leigo ≠ usuário; n=3 é frágil; A/B vaza ordem (viés de posição medido em mais de 150k instâncias). Referência: κ 0.70 é atingível com 3 anotadores.</td></tr>
+        <tr><td>Ganho do painel vs baseline sem-agente</td><td class="num">positivo, com intervalo</td>
+            <td>Efeito novidade; o prompt do baseline pode estar subótimo — declarar o prompt usado.</td></tr>
+        <tr><td>Taxa de invocação da skill + ganho quando invocada</td><td class="num">invocação &gt; 80%</td>
+            <td>Auto-seleção de tarefa; mede uso, não valor. Exige telemetria própria — o formato não devolve sinal.</td></tr>
+        <tr><td>Gate humano: fila, reprovação, custo por aprovação</td><td class="num">publicar a série</td>
+            <td>Nenhuma fonte no mundo tem linha de base. n=1, e você é o autor — declarar isso é parte do número.</td></tr>
+      </tbody>
+    </table>
+    <p class="small">nunca entra como métrica · similaridade de texto (associação negativa com julgamento humano, medida) ·
+    contagem de instalação ou estrela (56% das instaladas nunca são invocadas)</p>
+
+    <h3>Guardas anti-armadilha</h3>
+    <div class="two">
+      <ul>
+        <li><b>Default single-agent.</b> Fan-out só para ler e descobrir; <b>um único escritor</b> do artefato.</li>
+        <li><b>Memória = arquivo + índice por metadado</b>, consultado sob demanda. Vetor só acima de ~120k tokens — abaixo disso a evidência mostra que piora.</li>
+        <li><b>Estado reafirmado a cada milestone</b>: o desempenho decai com a distância causal mesmo com contexto completo.</li>
+        <li><b>Orçamento de esforço em configuração</b>, não deixado ao modelo (1 agente e 3–10 chamadas para fato simples; 2–4 subagentes para comparação; mais só em pesquisa complexa).</li>
+      </ul>
+      <ul>
+        <li><b>Pacote de aprovação mínimo</b>: ação + escopo + evidência — nunca o transcript inteiro.</li>
+        <li><b>Gate é ponto de persistência</b>, não bloqueio em memória; falha <b>fechado</b>.</li>
+        <li><b>Condição de parada explícita:</b> ataca os dois maiores modos de falha medidos — loop sem progresso (15,7%) e não reconhecer que terminou (12,4%).</li>
+        <li><b>Perfil de falha instrumentado</b> com taxonomia de modos de falha antes de culpar o modelo.</li>
+      </ul>
+    </div>
+
+    <h3>Pronto é quando isto roda — não quando isto é descrito</h3>
+    <ul class="checks">
+      <li><b>A1 · Portabilidade provada</b> — mesmo pacote instalado em Hermes e Claude Code (mínimo) e validado em Codex/ChatGPT e Cursor; validador oficial passando; sem fork de conteúdo.</li>
+      <li><b>A2 · R1 bloqueia</b> — artefato com gradiente roxo genérico, emoji decorativo, sombra difusa, contraste baixo ou raio aleatório faz o build <em>falhar</em>; corpus limpo não acusa nada.</li>
+      <li><b>A3 · R2 bloqueia</b> — apagar uma linha do decision-log faz o build falhar: "decisão sem estratégia declarada".</li>
+      <li><b>A4 · R3 bloqueia</b> — subir uma cor acima do teto faz o build falhar.</li>
+      <li><b>A5 · Números publicados</b> — os cinco números no README, com corpus, amostra, baselines e ameaças à validade ao lado.</li>
+      <li><b>A6 · Degradação declarada</b> — tabela por client do que funciona, do que degrada e da mitigação.</li>
+      <li><b>A7 · Template testado</b> — trocar skills + tetos + corpus por outra disciplina sem tocar no kernel.</li>
+      <li><b>A8 · Licença MIT</b> — é a licença de todos os repositórios de skill que viraram produto; os sem licença declarada não monetizam.</li>
+    </ul>
+
+    <h3>Ordem de execução (diferente da ordem de score)</h3>
+    <table class="phases">
+      <thead><tr><th>Fase</th><th>Entrega</th><th>Janela</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><b>Kernel que recusa:</b> <code>plugin.json</code> + <code>AGENTS.md</code> + <code>mcp.json</code> + tetos + os três gates como <em>teste que falha primeiro</em>. Prova de instalação nos 4 clients. Nada de UI bonita.</td><td>fim de semana</td></tr>
+        <tr><td>2</td><td><b>A prova:</b> juiz promovido a componente versionado, pré-registro, protocolo do painel de leigos, primeiros números publicados com as ameaças.</td><td>1 semana</td></tr>
+        <tr><td>3</td><td><b>Alcance:</b> instalador de uma linha, marketplace do Claude, pacote do Codex/ChatGPT, README com tabela por client. Depois o juiz como serviço MCP.</td><td>1 semana</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Riscos vivos</h3>
+    <table>
+      <thead><tr><th>Risco</th><th>Contenção</th></tr></thead>
+      <tbody>
+        <tr><td>Painel de leigos caro e ruidoso</td><td>n ≥ 3 juízes, A/B cego, κ publicado como parte do número (não escondido)</td></tr>
+        <tr><td>Detector "só sabe ganhar"</td><td>Pré-registro + corpus rotulado por 3 pessoas + declarar escape e falso positivo. Um benchmark que só sabe ganhar é propaganda.</td></tr>
+        <tr><td>Contaminação do corpus</td><td>Declarar a ameaça; corpus próprio datado; nunca similaridade de texto como proxy</td></tr>
+        <tr><td>Fator ônibus = 1</td><td>Kernel testado, vendors pinados por versão, gates são testes e não opinião</td></tr>
+        <tr><td>Terceiros mudam embaixo de você</td><td><code>skills.lock</code> com versão + hash; atualizar é decisão, não surpresa</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 05 GATE -->
+  <section>
+    <div class="shead">
+      <div class="snum">05</div>
+      <h2>O que eu preciso de você</h2>
+      <div class="phase">gate humano · este é o Gate 1</div>
+    </div>
+    <p class="sintro">Você aprova ou não. Três coisas para decidir agora — e cada porta destrava a seguinte.</p>
+    <table class="gate">
+      <thead><tr><th>#</th><th>Decisão</th><th>Status</th><th>Consequência de aprovar</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>A tese: prova e rastro como produto; gosto como conteúdo reaproveitado</td>
+          <td class="now">aguarda você</td><td>Fase 1 começa por um kernel que recusa, não por telas</td></tr>
+        <tr><td>2</td><td>O corte: as três teses mortas ficam mortas</td>
+          <td class="now">aguarda você</td>
+          <td>Escopo enxuto; o estúdio multiagente volta depois, só como leitura paralela</td></tr>
+        <tr><td>3</td><td>A prova: os cinco números publicados com as ameaças ao lado</td>
+          <td class="now">aguarda você</td><td>O repo vira benchmark público — a razão de ele existir</td></tr>
+        <tr><td>—</td><td>Gate seguinte: arquitetura do repo + <code>plugin.json</code></td>
+          <td class="lock">bloqueado</td><td>Árvore final + schema Agent Plugins 1.0.0 validado nos 4 clients</td></tr>
+        <tr><td>—</td><td>Gate seguinte: direção visual, tokens e memória com leitor</td>
+          <td class="lock">bloqueado</td><td>2 variantes + escala + <code>taste-profile.json</code> lido de verdade</td></tr>
+        <tr><td>—</td><td>Gate seguinte: protótipo navegável + eval set verde</td>
+          <td class="lock">bloqueado</td><td>Rodando no seu navegador com os três detectores passando</td></tr>
+      </tbody>
+    </table>
+    <p class="sintro" style="margin-top:26px">
+      <b>Se a prova não puder ser publicada, a tese toda perde o valor — porque ela é a prova.</b>
+      É o único risco que mata o projeto, e é o único que se resolve antes de escrever qualquer linha de UI.
+    </p>
+  </section>
+
+  <footer>
+    <span>agent-product-designer · trilha do processo double diamond de pesquisa · 2026-10-12</span>
+    <span>docs/research/00-brief-interview · 01-discover-inventory · 02-discover-evidence · 03-define-problems · 04-develop-theses · 05-deliver-plan · _evidence-raw.json</span>
+    <span>reproduzir o placar: python scripts/score_theses.py · 119 achados, 5 frentes, 20 métodos de medição</span>
+  </footer>
+
+</div>
+</body>
+</html>

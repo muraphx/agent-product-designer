@@ -1,0 +1,26 @@
+{
+  "name": "agent-product-designer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agente product designer com tres portoes bloqueantes (sem AI slop, sem decisao sem estrategia, sem excessos).",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "agent-product-designer": "./install.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "gates": "node gates/run.mjs",
+    "fixtures": "node tests/build-fixtures.mjs",
+    "test": "node tests/build-fixtures.mjs && node tests/all.mjs",
+    "example": "node gates/run.mjs examples/landing",
+    "memory": "node bin/memory-server.mjs",
+    "memory:selftest": "node bin/memory-server.mjs --selftest",
+    "install:claude": "node install.mjs --client claude",
+    "install:hermes": "node install.mjs --client hermes",
+    "install:agents": "node install.mjs --client agents",
+    "validate": "node install.mjs --validate"
+  }
+}

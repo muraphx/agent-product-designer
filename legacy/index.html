@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tese de Arquitetura &middot; Agente Product Designer Tri-Skill</title>
+  <style>
+    :root {
+      --bg: #090b10;
+      --bg-card: #121622;
+      --bg-card-hover: #181e2e;
+      --border: #21283b;
+      --border-accent: #3b82f6;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.18);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --cyan: #06b6d4;
+      --violet: #8b5cf6;
+      --rose: #f43f5e;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: linear-gradient(180deg, #151a28 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 2rem 2.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge-group {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: var(--accent-glow);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #a5b4fc;
+    }
+
+    .badge-cyan {
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: #67e8f9;
+    }
+
+    .badge-violet {
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #c4b5fd;
+    }
+
+    h1 {
+      font-size: 2.35rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 860px;
+      margin: 0 auto 1.75rem;
+    }
+
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .tab-btn {
+      background: #161b27;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.55rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text);
+      border-color: var(--text-dim);
+    }
+
+    .tab-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    }
+
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 6rem;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Highlight Banner */
+    .highlight-box {
+      background: linear-gradient(90deg, rgba(99, 102, 241, 0.12) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(139, 92, 246, 0.08) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .highlight-box strong {
+      color: #a5b4fc;
+    }
+
+    /* Double Diamond Visual Diagram */
+    .dd-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .dd-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #f8fafc;
+    }
+
+    .diamonds-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .diamonds-grid { grid-template-columns: 1fr; }
+    }
+
+    .phase-card {
+      background: #0d1017;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.35rem;
+      position: relative;
+      transition: all 0.2s;
+    }
+
+    .phase-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .phase-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .phase-card.p1 .phase-tag { color: var(--cyan); }
+    .phase-card.p2 .phase-tag { color: var(--accent); }
+    .phase-card.p3 .phase-tag { color: var(--violet); }
+    .phase-card.p4 .phase-tag { color: var(--success); }
+
+    .phase-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .phase-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .phase-skill-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .p1 .phase-skill-badge { background: rgba(6, 182, 212, 0.15); color: #67e8f9; }
+    .p2 .phase-skill-badge { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
+    .p3 .phase-skill-badge { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; }
+    .p4 .phase-skill-badge { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; }
+
+    .phase-card ul {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .phase-card ul li {
+      padding: 0.35rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .phase-card ul li::before {
+      content: "→";
+      color: var(--text-dim);
+    }
+
+    /* Layout Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 850px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 0.75rem;
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      background: #1c2233;
+      color: #a5b4fc;
+    }
+
+    .card h2, .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    /* Tri-Skill Feature Cards */
+    .skill-card {
+      background: #0e121a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .skill-brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-brand h3 {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .skill-role {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .role-impeccable { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
+    .role-hallmark { background: rgba(6, 182, 212, 0.15); color: #67e8f9; }
+    .role-motion { background: rgba(244, 63, 94, 0.15); color: #fda4af; }
+
+    .skill-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .feature-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .feature-list li {
+      padding: 0.3rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .feature-list li code {
+      color: #a5b4fc;
+      background: #181d29;
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+    }
+
+    /* Human-in-the-loop Gatekeeper */
+    .gate-step {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.25rem;
+      background: #0d1017;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 1rem;
+    }
+
+    .gate-num {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .gate-info h4 {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .gate-skill-tag {
+      font-size: 0.7rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      background: #1e2436;
+      color: #94a3b8;
+    }
+
+    .gate-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Code & Trees */
+    pre, code {
+      font-family: var(--font-mono);
+    }
+
+    pre {
+      background: #08090d;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.15rem;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-top: 0.75rem;
+    }
+
+    .code-tag { color: #f43f5e; }
+    .code-prop { color: #38bdf8; }
+    .code-str { color: #34d399; }
+    .code-comment { color: #64748b; font-style: italic; }
+
+    /* Comparison Table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .comparison-table th, .comparison-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-table th {
+      background: #131722;
+      color: #f8fafc;
+      font-weight: 600;
+    }
+
+    .comparison-table td {
+      color: var(--text-muted);
+    }
+
+    .slop-bad {
+      color: #f87171;
+    }
+
+    .slop-good {
+      color: #34d399;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge-group">
+      <span class="badge badge-primary">Double Diamond Framework</span>
+      <span class="badge badge-cyan">Tri-Skill Architecture</span>
+      <span class="badge badge-violet">Human-in-the-Loop</span>
+    </div>
+    <h1>Agente Product Designer Universal</h1>
+    <p class="subtitle">
+      Plano estratégico e arquitetural completo: unificando <strong>Impeccable</strong> (Craft &amp; Vocabulário), <strong>Hallmark</strong> (Variedade Macroestrutural Anti-Slop) e <strong>LottieFiles Motion Design</strong> (Física &amp; Coreografia) sob aprovação humana.
+    </p>
+
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('tab-overview')">01. Double Diamond &middot; O Plano</button>
+      <button class="tab-btn" onclick="switchTab('tab-skills')">02. O Tri-Skill Arsenal</button>
+      <button class="tab-btn" onclick="switchTab('tab-anti-slop')">03. Matriz Anti-Slop</button>
+      <button class="tab-btn" onclick="switchTab('tab-human')">04. Governança Humana (GATES)</button>
+      <button class="tab-btn" onclick="switchTab('tab-repo')">05. Repositório &amp; Escala</button>
+      <button class="tab-btn" onclick="switchTab('tab-clients')">06. Multi-Cliente (Hermes, Claude, ChatGPT)</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- TAB 1: OVERVIEW & DOUBLE DIAMOND -->
+    <div id="tab-overview" class="tab-content active">
+      <div class="highlight-box">
+        <strong>A Tese Central Refinada:</strong> Criar um Product Designer de elite por IA exige resolver três vícios do modelo: <em>previsibilidade de layout</em> (resolvido por <strong>Hallmark</strong>), <em>desleixo de micro-craft e contraste</em> (resolvido por <strong>Impeccable</strong>) e <em>motion inerte ou decorativo</em> (resolvido por <strong>LottieFiles Motion Design</strong>). O processo <strong>Double Diamond</strong> orquestra essas 3 habilidades sob a governança humana.
+      </div>
+
+      <div class="dd-container">
+        <div class="dd-title">
+          <span>O Ciclo Double Diamond com o Tri-Skill Stack</span>
+        </div>
+        
+        <div class="diamonds-grid">
+          <!-- Phase 1 -->
+          <div class="phase-card p1">
+            <div class="phase-tag">
+              <span>Diamante 1 &middot; Divergir</span>
+              <span>01</span>
+            </div>
+            <span class="phase-skill-badge">JTBD &middot; Diagnóstico Slop</span>
+            <h3>Descobrir (Discover)</h3>
+            <p>Diagnóstico de problemas de produto, anti-padrões e contexto de negócio antes de abrir o editor visual.</p>
+            <ul>
+              <li>Pesquisa de mercado &amp; JTBD (Jobs-to-be-Done)</li>
+              <li>Varredura de slop com <code>impeccable critique</code></li>
+              <li>Mapeamento de referências de concorrentes</li>
+              <li>Auditoria de fricção cognitiva na jornada</li>
+            </ul>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="phase-card p2">
+            <div class="phase-tag">
+              <span>Diamante 1 &middot; Convergir</span>
+              <span>02</span>
+            </div>
+            <span class="phase-skill-badge">Hallmark &middot; 20 Archetypes</span>
+            <h3>Definir (Define)</h3>
+            <p>Convergência em escopo restrito e seleção da macroestrutura (arquétipo visual) sob aprovação humana.</p>
+            <ul>
+              <li>Definição do problema e Anti-escopo explícito</li>
+              <li>Escolha de macroestrutura <strong>Hallmark</strong> (ex: Hum, Cobalt)</li>
+              <li>Sistema de Design Tokens (Fontes, Cores, 4px grid)</li>
+              <li><strong>GATE 1:</strong> Alinhamento com o Humano</li>
+            </ul>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="phase-card p3">
+            <div class="phase-tag">
+              <span>Diamante 2 &middot; Divergir</span>
+              <span>03</span>
+            </div>
+            <span class="phase-skill-badge">Impeccable &middot; Lottie Motion</span>
+            <h3>Desenvolver (Develop)</h3>
+            <p>Construção prática em código vivo: micro-craft impecável e animações com física de molas (Springs).</p>
+            <ul>
+              <li>Piso de qualidade <strong>Impeccable</strong> (Craft Floor)</li>
+              <li>Coreografia <strong>Lottie Motion</strong> (Regra 1/3, Stagger)</li>
+              <li>Completude de estados (Hover, Focus, Loading, Empty)</li>
+              <li><strong>GATE 2 e 3:</strong> Wireframe &amp; Direção Visual</li>
+            </ul>
+          </div>
+
+          <!-- Phase 4 -->
+          <div class="phase-card p4">
+            <div class="phase-tag">
+              <span>Diamante 2 &middot; Convergir</span>
+              <span>04</span>
+            </div>
+            <span class="phase-skill-badge">Browser DOM &middot; Signoff</span>
+            <h3>Entregar (Deliver)</h3>
+            <p>Validação no navegador real, verificação matemática de contraste e exportação de componentes limpos.</p>
+            <ul>
+              <li>Protótipo funcional executável no browser</li>
+              <li>Validação automática WCAG AA (≥4.5:1)</li>
+              <li>Handoff de componentes (Tailwind / React)</li>
+              <li><strong>GATE 4 e 5:</strong> Aprovação Final Humana</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">🎯</div>
+            <h3>O Papel do Agente vs. O Papel do Humano</h3>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem;">
+            O agente faz todo o trabalho pesado de pesquisa, composição estética, física de animação e codificação do protótipo. Você atua como o <strong>Diretor de Produto</strong>.
+          </p>
+          <ul style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.2rem;">
+            <li><strong>Agente propõe:</strong> 2 ou 3 direções visuais fundamentadas com justificativas técnicas.</li>
+            <li><strong>Humano julga:</strong> Seleciona a melhor rota em 10 segundos ("Fico com a opção B, aumente o contraste").</li>
+            <li><strong>Agente refina:</strong> Executa micro-interações e sobe o código testado direto no browser.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">⚡</div>
+            <h3>A Vantagem Competitiva desse Setup</h3>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem;">
+            Qualquer pessoa pode pedir uma tela ao ChatGPT, mas 99% das respostas têm aparência amadora. Com esta tríade de skills instalada:
+          </p>
+          <ul style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.2rem;">
+            <li>Nunca repete o mesmo layout clichê de SaaS (Hallmark).</li>
+            <li>Elimina bordas falsas, gradientes baratos e texto cinza ilegível (Impeccable).</li>
+            <li>Motion obedece regras de peso, amortecimento e atenção (LottieFiles).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: THE TRI-SKILL ARSENAL -->
+    <div id="tab-skills" class="tab-content">
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <div class="card-icon">⚔️</div>
+          <h2>A Tríade de Competência Sênior Integrada</h2>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+          Cada uma das 3 skills cumpre uma função ortogonal e insubstituível na mente do agente:
+        </p>
+
+        <div class="grid-3">
+          <!-- Skill 1: Impeccable -->
+          <div class="skill-card">
+            <div>
+              <div class="skill-brand">
+                <h3>Impeccable</h3>
+                <span class="skill-role role-impeccable">Micro-Craft Floor</span>
+              </div>
+              <p>O vocabulário de design que erradica o slop visual em componentes individuais, tipografia e estados.</p>
+              <ul class="feature-list">
+                <li><code>/polish</code> Passada final de refinamento antes do deploy</li>
+                <li><code>/distill</code> Remove ruído e foca no essencial</li>
+                <li><code>/clarify</code> Reescreve micro-copy e rótulos ambíguos</li>
+                <li><code>/harden</code> Garante estados Empty, Error e Acessibilidade</li>
+                <li><code>/delight</code> Adiciona toques de personalidade memoráveis</li>
+              </ul>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.75rem; color: var(--text-dim);">
+              Origem: impeccable.style
+            </div>
+          </div>
+
+          <!-- Skill 2: Hallmark -->
+          <div class="skill-card">
+            <div>
+              <div class="skill-brand">
+                <h3>Hallmark</h3>
+                <span class="skill-role role-hallmark">Macro-Estrutura</span>
+              </div>
+              <p>O motor de diversidade arquitetural. Proíbe o modelo de usar sempre o mesmo formato "Hero + 3 bento cards".</p>
+              <ul class="feature-list">
+                <li><code>20 Arquétipos</code> Hum, Carnival, Cobalt, Lumen, Grid, etc.</li>
+                <li><code>Macro-Primeiro</code> Define o esqueleto narrativo antes dos detalhes</li>
+                <li><code>Anti-Homogeneidade</code> Garante que 2 produtos nunca pareçam iguais</li>
+                <li><code>Re-Theme &amp; Study</code> Extrai DNA de referências visuais reais</li>
+              </ul>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.75rem; color: var(--text-dim);">
+              Origem: usehallmark.com
+            </div>
+          </div>
+
+          <!-- Skill 3: LottieFiles Motion -->
+          <div class="skill-card">
+            <div>
+              <div class="skill-brand">
+                <h3>Lottie Motion</h3>
+                <span class="skill-role role-motion">Física &amp; Coreografia</span>
+              </div>
+              <p>Princípios clássicos de animação adaptados para UI. Transforma movimento de CSS linear em física palpável.</p>
+              <ul class="feature-list">
+                <li><code>Física de Molas</code> Stiffness: 300, Damping: 30, Mass: 1</li>
+                <li><code>Orçamentos de Tempo</code> Micro (100-200ms), Telas (200-300ms)</li>
+                <li><code>Regra do 1/3</code> Distâncias proporcionais e sincronia elegante</li>
+                <li><code>Entrada &amp; Saída</code> Entradas desaceleram, saídas aceleram</li>
+              </ul>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.75rem; color: var(--text-dim);">
+              Origem: awesomeskill.ai / lottiefiles
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: ANTI-SLOP MATRIX -->
+    <div id="tab-anti-slop" class="tab-content">
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <div class="card-icon">🛡️</div>
+          <h2>Matriz Anti-Slop: O que o Agente é Proibido de Fazer</h2>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+          Combinando o <strong>Craft Floor do Impeccable</strong> com as <strong>Regras do Hallmark</strong>, o agente opera com restrições rígidas programadas em seu DNA:
+        </p>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Dimensão</th>
+              <th>Vício Típico de IA (Slop)</th>
+              <th>Regra do Nosso Agente (Tri-Skill)</th>
+              <th>Origem da Regra</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Layout Geral</strong></td>
+              <td class="slop-bad">Hero genérico + 3 bento cards idênticos</td>
+              <td class="slop-good">Macroestrutura variada baseada no contexto do usuário</td>
+              <td>Hallmark</td>
+            </tr>
+            <tr>
+              <td><strong>Containers</strong></td>
+              <td class="slop-bad">Cards dentro de cards (nested cards soup)</td>
+              <td class="slop-good">Hierarquia tipográfica e espaçamento sem caixas desnecessárias</td>
+              <td>Impeccable</td>
+            </tr>
+            <tr>
+              <td><strong>Cores &amp; Contraste</strong></td>
+              <td class="slop-bad">Texto cinza claro ilegível e degradês roxos</td>
+              <td class="slop-good">WCAG AA obrigatório (&ge;4.5:1), cores semânticas mapeadas</td>
+              <td>Impeccable</td>
+            </tr>
+            <tr>
+              <td><strong>Animações</strong></td>
+              <td class="slop-bad"><code>transition: all 0.3s ease</code> linear e artificial</td>
+              <td class="slop-good">Física de molas (Springs), desaceleração suave, orçamentos de 150-250ms</td>
+              <td>Lottie Motion</td>
+            </tr>
+            <tr>
+              <td><strong>Tipografia</strong></td>
+              <td class="slop-bad">Eyebrow kickers desnecessários e tracking exagerado</td>
+              <td class="slop-good">Títulos diretos, tracking limitado a -0.04em, escala proporcional</td>
+              <td>Impeccable</td>
+            </tr>
+            <tr>
+              <td><strong>Micro-Interação</strong></td>
+              <td class="slop-bad">Apenas estado normal (sem hover, sem loading, sem erro)</td>
+              <td class="slop-good">Todos os 5 estados desenhados: Normal, Hover, Focus, Loading, Empty</td>
+              <td>Tríade</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4: HUMAN GOVERNANCE (GATES) -->
+    <div id="tab-human" class="tab-content">
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <div class="card-icon">👑</div>
+          <h2>O Fluxo de Aprovação Humana (GATES.md)</h2>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+          Como humano no comando, você nunca fica perdido com saídas gigantescas. O agente avança passo a passo e aguarda seu ok em cada Gate:
+        </p>
+
+        <div class="gate-step">
+          <div class="gate-num">1</div>
+          <div class="gate-info">
+            <h4>Gate 1: Alinhamento de Hipótese &amp; Anti-Escopo <span class="gate-skill-tag">JTBD</span></h4>
+            <p>O agente resume: "Eis quem é o usuário, o que ele quer resolver, e a lista do que NÃO faremos nesta versão." Você responde com um simples "Aprovado" ou ajusta o escopo.</p>
+          </div>
+        </div>
+
+        <div class="gate-step">
+          <div class="gate-num">2</div>
+          <div class="gate-info">
+            <h4>Gate 2: Macroestrutura &amp; Ritmo <span class="gate-skill-tag">Hallmark</span></h4>
+            <p>O agente sugere qual arquétipo Hallmark se encaixa melhor no tom do produto (ex: Hum para acolhimento, Grid para técnico, Cobalt para densidade). Você valida o tom.</p>
+          </div>
+        </div>
+
+        <div class="gate-step">
+          <div class="gate-num">3</div>
+          <div class="gate-info">
+            <h4>Gate 3: Craft Floor &amp; Design Tokens <span class="gate-skill-tag">Impeccable</span></h4>
+            <p>O agente define as escalas de fonte, cores semânticas e passa o teste matemático de contraste WCAG AA. Você aprova a paleta visual.</p>
+          </div>
+        </div>
+
+        <div class="gate-step">
+          <div class="gate-num">4</div>
+          <div class="gate-info">
+            <h4>Gate 4: Protótipo Interativo com Motion <span class="gate-skill-tag">Lottie Motion</span></h4>
+            <p>O agente gera o protótipo real (HTML/Tailwind/CSS) e abre diretamente no seu navegador. Você testa os cliques, avalia a física das animações e opina.</p>
+          </div>
+        </div>
+
+        <div class="gate-step">
+          <div class="gate-num">5</div>
+          <div class="gate-info">
+            <h4>Gate 5: Handoff de Componentes <span class="gate-skill-tag">Engenharia</span></h4>
+            <p>Os componentes são organizados, prontos para integração no seu stack React/Vite/Next.js ou passagem para o próximo agente (Fullstack Dev).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: REPOSITORY & SCALE -->
+    <div id="tab-repo" class="tab-content">
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <div class="card-icon">📁</div>
+          <h2>Estrutura Física no Repositório</h2>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+          O repositório já está estruturado e provisionado localmente em <code>C:\Users\muzph\projetos\agent-product-designer</code>:
+        </p>
+
+        <pre><code><span class="code-comment"># Árvore Oficial do Repositório do Agente</span>
+agent-product-designer/
+├── <span class="code-prop">agent.json</span>                 <span class="code-comment"># Manifesto v2.0 com registro das 3 skills</span>
+├── <span class="code-prop">IDENTITY.md</span>                <span class="code-comment"># Constituição do agente, leis anti-slop e governança</span>
+├── <span class="code-prop">GATES.md</span>                   <span class="code-comment"># Tabela de checkpoints de aprovação humana</span>
+│
+├── <span class="code-tag">skills/</span>                    <span class="code-comment"># As 3 skills instaladas e acessíveis</span>
+│   ├── <span class="code-tag">impeccable/</span>            <span class="code-comment"># SKILL.md oficial + craft-floor.md + operate.md</span>
+│   ├── <span class="code-tag">hallmark/</span>              <span class="code-comment"># SKILL.md oficial (66KB de arquétipos anti-slop)</span>
+│   └── <span class="code-tag">motion-design/</span>         <span class="code-comment"># SKILL.md oficial da LottieFiles (física e timing)</span>
+│
+├── <span class="code-tag">memory/</span>                    <span class="code-comment"># Preferências e histórico</span>
+│   └── <span class="code-prop">taste-profile.json</span>     <span class="code-comment"># Parâmetros de tipografia, densidade e cores</span>
+│
+├── <span class="code-tag">connectors/</span>                <span class="code-comment"># Portabilidade multi-cliente</span>
+│   ├── <span class="code-prop">hermes/</span>                <span class="code-comment"># Configurações para rodar no Hermes Agent</span>
+│   ├── <span class="code-prop">claude/CLAUDE.md</span>       <span class="code-comment"># Prompt para Claude Code e Claude Projects</span>
+│   ├── <span class="code-prop">cursor/.cursorrules</span>    <span class="code-comment"># Regras rígidas para Cursor e Windsurf</span>
+│   └── <span class="code-prop">chatgpt/</span>               <span class="code-comment"># Instruções prontas para Custom GPT</span>
+│
+└── <span class="code-tag">artifacts/</span>                 <span class="code-comment"># Telas e protótipos interativos abertos no browser</span>
+    └── <span class="code-prop">index.html</span>             <span class="code-comment"># Esta apresentação interativa</span></code></pre>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🔄</div>
+          <h3>Como Reutilizar o Template para Criar um Agente Fullstack</h3>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem;">
+          O modelo é 100% reproduzível. Para criar um <strong>Agente Desenvolvedor Fullstack</strong>:
+        </p>
+        <ol style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.2rem; line-height: 1.8;">
+          <li>Duplique a pasta para <code>agent-fullstack-dev/</code>.</li>
+          <li>Mantenha <code>agent.json</code>, <code>GATES.md</code> e o modelo de conectores intactos.</li>
+          <li>Substitua a pasta <code>skills/</code> pelas skills de código (ex: <code>fastapi</code>, <code>nextjs-app-router</code>, <code>tdd-workflow</code>, <code>playwright-e2e</code>).</li>
+          <li>Você terá um dev com o mesmo rigor de aprovação humana e capacidade autônoma.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- TAB 6: MULTI-CLIENT ADAPTERS -->
+    <div id="tab-clients" class="tab-content">
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <div class="card-icon">🔌</div>
+          <h2>Guia de Uso em Cada Client</h2>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+          Você não fica preso a um único modelo ou interface. O mesmo repositório roda onde você preferir:
+        </p>
+
+        <div class="grid-2">
+          <div class="card" style="background: #0f131c;">
+            <h3 style="color: #60a5fa; margin-bottom: 0.5rem;">1. No Hermes Agent</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              Tem acesso nativo às skills via <code>skill_view</code>, lê arquivos do disco e abre o navegador via PowerShell automaticamente.
+            </p>
+            <pre><code><span class="code-comment"># No Hermes, basta pedir:</span>
+"Use as skills do agent-product-designer
+e execute a fase 1 do projeto X"</code></pre>
+          </div>
+
+          <div class="card" style="background: #0f131c;">
+            <h3 style="color: #c084fc; margin-bottom: 0.5rem;">2. No Claude Code / Claude Projects</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              O arquivo <code>CLAUDE.md</code> é lido automaticamente na raiz. Todas as diretrizes das 3 skills entram no contexto do Claude.
+            </p>
+            <pre><code><span class="code-comment"># No terminal do Claude Code:</span>
+claude
+<span class="code-comment"># Ele já lê IDENTITY.md e as skills</span></code></pre>
+          </div>
+
+          <div class="card" style="background: #0f131c;">
+            <h3 style="color: #34d399; margin-bottom: 0.5rem;">3. No ChatGPT (Custom GPT)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              Crie um GPT chamado "Staff Product Designer". Cole <code>IDENTITY.md</code> nas Instruções e suba os 3 arquivos <code>SKILL.md</code> na base de conhecimento.
+            </p>
+          </div>
+
+          <div class="card" style="background: #0f131c;">
+            <h3 style="color: #f43f5e; margin-bottom: 0.5rem;">4. No Cursor / Windsurf</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              O arquivo <code>.cursorrules</code> força o auto-complete do editor a respeitar contraste WCAG, motion de molas e tokens semânticos enquanto você edita.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Tese Arquitetural &middot; Agente Product Designer Tri-Skill (Impeccable + Hallmark + LottieFiles) &middot; Double Diamond 2026
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      
+      const target = document.getElementById(tabId);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agente Product Designer — prova antes de gosto</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Kernel em fase 1</p>
+    <h1>O portao decide antes do pixel</h1>
+    <p class="lede">Tres regras que este agente nao consegue contornar, escritas como teste que roda
+    sobre o proprio artefato. Se alguma falhar, ele recusa a entrega em vez de entregar bonito e vazio.</p>
+  </section>
+
+  <section class="gates">
+    <h2>Os tres portoes</h2>
+    <p class="gate"><b>R1</b> Sem AI slop: gradiente na faixa violeta, emoji em texto visivel, brilho
+    profundo, frase de catalogo e contraste abaixo de 4.5:1 barram o artefato.</p>
+    <p class="gate"><b>R2</b> Sem decisao sem estrategia: cada token do design precisa de uma entrada
+    no log de decisoes, com fonte e ancora viva na estrategia.</p>
+    <p class="gate"><b>R3</b> Sem excessos: cores, fontes, raios, sombras, duracoes e blocos comparados
+    contra um teto numerico versionado.</p>
+  </section>
+
+  <section class="use">
+    <h2>Como se usa</h2>
+    <p>O agente escreve o artefato, roda os portoes e mostra o resultado. Aprovar e seu trabalho;
+    justificar cada escolha e dele.</p>
+    <pre><code>node gates/run.mjs examples/landing
+{"status":"pass"}      # entrega liberada
+{"status":"fail"}      # entrega recusada, com a regra e a linha
+{"status":"incomplete"}# o agente nao consegue decidir: decisao humana</code></pre>
+  </section>
+
+  <section class="honest">
+    <h2>O que este kernel ainda nao prova</h2>
+    <p>Passar nos portoes nao prova que o design e bom. Prova que ele nao e generico por acidente,
+    que tem rastro e que nao estourou o teto. Gosto continua sendo julgamento humano.</p>
+    <p>O benchmark publico contra o juiz deterministico e a proxima fase, com as ameacas a validade
+    escritas antes de rodar.</p>
+  </section>
+
+  <section class="next">
+    <h2>Proximo passo</h2>
+    <p>Instalar o plugin nos clients, rodar o harness em um alvo real e publicar o confronto.
+    O corte se reabre se o benchmark nao puder ser publicado.</p>
+  </section>
+
+  <footer>
+    <p>Artefato de referencia do proprio agente. Ele passa nos portoes que descreve.</p>
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "pd-memory": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${PLUGIN_ROOT}/bin/memory-server.mjs"
+      ],
+      "env": {
+        "PD_MEMORY_FILE": "${PLUGIN_DATA}/decisions.jsonl",
+        "PD_CAPS_FILE": "${PLUGIN_ROOT}/budgets/caps.yaml"
+      },
+      "cwd": "${PLUGIN_ROOT}"
+    }
+  }
+}

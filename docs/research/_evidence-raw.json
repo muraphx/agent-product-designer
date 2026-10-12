@@ -1,0 +1,1616 @@
+{
+ "1": {
+  "findings": [
+   {
+    "claim": "impeccable é um skill único com 24 comandos e 59 regras de detector determinísticas para design frontend gerado por IA",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "Design guidance for AI coding agents. 1 skill, 24 commands, live browser iteration, and 59 deterministic detector rules for AI-generated frontend design.",
+    "source_url": "https://raw.githubusercontent.com/pbakaus/impeccable/main/README.md"
+   },
+   {
+    "claim": "impeccable se posiciona como camada de gosto/craft para o agente, com auto-QA em passes limitados",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "This skill gives you the tools and permission to create design that earns to be called out-of-distribution craft: Whereas before, your design work would have been safe, timid and measured, you now approach every design task as an award-winning design director",
+    "source_url": "https://raw.githubusercontent.com/pbakaus/impeccable/main/skill/SKILL.src.md"
+   },
+   {
+    "claim": "impeccable publica CLI npm na versão 4.5.2 (41 versões, publicado desde 2026-03-30)",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "dist-tags: {'latest': '4.5.2'} ... created: 2026-03-30 ... versions count: 41",
+    "source_url": "https://registry.npmjs.org/impeccable"
+   },
+   {
+    "claim": "impeccable: 80.181 estrelas, 4.771 forks, licença Apache-2.0, último push 2026-10-12",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "stargazers_count 80181, forks_count 4771, license Apache License 2.0, pushed_at 2026-10-12T16:08:25Z",
+    "source_url": "https://api.github.com/repos/pbakaus/impeccable"
+   },
+   {
+    "claim": "Hallmark é skill anti-AI-slop da Together AI que roda gates de slop-test antes de entregar código",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "runs fifty-seven slop-test gates plus a pre-emit self-critique, and refuses the on-distribution defaults every LLM was trained into.",
+    "source_url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/README.md"
+   },
+   {
+    "claim": "Hallmark declara ser opinativo e curto de propósito; versão 1.1.0; baseia-se no consenso anti-slop (frontend-design da Anthropic, cookbook, 'tactile rebellion' 2026)",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "Hallmark is opinionated, short, and boring on purpose. It encodes a tight set of rules — drawn from the consensus of the anti-AI-slop design field (Anthropic's frontend-design skill, the Claude cookbook on frontend aesthetics, and the 2026 \"tactile rebellion\" movement)",
+    "source_url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/skills/hallmark/SKILL.md"
+   },
+   {
+    "claim": "Hallmark tem 4 verbos (default/audit/redesign/study), 21 macroestruturas e 21 temas nomeados; study extrai 'DNA' e pode emitir design.md portátil",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "Twenty-one named landing-page shapes. Pick one before you write code. ... Refuses pixel-clones and paid templates. Optionally emits a portable design.md for handoff to other AI tools.",
+    "source_url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/skills/hallmark/references/macrostructures.md"
+   },
+   {
+    "claim": "Hallmark: 29.944 estrelas, 1.533 forks, licença MIT, último push 2026-08-06",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "stargazers_count 29944, forks_count 1533, license MIT, pushed_at 2026-08-06T16:19:18Z",
+    "source_url": "https://api.github.com/repos/Nutlope/hallmark"
+   },
+   {
+    "claim": "design.md do Google é uma especificação de formato (não um skill de design): tokens YAML + prosa markdown para dar identidade visual persistente a agentes",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "A format specification for describing a visual identity to coding agents. DESIGN.md gives agents a persistent, structured understanding of a design system.",
+    "source_url": "https://raw.githubusercontent.com/google-labs-code/design.md/main/README.md"
+   },
+   {
+    "claim": "design.md trata prosa (intenção) como mais importante que valores de token",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "The quality of a generated design is determined less by the precision of its values than by how clearly the intent is described.",
+    "source_url": "https://raw.githubusercontent.com/google-labs-code/design.md/main/PHILOSOPHY.md"
+   },
+   {
+    "claim": "design.md publica CLI npm @google/design.md versão 0.4.0 com comandos lint, diff, spec, export",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "latest: {'latest': '0.4.0'} created: 2026-04-21 ... modified: 2026-07-27",
+    "source_url": "https://registry.npmjs.org/@google/design.md"
+   },
+   {
+    "claim": "design.md: 28.350 estrelas, 2.282 forks, licença Apache-2.0, último push 2026-10-08",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "stargazers_count 28350, forks_count 2282, license Apache License 2.0, pushed_at 2026-10-08T07:53:54Z",
+    "source_url": "https://api.github.com/repos/google-labs-code/design.md"
+   },
+   {
+    "claim": "Skill motion-design da LottieFiles é 'philosophy-first, implementation-agnostic' e cobre timing, easing, coreografia e princípios Disney adaptados",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "Universal motion design principles for AI agents. Philosophy-first, implementation-agnostic. ... Supports 40+ agents including Claude Code, Cursor, Codex, GitHub Copilot, and more.",
+    "source_url": "https://raw.githubusercontent.com/LottieFiles/motion-design-skill/main/README.md"
+   },
+   {
+    "claim": "LottieFiles motion-design NÃO gera código nem animação — só princípios/frameworks de decisão",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "It does not generate code or animations directly. Instead, it provides structured principles and decision frameworks, and still requires implementation within a design or development environment.",
+    "source_url": "https://awesomeskill.ai/skill/lottiefiles-motion-design-skill-motion-design"
+   },
+   {
+    "claim": "LottieFiles/motion-design-skill: 2.138 estrelas, 135 forks, MIT, criado 2026-03-12, último push 2026-05-18",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "stargazers_count 2138, forks_count 135, license MIT, created_at 2026-03-12T09:19:05Z, pushed_at 2026-05-18T11:30:13Z",
+    "source_url": "https://api.github.com/repos/LottieFiles/motion-design-skill"
+   },
+   {
+    "claim": "ui-ux-pro-max-skill (nextlevelbuilder) declara 192 regras de raciocínio e 79 estilos de UI pesquisáveis, distribuído por CLI npm",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "reasoning_rules-192-green ... UI_styles-79_searchable ... npm i ui-ux-pro-max-cli",
+    "source_url": "https://raw.githubusercontent.com/nextlevelbuilder/ui-ux-pro-max-skill/main/README.md"
+   },
+   {
+    "claim": "ui-ux-pro-max-skill: 135.089 estrelas, 14.357 forks, licença MIT, último push 2026-10-12",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "stargazers_count 135089, forks_count 14357, license MIT, pushed_at 2026-10-12T11:08:03Z",
+    "source_url": "https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill"
+   },
+   {
+    "claim": "emilkowalski/skills é pacote de skills de design/motion baseado na experiência em Vercel/Linear, com packs animate, review-animations, animation-performance etc.",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "Agents don't have great taste ... These skills list all the little mistakes agents can potentially make and explain how to fix them. ... based on my years of experience working at companies like Vercel and Linear.",
+    "source_url": "https://raw.githubusercontent.com/emilkowalski/skills/main/README.md"
+   },
+   {
+    "claim": "emilkowalski/skills: 45.624 estrelas, 2.595 forks, licença MIT, último push 2026-10-11",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "stargazers_count 45624, forks_count 2595, license MIT, pushed_at 2026-10-11T13:58:36Z",
+    "source_url": "https://api.github.com/repos/emilkowalski/skills"
+   },
+   {
+    "claim": "skills.rest é agregador de skills que indexa '754.000+ skills' e lista design & criativo (GSAP ScrollTrigger, ui-ux-pro-max, web-design-engineer, pixel-art, etc.)",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "754,000+ skills indexed ... Explore by Domain ### Design & Creative",
+    "source_url": "https://skills.rest/"
+   },
+   {
+    "claim": "agentplugins.net é outro agregador de plugins (1.173 estrelas no próprio repo) com pacote de design 'frontend-design-skills' entre 30+ plugins majoritariamente de infra",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "1,173 stars ... 13 frontend-design-skills Design distinctive frontends and write clear interface copy.",
+    "source_url": "https://agentplugins.net/"
+   },
+   {
+    "claim": "v0 (Vercel) gera aplicações full-stack, publica como site, sincroniza com GitHub, tem 'design mode' e criação de design systems",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "Prompt. Build. Publish. Generate working applications in minutes with AI. Publish as live websites in seconds. ... Edit with design mode ... Create design systems",
+    "source_url": "https://v0.app/"
+   },
+   {
+    "claim": "Figma Make é prompt-to-code integrado ao design context do Figma, code-backed e visualmente editável",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "Prototype. Polish. Ship. Your ideas get real in Figma Make. ... Everything you build is code-backed and visually editable, so you can easily jump between code and canvas.",
+    "source_url": "https://www.figma.com/make/"
+   },
+   {
+    "claim": "Lovable é plataforma full-stack de dev por IA com Build mode autônomo e integração Figma via MCP",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "Lovable is a full-stack AI development platform for building, iterating on, and deploying web applications using natural language, with real code, security, and enterprise governance.",
+    "source_url": "https://docs.lovable.dev/introduction"
+   },
+   {
+    "claim": "Builder.io Fusion é canvas visual de IA integrado ao codebase existente, com Design System Intelligence no plano Enterprise e MCP",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "We recently announced Fusion, the first AI-powered visual canvas that integrates directly with your existing code base, understands your design systems, and creates production-ready code that works with your current architecture.",
+    "source_url": "https://www.builder.io/hub/webinars/introducing-fusion"
+   },
+   {
+    "claim": "Builder.io preços: Free $0, Pro $24/user/mês, Team $40/user/mês com Agent Credits",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "Pro ... $24 per user/mo ... 500 monthly Agent Credits ... Team ... $40 per user/mo",
+    "source_url": "https://stage.builder.io/pricing"
+   },
+   {
+    "claim": "Subframe é 'design & build in one tool' com Canvas Agent que planeja features e roda local-first",
+    "confidence": "média",
+    "date": "2026-10-12",
+    "quote": "Subframe — design & build in one tool ... Canvas Agent ... Plan a new feature for geotagging where photos are taken. Research the codebase to come up with an implementation approach",
+    "source_url": "https://www.subframe.com/"
+   }
+  ],
+  "landscape": [
+   {
+    "name": "pbakaus/impeccable",
+    "capability": "Skill único de direção de design frontend (web + iOS/Android): 24 comandos (craft, init, critique, audit, polish, animate, typeset, layout, live, generate...), PRODUCT.md/DESIGN.md, 59 regras de detector determinísticas + extensão de browser; 4 subagents em Claude/Cursor/Grok/Copilot",
+    "license": "Apache-2.0",
+    "install": "npx impeccable install  (ou /plugin marketplace add pbakaus/impeccable, npx skills add pbakaus/impeccable --all -g -y)",
+    "reach": "80.181 estrelas / 4.771 forks / 215 watchers; npm v4.5.2 (41 versões); site impeccable.style exibe \"80k\"",
+    "source_url": "https://github.com/pbakaus/impeccable"
+   },
+   {
+    "name": "Nutlope/hallmark",
+    "capability": "Skill anti-slop de landing páginas: 4 verbos (default/audit/redesign/study), 21 macroestruturas, 21 temas, 57-58 gates de slop + self-critique de 6 eixos; study extrai 'DNA' e emite design.md portátil",
+    "license": "MIT",
+    "install": "Instalável como skill em Claude Code / Cursor / Codex (skills/hallmark); demo usehallmark.com",
+    "reach": "29.944 estrelas / 1.533 forks / 61 watchers; v1.1.0; último push 2026-08-06",
+    "source_url": "https://github.com/Nutlope/hallmark"
+   },
+   {
+    "name": "google-labs-code/design.md",
+    "capability": "Especificação de formato + CLI linter (lint, diff, spec, export): tokens YAML + prosa, ordem de 8 seções, checagem de contraste WCAG e refs quebradas; NÃO é agente de design",
+    "license": "Apache-2.0",
+    "install": "npx @google/design.md lint DESIGN.md  (alias designmd no Windows); npm @google/design.md v0.4.0",
+    "reach": "28.350 estrelas / 2.282 forks / 172 watchers; npm v0.4.0; último push 2026-10-08",
+    "source_url": "https://github.com/google-labs-code/design.md"
+   },
+   {
+    "name": "LottieFiles/motion-design-skill",
+    "capability": "Skill de motion design (princípios only): timing, easing, coreografia, 4 arquétipos de personalidade (Playful/Premium/Corporate/Energetic), princípios Disney adaptados; não gera código",
+    "license": "MIT",
+    "install": "npx skills add LottieFiles/motion-design-skill  (40+ agents)",
+    "reach": "2.138 estrelas / 135 forks; awesomeskill.ai lista 231 estrelas / 19 forks (cachê); criado 2026-03-12",
+    "source_url": "https://github.com/LottieFiles/motion-design-skill"
+   },
+   {
+    "name": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "capability": "Skill de 'design intelligence' multi-plataforma: 192 regras de raciocínio, 79 estilos de UI pesquisáveis, base de paletas/fonts/best-practices por stack",
+    "license": "MIT",
+    "install": "npm i ui-ux-pro-max-cli / uupm.cc",
+    "reach": "135.089 estrelas / 14.357 forks / 91 issues abertas; skill mais estrelado da categoria",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+   },
+   {
+    "name": "emilkowalski/skills",
+    "capability": "Suíte de skills de design/motion de ex-Vercel/Linear: emil-design-eng + animate, animate-expo, review-animations, improve-animations, find-animation-opportunities, animation-performance",
+    "license": "MIT",
+    "install": "npx skills@latest add emilkowalski/skills",
+    "reach": "45.624 estrelas / 2.595 forks / 4 issues abertas; último push 2026-10-11",
+    "source_url": "https://github.com/emilkowalski/skills"
+   },
+   {
+    "name": "skills.rest (agregador)",
+    "capability": "Índice/marketplace de skills por domínio (Design & Creative: GSAP, GPUI, ui-ux-pro-max, web-design-engineer, pixel-art, gif-sticker-maker, init-workspace); página por repo com comando de install",
+    "license": "n/a (agregador)",
+    "install": "npx skills add <owner>/<repo> --all -g -y",
+    "reach": "754.000+ skills indexados",
+    "source_url": "https://skills.rest/"
+   },
+   {
+    "name": "agentplugins.net (agregador)",
+    "capability": "Catálogo de plugins/skills/hooks com 1 pacote de design ('frontend-design-skills'); resto infra/devtools",
+    "license": "n/a (agregador)",
+    "install": "Copiar pasta do plugin / git clone",
+    "reach": "1.173 estrelas no repo do site",
+    "source_url": "https://agentplugins.net/"
+   },
+   {
+    "name": "v0 (Vercel)",
+    "capability": "Produto de app-building por IA: prompt->app full-stack, publish como site, GitHub sync, deploy Vercel, design mode, design systems, DB/API/deploy agênticos, app iOS, templates da comunidade",
+    "license": "proprietário",
+    "install": "SaaS (v0.app); plano ChatGPT/v0 Max",
+    "reach": "marketplace de templates com likes públicos (ex.: landing 'Pointer AI' 20.7K)",
+    "source_url": "https://v0.app/"
+   },
+   {
+    "name": "Figma Make",
+    "capability": "Prompt-to-code dentro do Figma: usa o design context do Figma, code-backed + canvas editável, 'Move fluidly between design and code', uso local em qualquer codebase (coming soon); Figma Motion novo",
+    "license": "proprietário",
+    "install": "SaaS (figma.com/make)",
+    "reach": "n/a (dentro do Figma)",
+    "source_url": "https://www.figma.com/make/"
+   },
+   {
+    "name": "Lovable",
+    "capability": "Plataforma full-stack por linguagem natural: Build mode autônomo, design (tokens/Tailwind), backend Cloud, Figma via MCP lendo arquivos em tempo real, git sync, hosting, enterprise governance",
+    "license": "proprietário",
+    "install": "SaaS (lovable.dev)",
+    "reach": "n/a",
+    "source_url": "https://docs.lovable.dev/introduction"
+   },
+   {
+    "name": "Builder.io Fusion",
+    "capability": "Canvas visual de IA no codebase existente: code-aware generation, edição visual, Figma plugin, PRs, MCP, Design System Intelligence (Enterprise), agente no Slack/Jira",
+    "license": "proprietário",
+    "install": "SaaS $0 / $24 Pro / $40 Team por user/mês (Agent Credits); app desktop",
+    "reach": "n/a (clientes citados: Everlane, Zapier, J.Crew, ClickUp, Panasonic, Vimeo)",
+    "source_url": "https://site.builder.io/pricing"
+   },
+   {
+    "name": "Subframe",
+    "capability": "Design & build in one tool: Canvas Agent que planeja features e estuda o codebase, local-first, browser canvas com launch localhost, layers/pages/redesign",
+    "license": "proprietário",
+    "install": "App desktop (subframe.com)",
+    "reach": "n/a (12.408 objetos 'kept', 640 makers na vitrine)",
+    "source_url": "https://www.subframe.com/"
+   }
+  ],
+  "gaps": [
+   "NENHUM cobre o processo completo de product design (discovery -> pesquisa -> IA -> fluxos -> wireframe -> spec -> handoff). Todos são rule-packs de geração de UI ou geradores de código/app; pulam entrevista, pesquisa com usuário e evidência como artefato de design.",
+   "NENHUM faz design de descoberta: não há repositório/candidato que conduza stakeholder interview, síntese de pesquisa, ou teste de usabilidade. impeccable grava 'durable product truth' no PRODUCT.md, mas não tem método de pesquisa — só contexto de entrada.",
+   "Comparado a design.md: é só formato+linter (lint/diff/spec/export), sem julgamento estético; impeccable/hallmark têm julgamento mas formatos proprietários (PRODUCT.md/DESIGN.md, macrostructure/theme) sem padrão cruzado entre ferramentas. Ninguém une formato portátil + regras de gosto + workflow executável num só template instalável.",
+   "NENHUM publica harness de avaliação de qualidade de design (evals/benchmark) com score reproduzível vs. curadoria humana. O mais próximo são as 59 regras determinísticas do impeccable, mas sem acurácia/benchmark público.",
+   "Motion skill (LottieFiles) explicitamente recusa gerar código/animação ('does not generate code or animations directly') — nenhum skill de motion dos candidatos fecha o loop até animação executável.",
+   "Produtos (v0, Figma Make, Lovable, Builder Fusion, Subframe) geram apps mas são proprietários e platform-locked; nenhum é template de agente portátil, model-agnostic e offline. Só os skills (impeccable/hallmark/design.md) são portáteis, e mesmo assim dependem do runtime do agente hospedeiro.",
+   "NENHUM cobre governança de design system em escala organizacional como agente (só Builder.io Enterprise oferece 'Design System Intelligence', fechado e pago).",
+   "NENHUM ataca conteúdo/IA de forma autônoma com método: clareza de copy aparece como comando (impeccable clarify, hallmark copy.md) mas sem estratégia de conteúdo/IA como disciplina própria.",
+   "NENHUM é simultaneamente: (a) template de repositório reproduzível, (b) define o processo (não só o output), e (c) entrega artefatos com proveniência (decisão -> fonte). Esse é o espaço vazio do alvo do usuário."
+  ],
+  "contradictions": [
+   "impeccable conta de comandos/regras diverge entre fontes: README/'1 skill, 24 commands, ... 59 deterministic detector rules' (raw README, 2026-10-12) vs skills.rest/23 commands and 61 deterministic detector rules (skills.rest, 2026-10-12).",
+   "impeccable estrelas divergem: GitHub API 80.181 estrelas / 4.771 forks vs skills.rest 64,328 / 3,964 (cachê desatualizado).",
+   "hallmark número de gates diverge: README 'fifty-seven slop-test gates' vs slop-test.md header '# Slop test — 58 gates + pre-emit self-critique'.",
+   "LottieFiles motion-design métricas divergem: GitHub API 2.138 estrelas / 135 forks (pushed 2026-05-18) vs awesomeskill.ai '231 stars 19 forks Updated 6/10/2026' (cachê).",
+   "awesomeskill.ai ainda rotula o skill pelo repo LottieFiles enquanto exibe contagem baixa — o mesmo listing tem '231 stars' ao lado de 'Repository lottiefiles/motion-design-skill'."
+  ]
+ },
+ "0": {
+  "findings": [
+   {
+    "claim": "Existe um padrão aberto único para skills, adotado pelos quatro clients pesquisados: Agent Skills (agentskills.io). Uma skill é um diretório com SKILL.md.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "A skill is a directory containing, at minimum, a `SKILL.md` file:",
+    "source_url": "https://agentskills.io/specification.md"
+   },
+   {
+    "claim": "Frontmatter normativo do SKILL.md no padrão: name e description obrigatórios; name máx 64 chars, lowercase+hyphen, e DEVE igualar o nome do diretório pai; description máx 1024 chars. Opcionais: license, compatibility (máx 500), metadata, allowed-tools (experimental).",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "| `name` | Yes | Max 64 characters. Lowercase letters, numbers, and hyphens only. Must not start or end with a hyphen. |",
+    "source_url": "https://agentskills.io/specification.md"
+   },
+   {
+    "claim": "Existe um segundo padrão aberto, distinto, para empacotar skills + MCP servers num plugin portátil: Agent Plugins Spec v1.0.0, status Published.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "**Spec Version: 1.0.0**",
+    "source_url": "https://agent-plugins.org/specification.md"
+   },
+   {
+    "claim": "O pacote portátil (Agent Plugins) exige manifesto plugin.json na raiz do plugin; layout padrão = plugin.json + skills/ + mcp.json + diretórios de extensão por client + LICENSE/CHANGELOG.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "A plugin MUST include a manifest at `plugin.json` in the plugin root.",
+    "source_url": "https://agent-plugins.org/specification.md"
+   },
+   {
+    "claim": "O padrão Agent Plugins só normatiza DOIS tipos de componente: skill e entrada de MCP server. Memória, rules, hooks, subagents e commands NÃO são portáveis neste padrão.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "A skill or MCP server entry supplied through a component type standardized by this specification.",
+    "source_url": "https://agent-plugins.org/specification.md"
+   },
+   {
+    "claim": "O padrão reserva namespaces de diretório por client (extension namespace), permitindo dados específicos de client sem quebrar a portabilidade do resto do pacote.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Extension directory | Client-owned file root | A top-level directory whose name is exactly an extension namespace and whose contents are defined by that namespace's owning client.",
+    "source_url": "https://agent-plugins.org/specification.md"
+   },
+   {
+    "claim": "Todo path relativo ao plugin declarado pela spec precisa começar com ./ e ficar contido na raiz do plugin; escape via ../ invalida o componente.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "A configuration field defined by this specification as a plugin-relative path MUST begin with `./`, be resolved against the plugin root, and remain within the filesystem-resolved plugin root after resolution.",
+    "source_url": "https://agent-plugins.org/specification.md"
+   },
+   {
+    "claim": "Claude Code usa manifest em .claude-plugin/plugin.json (opcional) e mantém skills/, commands/, agents/, hooks/ na RAIZ do plugin, não dentro de .claude-plugin/.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Save the manifest at `.claude-plugin/plugin.json` under the plugin root. Put every other plugin file at the plugin root, not inside `.claude-plugin/`.",
+    "source_url": "https://code.claude.com/docs/en/plugins/manifest-reference.md"
+   },
+   {
+    "claim": "Componentes de plugin do Claude Code: skills, commands, agents, hooks, mcpServers, lspServers, outputStyles, experimental.themes, experimental.monitors, userConfig, dependencies. Não existe campo de memória no manifesto.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "A Claude Code plugin is built from components, such as skills, agents, hooks, and MCP servers. Each component has a default folder in the plugin, an optional manifest key in `.claude-plugin/plugin.json` that replaces or adds to that folder, and a name the user sees.",
+    "source_url": "https://code.claude.com/docs/en/plugins/components.md"
+   },
+   {
+    "claim": "No Claude Code, skills e commands já são o mesmo mecanismo (mesmo /nome), o que torna commands legado.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "**Custom commands have been merged into skills.** A file at `.claude/commands/deploy.md` e a skill em `.claude/skills/deploy/SKILL.md` both create `/deploy` and work the same way.",
+    "source_url": "https://code.claude.com/docs/en/skills.md"
+   },
+   {
+    "claim": "Claude Code descobre skills em escopos: managed/enterprise, pessoal (~/.claude/skills), projeto (.claude/skills), nested (<subdir>/.claude/skills) e diretórios extras via --add-dir. Não lê .agents/skills nem .cursor/skills.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "| Project | `.claude/skills/<skill-name>/SKILL.md` | Sessions in this repository. Commit it so your team gets it too |",
+    "source_url": "https://code.claude.com/docs/en/skills.md"
+   },
+   {
+    "claim": "Uma pasta de skill vira plugin: basta adicionar .claude-plugin/plugin.json dentro dela, ganhando agents/hooks/MCP.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "**Skill folder as a plugin**: add a `.claude-plugin/plugin.json` to a skill folder and it loads as a plugin named `<name>@skills-dir`",
+    "source_url": "https://code.claude.com/docs/en/skills.md"
+   },
+   {
+    "claim": "Frontmatter do Claude Code é superset do padrão: name, description, when_to_use, paths, disable-model-invocation, user-invocable, allowed-tools, disallowed-tools, model, effort, context:fork, agent, background, hooks, argument-hint, arguments. Campos desconhecidos são ignorados sem erro.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "All fields are optional. Only `description` is recommended so Claude knows when to use the skill. A field name must match the table exactly, hyphens included: Claude Code ignores a field it doesn't recognize without reporting an error.",
+    "source_url": "https://code.claude.com/docs/en/skills.md"
+   },
+   {
+    "claim": "Claude Code lê AGENTS.md como substituto de CLAUDE.md — primeiro ponto de convergência real de memória entre clients.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "If your repo already has an `AGENTS.md` for other coding agents, Claude Code can read that in place of a `CLAUDE.md`",
+    "source_url": "https://code.claude.com/docs/en/claude-directory.md"
+   },
+   {
+    "claim": "MCP no Claude Code tem dois arquivos: .mcp.json na raiz do projeto (time) e ~/.claude.json (pessoal); o arquivo do projeto fica na raiz, fora de .claude/.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Lives at the project root, not inside `.claude/`",
+    "source_url": "https://code.claude.com/docs/en/claude-directory.md"
+   },
+   {
+    "claim": "OpenAI (ChatGPT + Codex) adotou o Agent Skills open standard para skills e publica num diretório universal de plugins compartilhado por ChatGPT e Codex.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Plugins distribute reusable skills and connectors through the universal plugin directory shared by ChatGPT and Codex.",
+    "source_url": "https://learn.chatgpt.com/docs/build-skills.md"
+   },
+   {
+    "claim": "Codex carrega skills de repositório em .agents/skills (do CWD até a raiz do repo) e de usuário/admin/sistema; diretório é .agents, não .claude nem .cursor.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "| `REPO`      | `$CWD/.agents/skills`",
+    "source_url": "https://learn.chatgpt.com/docs/build-skills.md"
+   },
+   {
+    "claim": "OpenAI aceita pacote portátil Agent Plugins (plugin.json na raiz + mcp.json + skills/) e mantém .codex-plugin/plugin.json como fallback de compatibilidade; dados específicos da OpenAI vão em extensions.com.openai.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Put OpenAI-specific presentation, registered MCP server mappings, and hook settings under `extensions.com.openai` in root `plugin.json`. Existing `.codex-plugin/plugin.json` files remain supported as a compatibility fallback.",
+    "source_url": "https://developers.openai.com/plugins/build/plugins.md"
+   },
+   {
+    "claim": "MCP empacotado em plugin OpenAI usa mcp.json portátil com campo transport type por server; renomear .mcp.json do Codex NÃO basta.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Don't just rename `.mcp.json`: the portable MCP format also declares a transport `type` for each server.",
+    "source_url": "https://developers.openai.com/plugins/build/plugins.md"
+   },
+   {
+    "claim": "OpenAI tem guia oficial de conversão de plugin Claude Code, e ela é lossy: commands/agents viram skills, hooks são removidos para o diretório público, userConfig não expande, e listings/approvals da Claude não transferem.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Claude uses separate submission processes for Claude Code plugins and MCP connectors. OpenAI uses one plugin package that can contain skills, MCP servers, or both. Claude marketplace listings and approvals don't transfer.",
+    "source_url": "https://developers.openai.com/plugins/guides/submit-claude-plugin.md"
+   },
+   {
+    "claim": "Conversão Claude para OpenAI: cada Markdown de command deve virar skill e procedures de agent devem ser mescladas em skills.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "`commands`, `commands/`, `agents`, or `agents/`  | Convert reusable behavior to skills.",
+    "source_url": "https://developers.openai.com/plugins/guides/submit-claude-plugin.md"
+   },
+   {
+    "claim": "Memória no ecossistema OpenAI não é empacotável: ChatGPT web usa ChatGPT memory, clients Codex locais usam store local separado. AGENTS.md é o canal exigido para regras que sempre valem.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Keep required team guidance in `AGENTS.md` or checked-in documentation. Treat memories as a helpful recall layer, not as the only source for rules that must always apply.",
+    "source_url": "https://learn.chatgpt.com/docs/customization/memories.md"
+   },
+   {
+    "claim": "Marketplaces locais de plugin OpenAI ficam em $REPO_ROOT/.agents/plugins/marketplace.json (repo) ou ~/.agents/plugins/marketplace.json (pessoal).",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Use `$REPO_ROOT/.agents/plugins/marketplace.json` for a repo-scoped list or `~/.agents/plugins/marketplace.json` for a personal list.",
+    "source_url": "https://developers.openai.com/plugins/build/plugins.md"
+   },
+   {
+    "claim": "Cursor suporta DOIS formatos: Agent Plugins (padrão, plugin.json na raiz, só skills + MCP) e Cursor Plugins (.cursor-plugin/plugin.json, que adiciona rules, agents, commands, hooks, variables).",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Cursor supports the Agent Plugins open standard alongside its own plugin format.",
+    "source_url": "https://cursor.com/docs/plugins"
+   },
+   {
+    "claim": "Cursor NÃO expande as variáveis do padrão; usa ${CURSOR_PLUGIN_ROOT}. Isso quebra mcp.json portátil que use ${PLUGIN_ROOT}.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "A plugin that follows the Agent Plugins specification loads in Cursor. Cursor does not expand the standard's ${PLUGIN_ROOT} and ${PLUGIN_DATA} variables in mcp.json ; use ${CURSOR_PLUGIN_ROOT} for the plugin root.",
+    "source_url": "https://cursor.com/docs/plugins"
+   },
+   {
+    "claim": "Cursor é o único dos quatro que lê skills e subagents dos diretórios dos outros clients, permitindo reuso cruzado sem cópia.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "loads skills from `.claude/skills/`, `.claude/agents/`, `.codex/skills/`, `.codex/agents/`, `~/.claude/skills/`, `~/.claude/agents/`, `~/.codex/skills/`, and `~/.codex/agents/`",
+    "source_url": "https://cursor.com/docs/skills"
+   },
+   {
+    "claim": "Gap real no Cursor: dependências declaradas em skill (compatibilidade Claude) são só avisadas, não resolvidas.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Claude Code compatibility: dependencies {} is accepted and ignored, with a warning that Claude Code-specific dependencies are not resolved by Cursor.",
+    "source_url": "https://cursor.com/docs/skills"
+   },
+   {
+    "claim": "Frontmatter de skill no Cursor: name/description obrigatórios; paths (glob, com fallback legado globs), disable-model-invocation, icon, color, metadata são extensões Cursor.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "name | Yes | Skill identifier. Lowercase letters, numbers, and hyphens only. Must match the parent folder name.",
+    "source_url": "https://cursor.com/docs/skills"
+   },
+   {
+    "claim": "Memória/rules no Cursor é .cursor/rules/*.mdc com frontmatter description/globs/alwaysApply; .md puro é ignorado nessa pasta.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "A plain .md file in .cursor/rules is ignored by the rules system because it has no frontmatter to specify description , globs , and alwaysApply . If you prefer plain markdown, use AGENTS.md instead.",
+    "source_url": "https://cursor.com/docs/rules"
+   },
+   {
+    "claim": "MCP no Cursor usa arquivo mcp.json com mcpServers e type stdio|SSE|Streamable HTTP, com OAuth estático opcional (CLIENT_ID/CLIENT_SECRET).",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Install and manage MCP servers from the Customize page or configure them in mcp.json .",
+    "source_url": "https://cursor.com/docs/mcp"
+   },
+   {
+    "claim": "Hermes é compatível com o Agent Skills open standard e mantém ~/.hermes/skills/ como diretório primário e fonte de verdade, com diretórios externos escaneados em paralelo.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "They follow a progressive disclosure pattern to minimize token usage and are compatible with the agentskills.io open standard. All skills live in ~/.hermes/skills/ — the primary directory and source of truth.",
+    "source_url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills"
+   },
+   {
+    "claim": "Hermes é o único dos quatro com formato de distribuição de agente inteiro: repo git com distribution.yaml, SOUL.md, config.yaml, skills/, cron/ e mcp.json, instalável com um comando; memórias/sessões/chaves do destinatário ficam intactas.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "A profile distribution packages a complete Hermes agent — personality, skills, cron jobs, MCP connections, config — as a git repository.",
+    "source_url": "https://hermes-agent.nousresearch.com/docs/user-guide/profile-distributions"
+   },
+   {
+    "claim": "Hermes separa identidade de memória: SOUL.md (identidade, slot #1 do prompt) vs USER.md/MEMORY.md (memória escrita pelo agente, injetada como snapshot congelado no início da sessão).",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Memory (MEMORY.md and USER.md) is injected into the system prompt as a frozen snapshot captured once at session start",
+    "source_url": "https://hermes-agent.nousresearch.com/docs/user-guide/which-file-does-what"
+   },
+   {
+    "claim": "Hermes consome CLAUDE.md e .cursorrules como fallback de contexto de projeto (cadeia: .hermes.md → AGENTS.md → CLAUDE.md → .cursorrules), mas nenhum outro client lê SOUL.md/USER.md/MEMORY.md.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Only one project context type is loaded per session, first match wins: .hermes.md → AGENTS.md → CLAUDE.md → .cursorrules",
+    "source_url": "https://hermes-agent.nousresearch.com/docs/user-guide/which-file-does-what"
+   },
+   {
+    "claim": "MCP no Hermes vive em mcp_servers dentro de ~/.hermes/config.yaml — formato próprio, não um arquivo JSON separado como os outros três.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "Add an MCP server to ~/.hermes/config.yaml : mcp_servers :",
+    "source_url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp"
+   },
+   {
+    "claim": "Hermes tem pipeline oficial de importação/migração dos clients Claude Code e Codex: CLAUDE.md/AGENTS.md viram entradas de memória, mcpServers viram mcp_servers, skills/ viram skills namespaced, e commands/*.md são pulados com nota para virar skills.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "commands/*.md (slash commands) | Skipped with a note — convert them into skills",
+    "source_url": "https://hermes-agent.nousresearch.com/docs/user-guide/import-from-other-agents"
+   },
+   {
+    "claim": "O import do Hermes nunca lê credenciais e remove env/headers com nomes sensíveis dos MCP servers importados — disco duro contra vazamento de segredo no pacote.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "API keys and credentials. Credential files ( ~/.claude/.credentials.json , ~/.codex/auth.json ) are never read, and MCP server environment variables or headers with secret-looking names ( *_TOKEN , *_API_KEY , Authorization , ...) are stripped and listed in the report so you can re-add them deliberately.",
+    "source_url": "https://hermes-agent.nousresearch.com/docs/user-guide/import-from-other-agents"
+   },
+   {
+    "claim": "Existem 44 clients listados como compatíveis com o Agent Skills standard, incluindo Cursor, Claude Code, ChatGPT & Codex e Hermes Agent.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "name: \"ChatGPT & Codex\"",
+    "source_url": "https://agentskills.io/clients.md"
+   },
+   {
+    "claim": "Marketplace do Cursor distribui plugins como repositórios git com revisão manual pela equipe Cursor; Team marketplaces distribuem Agent Plugins e Cursor Plugins no mesmo marketplace.",
+    "confidence": "alto",
+    "date": "2026-10-12",
+    "quote": "The Cursor Marketplace is where you discover and install official Cursor Plugins. Plugins are distributed as Git repositories and submitted through the Cursor team.",
+    "source_url": "https://cursor.com/docs/plugins"
+   }
+  ],
+  "capability_matrix": [
+   {
+    "client": "Padrão Agent Skills (agentskills.io) — referência de baseline",
+    "mechanism": "skill = diretório com SKILL.md (frontmatter YAML) + scripts/ references/ assets/ opcionais. Progressive disclosure por name+description.",
+    "supports_skills": "sim (é a definição)",
+    "supports_mcp": "não (skills não empacotam tools; é o Agent Plugins que empacota)",
+    "notes": "Baseline portável de instruções. name obrigatório ≤64, lowercase+hyphen, DEVE igualar o nome da pasta; description obrigatório ≤1024. allowed-tools é experimental. 44 clients compatíveis listados, incluindo os quatro alvos.",
+    "source_url": "https://agentskills.io/specification.md"
+   },
+   {
+    "client": "Padrão Agent Plugins (agent-plugins.org) — referência de baseline",
+    "mechanism": "plugin = diretório com plugin.json na raiz + skills/ + mcp.json + namespaces de diretório por client (ex.: com.example.client/).",
+    "supports_skills": "sim (tipo de componente normatizado)",
+    "supports_mcp": "sim (tipo de componente normatizado, stdio com command/cwd plugin-relative)",
+    "notes": "Spec v1.0.0 Published. SÓ skills e MCP servers são componentes normativos — memória, rules, hooks, subagents e commands não são portáveis. Paths precisam começar com ./ e ficar contidos na raiz do plugin. Client extensions permitem dados proprietários sem quebrar portabilidade. Placeholders ${PLUGIN_ROOT} e ${PLUGIN_DATA} definidos, mas nem todo client os expande.",
+    "source_url": "https://agent-plugins.org/specification.md"
+   },
+   {
+    "client": "Claude Code",
+    "mechanism": "Skills em .claude/skills/<name>/SKILL.md, ~/.claude/skills/, managed e nested; plugin = .claude-plugin/plugin.json (opcional) + skills/, commands/, agents/, hooks/hooks.json, .mcp.json; marketplace = marketplace.json. validate via claude plugin validate.",
+    "supports_skills": "sim (superset do padrão: + when_to_use, paths, model, effort, context:fork, agent, background, hooks, user-invocable, disallowed-tools)",
+    "supports_mcp": "sim (.mcp.json na raiz do projeto; ~/.claude.json para pessoal; mcpServers como chave)",
+    "notes": "Memória NÃO é componente de plugin: fica em CLAUDE.md (ou AGENTS.md, que Claude Code lê no lugar), .claude/rules/ com paths:, e auto memory. Commands são legado — mesclados em skills (/nome idêntico). Pasta de skill vira plugin com plugin.json dentro dela. Sem validação de campo desconhecido: extra é ignorado em silêncio.",
+    "source_url": "https://code.claude.com/docs/en/plugins/manifest-reference.md"
+   },
+   {
+    "client": "OpenAI ChatGPT (web/desktop/mobile, Chat + Work)",
+    "mechanism": "Plugin via Plugin Creator (@plugin-creator) numa conversa, sem código; plugins entram no diretório universal compartilhado com Codex. Skills standalone em @ mencionar. Apps conectam serviços.",
+    "supports_skills": "sim (só skills empacotadas em plugin ficam disponíveis no web/mobile; skills standalone ficam no desktop app, Codex CLI e extension de IDE)",
+    "supports_mcp": "sim (Apps/MCP registrados em chatgpt.com/plugins, geram id plugin_asdk_app...; submissão pública exige endpoint HTTPS remoto — MCP local não vai pro diretório)",
+    "notes": "Custom GPTs estão sendo aposentados em favor de plugins. Memória é ChatGPT memory (Settings > Personalization) e NÃO é empacotável. Instalação/approval de marketplace Claude não transferem para OpenAI.",
+    "source_url": "https://learn.chatgpt.com/docs/build-plugins.md"
+   },
+   {
+    "client": "OpenAI Codex (CLI, extensão de IDE, app desktop)",
+    "mechanism": "Skills em .agents/skills (do CWD até a raiz do repo), ~/.agents/skills, mais escopos admin/sistema. Plugin portátil = plugin.json na raiz + mcp.json + skills/ + extensions.com.openai; .codex-plugin/plugin.json mantido como compat. Marketplace local em .agents/plugins/marketplace.json.",
+    "supports_skills": "sim (padrão agentskills.io; SKILL.md exige name e description; agents/openai.yaml opcional para aparência e dependências)",
+    "supports_mcp": "sim (mcp.json portátil com transport type por server; .mcp.json do Codex é compat, rename puro não basta)",
+    "notes": "Lista inicial de skills é limitada a 2% da context window ou 8.000 chars; em excesso Codex encurta descriptions e omite skills com aviso. Memória é store local separado (não empacotável); regras obrigatórias devem ir em AGENTS.md. Hooks empacotados só em plugin manualmente instalado no Codex desktop.",
+    "source_url": "https://learn.chatgpt.com/docs/build-skills.md"
+   },
+   {
+    "client": "Cursor (IDE, Agent Window, CLI)",
+    "mechanism": "Skills em .cursor/skills, e também lê .claude/skills, .codex/skills, ~/.claude/skills, ~/.codex/skills; subagents idem (.cursor/agents, .claude/agents, .codex/agents). Plugins: Agent Plugins (plugin.json na raiz) OU Cursor Plugins (.cursor-plugin/plugin.json). Rules em .cursor/rules/*.mdc. MCP em mcp.json.",
+    "supports_skills": "sim (padrão + extensões: paths/globs, disable-model-invocation, icon, color, metadata; dependencies aceito e ignorado com aviso)",
+    "supports_mcp": "sim (mcp.json, mcpServers, type stdio|SSE|Streamable HTTP, OAuth estático CLIENT_ID/CLIENT_SECRET, interpolation ${env:...})",
+    "notes": "Único dos quatro que lê skills/subagents dos diretórios dos outros clients. Cursor Plugins são o formato rico (rules, agents, commands, hooks, variables) mas não são o padrão; Agent Plugins é o subconjunto portátil (só skills + MCP). NÃO expande ${PLUGIN_ROOT}/${PLUGIN_DATA} — usa ${CURSOR_PLUGIN_ROOT}. Rules .md puro é ignorado na pasta rules; AGENTS.md é alternativa. Marketplace = git repo com revisão manual.",
+    "source_url": "https://cursor.com/docs/plugins"
+   },
+   {
+    "client": "Hermes Agent (CLI, Desktop, messaging)",
+    "mechanism": "Skills em ~/.hermes/skills/ (fonte de verdade, padrão agentskills.io) + diretórios externos. Distribuição de agente inteiro via git repo: distribution.yaml + SOUL.md + config.yaml + skills/ + cron/ + mcp.json, instalável com hermes profile install <repo>; alternativa .tar.gz via export/import. Import de outros agents: hermes import-agent claude-code|codex.",
+    "supports_skills": "sim (compatível com o padrão; invocação por /nome, até 5 skills encadeadas)",
+    "supports_mcp": "sim (mcp_servers dentro de config.yaml + catalog Nous-aprovado + filtro de tools por server)",
+    "notes": "Único com pacote de agente completo (personalidade + skills + cron + MCP + config). Memória: SOUL.md (identidade, slot #1), USER.md e MEMORY.md em ~/.hermes/memories/ (escritos pelo agente, snapshot congelado no início da sessão). Lê AGENTS.md, CLAUDE.md e .cursorrules como contexto de projeto. Nenhum outro client lê SOUL.md/USER.md/MEMORY.md. Import nunca lê credenciais e remove env/headers sensíveis.",
+    "source_url": "https://hermes-agent.nousresearch.com/docs/user-guide/profile-distributions"
+   }
+  ],
+  "contradictions": [
+   "Nome do arquivo de MCP diverge entre clients: .mcp.json (Claude Code, e Codex como compat), mcp.json (Agent Plugins e Cursor) e mcp_servers dentro de config.yaml (Hermes). Não há um arquivo único consumível pelos quatro.",
+   "Placeholders de path divergem: ${CLAUDE_PLUGIN_ROOT}, ${CURSOR_PLUGIN_ROOT} e ${PLUGIN_ROOT}/${PLUGIN_DATA} do padrão. Cursor declara explicitamente que NÃO expande as variáveis do padrão em mcp.json — pacote Agent Plugins conforme spec pode falhar em Cursor.",
+   "A OpenAI documenta que consome o Agent Plugins portátil, mas o scaffold atual do @plugin-creator gera o layout de compatibilidade .codex-plugin/plugin.json, não o layout portátil — o caminho 'fácil' contradiz o caminho portátil na própria doc.",
+   "Agent Plugins standard só normatiza skill e MCP server, mas Cursor Plugins e Claude Code plugins empacotam também rules/agents/commands/hooks. Quem lê a spec e assume paridade de componentes fica com pacote incompleto no client rico e inválido no client só-padrão.",
+   "Skills standalone e skills empacotadas têm superfícies diferentes no ecossistema OpenAI: standalone só no desktop app/Codex CLI/IDE; empacotada em plugin também no web e mobile. Mesmo conteúdo, alcance diferente por forma de empacotamento.",
+   "Claude Code trata commands como legado mesclado em skills, mas o guia de conversão da OpenAI ainda exige converter commands/ e agents/ em skills — os dois lados concordam no destino, discordam em quanto código legado precisa sobreviver.",
+   "Hermes importa CLAUDE.md/AGENTS.md para memória, mas o próprio Hermes tem três arquivos de memória (SOUL.md, USER.md, MEMORY.md) e nenhum é exportado de volta para o ecossistema Claude/OpenAI/Cursor — a migração é de mão única.",
+   "Agentskills.io lista 44 clients compatíveis, mas 'compatível com skill format' não implica 'compatível com plugin portátil': Cursor carrega skills de .claude/ e .codex/, enquanto Claude Code e Codex não carregam skills de .cursor/ — a reciprocidade é assimétrica."
+  ],
+  "open_questions": [
+   "Qual a data exata de publicação de Agent Plugins Spec v1.0.0 e se Cursor/OpenAI já declaram conformidade plena (o site diz Published, sem data na página lida).",
+   "Claude Code tem guia de conversão inverso (Agent Plugins -> Claude Code plugin) ou só emite? Não encontrado na doc lida.",
+   "O diretório universal de plugins de OpenAI aceita pacote Agent Plugins puro (sem extensions.com.openai) ou exige o bloco OpenAI? A doc diz que extensions.com.openai carrega o específico, mas não li o validador.",
+   "Hermes exporta/perde SOUL.md e memórias ao instalar uma distribuição em máquina nova? A doc diz que memórias do destinatário ficam intactas, mas não detalha se SOUL.md do autor ganha do local.",
+   "Cursor expande ${env:...} em mcp.json mas não ${PLUGIN_ROOT} do padrão — existe tabela oficial de qual variável de qual spec é suportada por versão de Cursor?",
+   "Codex suporta `agents/` e `hooks/` dentro de skills portáteis (o layout lido sugere agents/openai.yaml opcional), ou hooks só existem no nível de plugin do Codex desktop?",
+   "Existe linter único que valide o mesmo pacote contra Claude Code, Agent Plugins e Cursor Plugins (equivalente a claude plugin validate) para os outros clients?"
+  ]
+ },
+ "2": {
+  "methods": [
+   {
+    "method": "Lint determinístico de acessibilidade (axe-core) — detector de regras sobre DOM/CSS",
+    "evidence": "README axe-core: \"With axe-core, you can find on average 57% of WCAG issues automatically\" e \"It returns zero false positives (bugs notwithstanding)\". Deque: \"we analyzed 13,000+ pages/page states, and nearly 300,000 issues and found that 57.38% of issues from first-time audit customers could be found from automated testing\". W3C ACT: \"Axe-core version 4.10.2 ... tests for WCAG 2.1 Level A, AA, AAA, and WAI-ARIA 1.2\" com \"26 Consistent | 1 Partially consistent\" regras.",
+    "reported_numbers": "57% médio de issues WCAG automatizáveis (número repetido por Deque: 57,38%); política explícita de 0 falsos positivos; 16 de 50 critérios WCAG 2.1 AA cobertos por regra; 26 regras ACT 'consistentes'.",
+    "failure_modes": "Teto de cobertura (~57%): quase metade das falhas exige juízo humano. Só pega regras objetivas (contraste, label, ARIA) — cego a hierarquia visual, estética, intenção. A garantia de 'zero FP' é obtida rebaixando casos incertos para 'incomplete' e excluindo best-practices, o que subestima a contagem real. Regra da 'zero FP' não cobre bugs da própria regra.",
+    "source_url": "https://github.com/dequelabs/axe-core/blob/develop/README.md"
+   },
+   {
+    "method": "Lint determinístico de design tokens (CSS estático via AST)",
+    "evidence": "Stylelint opera sobre PostCSS AST: \"Stylelint's plugin rule engine intercepts PostCSS Declaration nodes, blocks hardcoded values at lint time, and passes only valid token references to the build\". Ferramentas de auditoria de design system detectam \"hardcoded values, orphaned CSS variables, component inconsistencies, and accessibility violations\".",
+    "reported_numbers": "Sem benchmark público de precisão/recall do lint de tokens; fonte descreve o mecanismo (bloqueio de valor hardcoded em tempo de lint), não a taxa de acerto.",
+    "failure_modes": "Falso positivo alto quando a regra é heurística (valor legítimo hardcoded, exceção de layout). Overfitting à taxonomia de tokens do projeto: só detecta o que o token set define como violação. Não entende intenção nem contexto (ex.: valor hardcoded correto por design). Igual a lint de acessibilidade: cobre só o que é expressável como regra.",
+    "source_url": "https://www.css-architecture.com/token-scaling-validation-ci-pipelines/stylelint-plugin-configuration/"
+   },
+   {
+    "method": "LLM-as-judge com rubrica (baseline) + validação de concordância com humano",
+    "evidence": "MT-Bench/Chatbot Arena: \"strong LLM judges like GPT-4 can match both controlled and crowdsourced human preferences well, achieving over 80% agreement, the same level of agreement between humans\". O próprio paper lista os limites: \"position, verbosity, and self-enhancement biases, as well as limited reasoning ability\".",
+    "reported_numbers": ">80% de concordância GPT-4 vs preferência humana (mesmo nível de concordância humano-humano); 3K votos de especialista e 30K conversas com preferência humana liberados.",
+    "failure_modes": "Viés de posição (troca de ordem muda o veredito), viés de verbosidade (prefere resposta mais longa), auto-aprimoramento (prefere o próprio output), raciocínio limitado. Concordância agregada >80% mascara variância por tarefa. Não é ground truth: é proxy de preferência humana.",
+    "source_url": "https://arxiv.org/abs/2306.05685"
+   },
+   {
+    "method": "Quantificação de viés de posição em juízes LLM (métricas de estabilidade)",
+    "evidence": "Shi et al.: \"introducing three metrics: repetition stability, position consistency, and preference fairness\". \"15 LLM judges across MTBench and DevBench with 22 tasks and approximately 40 solution-generating models, result in over 150,000 evaluation instances\". \"position bias is not due to random chance and varies significantly across judges and tasks\"; \"it is strongly affected by the quality gap between solutions\".",
+    "reported_numbers": ">150.000 instâncias de avaliação; 15 juízes; 22 tarefas; ~40 modelos geradores. Viés de posição estatisticamente não-aleatório e dependente de juiz/tarefa.",
+    "failure_modes": "Veredito pareado muda quando se inverte a ordem das respostas; magnitude depende do modelo juiz e da tarefa, então não há correção única. Viés é forte quando a diferença de qualidade entre soluções é pequena — exatamente o caso de design 'quase igual'. Verbosidade e auto-aprimoramento foram reinterpretados pelos autores como 'viés de posição devido a gaps de qualidade'.",
+    "source_url": "https://arxiv.org/abs/2406.07791"
+   },
+   {
+    "method": "Viés de auto-preferência do juiz LLM (self-preference)",
+    "evidence": "Panickssery et al.: \"Frontier LLMs exhibit self-preference in self-evaluation... LLMs (GPT-3.5 Turbo, GPT-4, and Llama 2) disproportionately favor summaries written by themselves over those by other LLMs and from humans\". Achado central: correlação linear entre capacidade de auto-reconhecimento e força do viés; juízes identificam o próprio texto acima do acaso.",
+    "reported_numbers": "Correlação linear self-recognition ↔ self-preference (com controles de confounders); auto-reconhecimento acima do acaso 'out of the box' para GPT-4 e Llama 2.",
+    "failure_modes": "Quando juiz e avaliado são o mesmo modelo (ou família), a nota é inflada → benchmark inflacionado. Auto-reconhecimento é mensurável e previsível, então o viés é sistemático, não ruído. Implicação direta: usar o mesmo LLM para gerar e julgar UI infla score de forma confiável e difícil de detectar sem controle.",
+    "source_url": "https://arxiv.org/abs/2404.13076"
+   },
+   {
+    "method": "Benchmark de geração de UI a partir de design (Design2Code) — métricas automáticas + validação humana",
+    "evidence": "484 páginas reais; métricas: Block-Match, Text (Dice caractere), Position, Color (CIEDE2000), CLIP. \"Through automatic metrics... very fine-grained\" e \"The derived logistic regression model achieves 79.9% accuracy on the test set\" ao prever Win/Lose humano. Os autores rejeitam métricas de texto puras: \"such metrics cannot directly assess whether the visual design of the original screenshot is correctly generated as there can be many different ways of implementing the same webpage\". \"GPT-4o is the best on all dimensions\".",
+    "reported_numbers": "484 páginas de teste (C4); 100 exemplos anotados (435 anotações pareadas Win/Lose) para treino/teste; regressão logística sobre métricas = 79,9% de acurácia vs humano; GPT-4o direct: Block 93.0 / Text 98.2 / Position 85.5 / Color 84.1 / CLIP 90.4; Design2Code-HARD tem 80 exemplos e modelos SOTA falham em ~30%.",
+    "failure_modes": "Mede FIDELIDADE à referência (reprodução), não qualidade intrínseca de design. Text similarity teve associação NEGATIVA/fraca com julgamento humano — humano olha layout/cor/existência de conteúdo, não texto. Base de validação humana pequena (100 exemplos). Benchmarks vêm do C4 (público) → risco de contaminação (o paper não reporta controle de contaminação). HARD mostra queda severa: métrica automática pode ficar 'boa' com o resultado ainda quebrado.",
+    "source_url": "https://arxiv.org/html/2403.03163v3"
+   },
+   {
+    "method": "Golden set sintético de screenshot→HTML (WebSight)",
+    "evidence": "\"This work introduces WebSight, a synthetic dataset consisting of 2 million pairs of HTML codes and their corresponding screenshots\". Fine-tune de VLM em cima do dataset.",
+    "reported_numbers": "2 milhões de pares HTML↔screenshot sintéticos.",
+    "failure_modes": "Dados sintéticos ≠ distribuição real (o próprio Design2Code contrasta 'real-world webpages... rather than synthetically generated ones'). Modelo pode overfittar ao gerador sintético (layout/previsibilidade do sintetizador) e falhar em páginas reais. Serve para treino, fraco como eval de qualidade.",
+    "source_url": "https://arxiv.org/abs/2403.09029"
+   },
+   {
+    "method": "Avaliação heurística automatizada e sua confiabilidade inter-sessão (kappa)",
+    "evidence": "Platt et al., GPT-4o + 10 heurísticas de Nielsen, 30 sites, 3 avaliações independentes por site, 850+ avaliações. \"average pairwise Cohen's Kappa of 0.50 and an exact agreement of 84%\" para detecção de issue; \"weighted Cohen's Kappa averaged 0.63, but exact agreement was just 56%, and Krippendorff's Alpha was near zero\" para severidade. Kappa por heurística chega a negativo (Help And Documentation κ=−0.068).",
+    "reported_numbers": "κ=0.50 (issue, pareado), 84% acordo exato; κ ponderado=0.63 mas só 56% acordo exato na severidade; α de Krippendorff ≈ 0; κ por heurística entre −0.068 e 0.406; 30 sites, 850+ avaliações.",
+    "failure_modes": "Alta variabilidade run-to-run: o mesmo prompt/UI produz detecções diferentes em sessões independentes → não determinístico. Severidade praticamente não reproduzível (α≈0). Heurísticas de 'documentação/ajuda' quase aleatórias. Exige supervisão humana; não substitui avaliador. Uma execução única não é evidência.",
+    "source_url": "https://arxiv.org/abs/2512.04262"
+   },
+   {
+    "method": "Avaliação heurística humana (linha de base / ground truth de UX)",
+    "evidence": "NN/g (estudo Nielsen 1992, 6 interfaces): \"the probability for finding a given major usability problem at 42 percent on the average for single evaluators\"; no total, heuristic evaluation achou \"59 major usability problems and 152 minor usability problems\".",
+    "reported_numbers": "Um avaliador único: ~42% de chance de achar um dado problema maior. Conjunto: 59 problemas maiores + 152 menores em 6 interfaces.",
+    "failure_modes": "Avaliador único é incompleto (recall baixo) → ground truth de UX é caro e ruidoso por natureza. Problemas dependentes de domínio são omitidos. Ou seja: nem o 'ouro' humano é limpo, o que torna difícil calibrar qualquer juiz automático contra ele.",
+    "source_url": "https://www.nngroup.com/articles/usability-problems-found-by-heuristic-evaluation/"
+   },
+   {
+    "method": "Ferramenta comercial de avaliação heurística por IA (política de precisão + separação de tarefas)",
+    "evidence": "Baymard: \"we will not release any automated UX tooling with less than 95% Accuracy Rate\"; e o desenho defensivo: \"it only uses LLMs and generative AI to detect the style of a UI component, and never to conclude if that detected style is then good or bad\".",
+    "reported_numbers": "Meta declarada de ≥95% de acurácia para liberar ferramenta; LLM usado só para DETECTAR o estilo do componente, nunca para julgar se é bom/ruim.",
+    "failure_modes": "Número é auto-declarado (marketing), não benchmark auditado. A lição de engenharia é o ponto: confiar em LLM para 'detectar' e mover o 'julgar bom/ruim' para regra determinística. Se o time faz o oposto (LLM julga qualidade), cai nos vieses de juiz acima.",
+    "source_url": "https://baymard.com/research-articles/ai-heuristic-evaluations"
+   },
+   {
+    "method": "Avaliação heurística por IA vs pesquisador experiente (limite de confiabilidade)",
+    "evidence": "Microsoft Research: \"While their accuracy and comprehensiveness are below what experienced UX researchers can deliver, these tools can quickly flag key issues and even uncover additional heuristic violations that human reviewers might overlook.\"",
+    "reported_numbers": "Sem número duro; conclusão qualitativa: IA abaixo do humano experiente em acurácia e completude, mas complementar.",
+    "failure_modes": "Superestimar a ferramenta leva a falso senso de cobertura; subutilizar perde o ganho de triagem. Framing correto: IA = pré-triagem, humano = decisão.",
+    "source_url": "https://medium.com/uxr-microsoft/why-ai-tools-are-not-ready-to-replace-human-heuristic-evaluations-yet-e56a143c0967"
+   },
+   {
+    "method": "Walker de jornada: agente-pessoa simulado (UXAgent)",
+    "evidence": "UXAgent: Persona Generator + LLM Agent + Universal Browser Connector; roda sobre WebArena. \"We used the Persona Generator Module to create 60 agent personas\" (distribuição uniforme por gênero e faixa de renda), cada uma 1 sessão. Heurística com 5 pesquisadores: \"five UX researcher participants praised the innovation of our system but also expressed concerns about the future of LLM Agent usage in UX studies\".",
+    "reported_numbers": "60 personas geradas; 1 sessão por persona sobre WebArena; 5 pesquisadores UX na avaliação heurística do sistema.",
+    "failure_modes": "Walker simula, não substitui: os próprios pesquisadores levantaram ressalvas. Trace de ações + 'inner monologue' do agente é narrativa gerada, pode racionalizar sem corresponder ao comportamento real. Sem ground truth de sucesso por tarefa, o walker mede fricção relatada, não qualidade verificável.",
+    "source_url": "https://arxiv.org/html/2504.09407v2"
+   },
+   {
+    "method": "Walker de jornada executável / verificação por conclusão de tarefa (WebArena / VisualWebArena)",
+    "evidence": "WebArena (812 tarefas, 5 sites): \"our best GPT-4-based agent only achieves an end-to-end task success rate of 14.41%, significantly lower than the human performance of 78.24%\". VisualWebArena (910 tarefas): \"humans succeed on 78% and 89% of tasks respectively, but agents... typically achieving success rates below 20%\".",
+    "reported_numbers": "WebArena: 812 tarefas; GPT-4 14,41% vs humano 78,24%. VisualWebArena: 910 tarefas; humano ~88,7% vs agentes <20% (GPT-4V+SoM ~16-19%).",
+    "failure_modes": "Mede COMPLETUDE de tarefa (funcional), não qualidade estética/UX. Altamente sensível a scaffolding: melhoras de 14%→70% vieram de agente/planejamento, não do modelo → score não isola a UI. Tarefas de execução não capturam fricção (usuário pode completar com frustração).",
+    "source_url": "https://arxiv.org/html/2307.13854v4"
+   },
+   {
+    "method": "Juiz LLM (multimodal) para sucesso de agente web (WebVoyager) — validação com kappa",
+    "evidence": "\"The proposed automatic evaluation metric achieves 85.3% agreement with human judgment\". Tabela de consistência GPT-4V×Humano: k=1 47,7%/75,3%, k=2 55,3%/79,7%, k=3 54,3%/81,3%, Full 58,3%/85,3% — \"its final Kappa score also reaches 0.7, which is on par with the agreement among [humanos]\".",
+    "reported_numbers": "Acurácia de juiz GPT-4V: 85,3% de concordância e κ=0,70 usando trajetória completa (κ de humano-humano comparável); 75,3% de concordância com só 1 screenshot; 300 tarefas anotadas por 3 humanos para calibrar.",
+    "failure_modes": "Concordância do juiz DEPENDE de quanta informação se dá (75%→85% conforme k sobe) → a métrica é escolha de design, não medida neutra. Precisa de subconjunto anotado por humanos para calibrar κ. Juiz multimodal herda vieses de juiz LLM (posição, auto-preferência).",
+    "source_url": "https://arxiv.org/html/2401.13919v4"
+   },
+   {
+    "method": "Visual regression / goldens de screenshot (thresholds de ruído)",
+    "evidence": "Guia Playwright: tolerância para \"Anti-Aliasing, font hinting, sub-pixel rendering differences\" com maxDiffPixelRatio 0,01 e threshold 0,2; mascarar conteúdo volátil; erro típico \"Expected screenshot to match but X pixels differ\". Anti-aliasing/sub-pixel e conteúdo dinâmico são as maiores fontes de falso positivo.",
+    "reported_numbers": "Convenções: maxDiffPixelRatio=0,01 (1% das páginas), threshold per-pixel=0,2 (0,1 para design systems), maxDiffPixels ~100 página / ~10 componente; máscara obrigatória de relógio/avatar.",
+    "failure_modes": "Falso positivo estrutural: anti-aliasing de 1px, timestamps, scrollbars, animação, drift de renderização entre SO/navegador/máquina → 'flaky' sem bug. Baseline gravado em SO diferente nunca casa. Falha só diz que pixels mudaram, não O QUE quebrou (é verificação, não asserção). Custo de manutenção alto se testar tudo.",
+    "source_url": "https://github.com/sanity-io/sanity/blob/HEAD/.agents/skills/playwright-best-practices/testing-patterns/visual-regression.md"
+   },
+   {
+    "method": "Métrica de laboratório (Lighthouse) — variabilidade como propriedade do método",
+    "evidence": "Docs Lighthouse: \"Lighthouse performance scores will change due to inherent variability in web and network technologies, even if there hasn't been a code change. Run Lighthouse multiple times\". Tabela de fontes: Page nondeterminism=High, Local network variability=High, Client hardware=High, Browser nondeterminism=Medium.",
+    "reported_numbers": "Classificação qualitativa de impacto por fonte (High/Medium/Low) e probabilidade por ambiente; recomendação explícita de rodar múltiplas vezes antes de concluir.",
+    "failure_modes": "Score único não é evidência: variância intrínseca sem mudança de código. Lab ≠ campo (Lighthouse simula estado limpo; CrUX captura usuário real). Rodar uma vez e 'otimizar para o score' gera overfitting ao laboratório.",
+    "source_url": "https://raw.githubusercontent.com/GoogleChrome/lighthouse/main/docs/variability.md"
+   },
+   {
+    "method": "Golden set anotado + verificação por execução de testes (SWE-bench) — harness de avaliação",
+    "evidence": "\"an evaluation framework consisting of 2,294 software engineering problems drawn from real GitHub issues and corresponding pull requests across 12 popular Python repositories\"; \"The best-performing model, Claude 2, is able to solve a mere 1.96% of the issues\".",
+    "reported_numbers": "2.294 problemas; 12 repositórios Python; Claude 2 = 1,96% resolvido.",
+    "failure_modes": "Fonte pública (GitHub) → contaminação de treino. Só cobre issues cujo fix é testável por unidade — viés de seleção. 'Passa nos testes' ≠ código bom (qualidade, estilo, design ignorados).",
+    "source_url": "https://arxiv.org/abs/2310.06770"
+   },
+   {
+    "method": "Golden set validado por humanos (SWE-bench Verified) — filtragem por anotação + kappa",
+    "evidence": "\"a curated set of 500 problems\" de 1.699 revisados; \"Each problem was reviewed by three experts independently\"; \"38.3% of samples were flagged for underspecified problem statements, and 61.1% were flagged for unit tests that may unfairly mark valid solutions as incorrect. Overall, our annotation process resulted in 68.3% of SWE-bench samples being filtered out\".",
+    "reported_numbers": "1.699 amostras triadas por 93 devs, 3 anotadores por item; 500 mantidas; 68,3% descartadas; easy=196 tarefas <15min, hard=45 tarefas >1h; filtro propositalmente 'overzealous' (FP alto ao remover).",
+    "failure_modes": "Filtro agressivo derruba 2/3 do corpus → golden set fica fácil/viesado. Consenso de 3 anotadores ainda deixa erro: auditoria posterior achou problemas residuais. Custo humano alto (93 devs). Concordância não garante validade.",
+    "source_url": "https://openai.com/index/introducing-swe-bench-verified/"
+   },
+   {
+    "method": "Auditoria de contaminação e de verificação (por que benchmarks morrem) — SWE-bench Verified pós-mortem",
+    "evidence": "OpenAI: \"We audited a 27.6% subset... at least 59.4% of the audited problems have flawed test cases that reject functionally correct submissions\"; \"all frontier models we tested were able to reproduce the original, human-written bug fix used as the ground-truth reference, known as the gold patch\"; conclusão: \"improvements on SWE-bench Verified no longer reflect meaningful improvements... Instead, they increasingly reflect how much the model was exposed to the benchmark at training time\".",
+    "reported_numbers": "Auditoria de 138 problemas (falha consistente do o3 em 64 runs): 59,4% com falhas; 35,5% testes estreitos (rejeitam solução correta), 18,8% testes largos, 5,1% misc. Contaminação confirmada reproduzindo gold patches em modelos de fronteira.",
+    "failure_modes": "Dois modos de falha universais: (1) verifier imperfeito (teste rejeita solução correta / aceita atalho); (2) contaminação (solução no treino infla score). Ambos aplicáveis a design: se o verifier é um juiz LLM, ele é o teste imperfeito; se a UI de referência é pública, vaza no pré-treino.",
+    "source_url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/"
+   },
+   {
+    "method": "Transplante do harness SWE-bench para design (padrão, não benchmark pronto)",
+    "evidence": "Padrão combinado dos três itens SWE-bench: verificação por execução (funcionalidade, não texto), golden set filtrado por ≥3 anotadores, e controle explícito de contaminação. Design2Code já faz o análogo de verificação por RENDER (compara screenshot renderizado), e WebArena faz verificação por conclusão de tarefa — mas nenhum mede qualidade estética com execução.",
+    "reported_numbers": "Design2Code: 79,9% de acurácia preditiva de preferência humana com métricas de render. WebArena: verificação por estado final da tarefa. SWE-bench: verificação por testes unitários.",
+    "failure_modes": "Transplante parcial: 'executar' design não tem oráculo determinístico equivalente a unit test. O mais próximo é render-diff (Design2Code) ou conclusão de tarefa (WebArena), ambos medem reprodução/função, não gosto. Ponto frágil do designcourt: F1 0,578 com 38 tells determinísticos é detectável e reprodutível (bom), mas como axe-core sofre teto de cobertura e os tells têm FP não caracterizado. Frictionmap mede passos/decisões/drift executando o fluxo — isso é o análogo correto de 'verificação por execução', mais transplantável que qualquer juiz LLM.",
+    "source_url": "https://arxiv.org/html/2403.03163v3"
+   }
+  ],
+  "sources": [
+   {
+    "date": "",
+    "quote": "It's fast, secure, lightweight... With axe-core, you can find on average 57% of WCAG issues automatically. Additionally, axe-core will return elements as \"incomplete\" where axe-core could not be certain, and manual review is needed... It returns zero false positives (bugs notwithstanding).",
+    "title": "axe-core README (Deque Labs)",
+    "url": "https://github.com/dequelabs/axe-core/blob/develop/README.md",
+    "what_it_proves": "Detector determinístico de regras tem cobertura de ~57% e política de 0 FP — teto de cobertura e trade-off recall/precisão são propriedades do método, não bugs."
+   },
+   {
+    "date": "",
+    "quote": "we analyzed 13,000+ pages/page states, and nearly 300,000 issues and found that 57.38% of issues from first-time audit customers could be found from automated testing... we found automated issues for 16 out of the 50 Success Criteria under WCAG 2.1 Level AA.",
+    "title": "The Automated Accessibility Coverage Report (Deque)",
+    "url": "https://www.deque.com/automated-accessibility-coverage-report/",
+    "what_it_proves": "Número de cobertura auditado (57,38% em 13.000+ páginas e ~300.000 issues) e o teto por critério (16/50 SC) — quantifica o limite do lint determinístico."
+   },
+   {
+    "date": "2023-11-02",
+    "quote": "Axe-core version 4.10.2 is an Automated tool by Deque Systems... tests for WCAG 2.1 Level A, AA, AAA, and WAI-ARIA 1.2... WCAG 2 rules 26 Consistent | 1 Partially consistent. Proposed rules 3 Consistent | 11 Partially consistent.",
+    "title": "Axe-core ACT Implementation (W3C WAI)",
+    "url": "https://www.w3.org/WAI/standards-guidelines/act/implementations/axe-core",
+    "what_it_proves": "Só 26 regras são 'consistentes' pela metodologia ACT do W3C; quase nenhuma regra proposta é consistente — o conjunto determinístico é pequeno e frágil fora dele."
+   },
+   {
+    "date": "2023-06-09 (v4 2023-12-24)",
+    "quote": "strong LLM judges like GPT-4 can match both controlled and crowdsourced human preferences well, achieving over 80% agreement, the same level of agreement between humans... We examine the usage and limitations of LLM-as-a-judge, including position, verbosity, and self-enhancement biases, as well as limited reasoning ability.",
+    "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena (Zheng et al.)",
+    "url": "https://arxiv.org/abs/2306.05685",
+    "what_it_proves": "Baseline do juiz LLM: >80% de concordância com humano, mas com três vieses nomeados e raciocínio limitado — o papel do juiz LLM é proxy, não ground truth."
+   },
+   {
+    "date": "2024-06-12 (v9 2025-11-11)",
+    "quote": "introducing three metrics: repetition stability, position consistency, and preference fairness. Our experiments, involving 15 LLM judges across MTBench and DevBench with 22 tasks and approximately 40 solution-generating models, result in over 150,000 evaluation instances... position bias is not due to random chance and varies significantly across judges and tasks... it is strongly affected by the quality gap between solutions.",
+    "title": "Judging the Judges: A Systematic Study of Position Bias in LLM-as-a-Judge (Shi et al.)",
+    "url": "https://arxiv.org/abs/2406.07791",
+    "what_it_proves": "Métricas operacionais para auditar viés de juiz (estabilidade, consistência de posição, justiça de preferência) e evidência de que o viés cresce quando as opções são próximas em qualidade — o caso típico de UI."
+   },
+   {
+    "date": "2024-04-15",
+    "quote": "Frontier LLMs exhibit self-preference in self-evaluation. On two summarization tasks, LLMs (GPT-3.5 Turbo, GPT-4, and Llama 2) disproportionately favor summaries written by themselves over those by other LLMs and from humans... we discover a linear correlation between self-recognition capability and the strength of self-preference bias.",
+    "title": "LLM Evaluators Recognize and Favor Their Own Generations (Panickssery et al.)",
+    "url": "https://arxiv.org/abs/2404.13076",
+    "what_it_proves": "Viés de auto-preferência é causal e mensurável (self-recognition ↔ self-preference) — risco direto de inflar score quando o mesmo modelo gera e julga a UI."
+   },
+   {
+    "date": "2024 (NAACL 2025)",
+    "quote": "The derived logistic regression model achieves 79.9% accuracy on the test set... such metrics cannot directly assess whether the visual design of the original screenshot is correctly generated as there can be many different ways of implementing the same webpage, and minor differences in generated code could result in major visual differences in the rendered output... GPT-4o is the best on all dimensions.",
+    "title": "Design2Code: Benchmarking Multimodal Code Generation for Automated Front-End Engineering",
+    "url": "https://arxiv.org/html/2403.03163v3",
+    "what_it_proves": "Melhor método publicado de medir UI gerada: métricas de RENDER (block/text/position/color/CLIP) predizem preferência humana com 79,9% — e por que métricas de texto puro falham."
+   },
+   {
+    "date": "2024 (NAACL 2025)",
+    "quote": "We manually curate 484 diverse real-world webpages as test cases... metrics consider a comprehensive set of dimensions, including bounding box matches, text content, position, and color of all matched visual elements... we later show highly correlate with human judgment.",
+    "title": "Design2Code (resumo/ACL Anthology)",
+    "url": "https://aclanthology.org/2025.naacl-long.199/",
+    "what_it_proves": "Escala do golden set de design (484 páginas reais) e a estratégia de validar métrica automática contra julgamento humano — padrão transplantável."
+   },
+   {
+    "date": "2024-03-14",
+    "quote": "This work introduces WebSight, a synthetic dataset consisting of 2 million pairs of HTML codes and their corresponding screenshots. We fine-tune a foundational VLM on our dataset...",
+    "title": "Unlocking the conversion of Web Screenshots into HTML Code with the WebSight Dataset",
+    "url": "https://arxiv.org/abs/2403.09029",
+    "what_it_proves": "Escala de dado SINTÉTICO (2M pares) — bom para treino, risco de gap de distribuição (vs Design2Code que usa páginas reais) como eval."
+   },
+   {
+    "date": "2025-12-03",
+    "quote": "For issue detection, the model demonstrated moderate consistency, with an average pairwise Cohen's Kappa of 0.50 and an exact agreement of 84%. Severity judgments showed more variability: weighted Cohen's Kappa averaged 0.63, but exact agreement was just 56%, and Krippendorff's Alpha was near zero.",
+    "title": "Catching UX Flaws in Code: Leveraging LLMs to Identify Usability Flaws at the Development Stage (Platt et al.)",
+    "url": "https://arxiv.org/abs/2512.04262",
+    "what_it_proves": "Avaliação heurística automatizada NÃO é reproduzível: κ=0,50 na detecção e α≈0 na severidade — prova de que um juiz heurístico precisa de múltiplas execuções + supervisão."
+   },
+   {
+    "date": "1992 (artigo NN/g)",
+    "quote": "the probability for finding a given major usability problem at 42 percent on the average for single evaluators in six case studies (Nielsen 1992)... heuristic evaluation identified a total of 59 major usability problems and 152 minor usability problems",
+    "title": "Usability Problems Found by Heuristic Evaluation (Nielsen, NN/g)",
+    "url": "https://www.nngroup.com/articles/usability-problems-found-by-heuristic-evaluation/",
+    "what_it_proves": "O próprio ground truth humano de UX é ruidoso: um avaliador único acha ~42% dos problemas maiores — calibra o limite de qualquer substituto automático."
+   },
+   {
+    "date": "",
+    "quote": "At Baymard, we will not release any automated UX tooling with less than 95% Accuracy Rate... it only uses LLMs and generative AI to detect the style of a UI component, and never to conclude if that detected style is then good or bad.",
+    "title": "AI Heuristic UX Evaluations with a 95% Accuracy Rate (Baymard)",
+    "url": "https://baymard.com/research-articles/ai-heuristic-evaluations",
+    "what_it_proves": "Padrão de produto: LLM detecta, regra decidir. Separar detecção (LLM) de julgamento (determinístico) é a defesa contra os vieses de juiz."
+   },
+   {
+    "date": "",
+    "quote": "While their accuracy and comprehensiveness are below what experienced UX researchers can deliver, these tools can quickly flag key issues and even uncover additional heuristic violations that human reviewers might overlook.",
+    "title": "Why AI Tools Are Not Ready to Replace Human Heuristic Evaluations — Yet (Microsoft Research)",
+    "url": "https://medium.com/uxr-microsoft/why-ai-tools-are-not-ready-to-replace-human-heuristic-evaluations-yet-e56a143c0967",
+    "what_it_proves": "Posiciona IA como pré-triagem complementar, não substituta do avaliador humano — limite prático da avaliação heurística automatizada."
+   },
+   {
+    "date": "2025-04",
+    "quote": "We used the Persona Generator Module to create 60 agent personas, ensuring a uniform distribution across gender groups... Each persona was used to run one simulation session using UXAgent on the WebArena platform... five UX researcher participants praised the innovation of our system but also expressed concerns about the future of LLM Agent usage in UX studies.",
+    "title": "UXAgent: A System for Simulating Usability Testing of Web Designs (arXiv 2504.09407)",
+    "url": "https://arxiv.org/html/2504.09407v2",
+    "what_it_proves": "Walker de jornada por persona é sistemática publicada (60 personas, traço de ação+raciocínio), mas com ressalvas explícitas dos pesquisadores sobre validade."
+   },
+   {
+    "date": "2023-07-25 (v4 2024-04-16)",
+    "quote": "our best GPT-4-based agent only achieves an end-to-end task success rate of 14.41%, significantly lower than the human performance of 78.24%. These results highlight the need for further development of robust agents.",
+    "title": "WebArena: A Realistic Web Environment for Building Autonomous Agents",
+    "url": "https://arxiv.org/html/2307.13854v4",
+    "what_it_proves": "Walker executável mede conclusão de tarefa (não estética): 812 tarefas, GPT-4 14,41% vs humano 78,24% — e mostra que scaffolding, não só modelo, move o score."
+   },
+   {
+    "date": "2024-07",
+    "quote": "humans succeed on 78% and 89% of tasks respectively, but agents — even those powered by the latest frontier models — are far worse, typically achieving success rates below 20%... VisualWebArena (VWA) is a multimodal extension to WebArena, consisting of 910 new tasks.",
+    "title": "Tree Search for Language Model Agents (Koh/Zhou et al., benchmarks WebArena/VisualWebArena)",
+    "url": "https://arxiv.org/html/2407.01476v4",
+    "what_it_proves": "Números canônicos dos dois walkers web e a extensão multimodal (910 tarefas, humano ~88,7%) — referência de magnitude para jornada executável."
+   },
+   {
+    "date": "2024-01-25 (v4 2024-06-06)",
+    "quote": "The proposed automatic evaluation metric achieves 85.3% agreement with human judgment... Full 58.3% 85.3% 0.70 ... its final Kappa score also reaches 0.7, which is on par with the agreement among [humanos].",
+    "title": "WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models",
+    "url": "https://arxiv.org/html/2401.13919v4",
+    "what_it_proves": "Como se valida um juiz LLM multimodal: 85,3% de concordância e κ=0,70 contra 300 tarefas anotadas por 3 humanos; concordância sobe com mais contexto (75%→85%)."
+   },
+   {
+    "date": "",
+    "quote": "Configuring Thresholds... maxDiffPixelRatio Fraction of total pixels (0-1) 0.01 (1%) for pages... threshold Per-pixel color tolerance 0-1 0.2 for most UIs, 0.1 for design systems... Anti-Aliasing, font hinting, sub-pixel rendering differences... Expected screenshot to match but X pixels differ.",
+    "title": "Playwright best practices — Visual regression testing (sanity-io/sanity)",
+    "url": "https://github.com/sanity-io/sanity/blob/HEAD/.agents/skills/playwright-best-practices/testing-patterns/visual-regression.md",
+    "what_it_proves": "Visual regression precisa de thresholds (0,01 / 0,2) e máscara porque anti-aliasing e conteúdo dinâmico produzem falso positivo estrutural; a falha não diz o que quebrou."
+   },
+   {
+    "date": "",
+    "quote": "Lighthouse performance scores will change due to inherent variability in web and network technologies, even if there hasn't been a code change. Run Lighthouse multiple times and beware of variability before drawing conclusions about a performance-impacting change.",
+    "title": "Lighthouse — Score Variability (Google Chrome docs)",
+    "url": "https://raw.githubusercontent.com/GoogleChrome/lighthouse/main/docs/variability.md",
+    "what_it_proves": "Métrica de lab é não-determinística por construção (Page/Client/Browser nondeterminism = High/Medium); score único não é evidência e 'otimizar para o score' é overfitting ao lab."
+   },
+   {
+    "date": "2023-10-10 (v3 2024-11-11)",
+    "quote": "an evaluation framework consisting of 2,294 software engineering problems drawn from real GitHub issues and corresponding pull requests across 12 popular Python repositories... The best-performing model, Claude 2, is able to solve a mere 1.96% of the issues.",
+    "title": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues? (Jimenez et al.)",
+    "url": "https://arxiv.org/abs/2310.06770",
+    "what_it_proves": "Template do harness de eval de agente de código: tarefa real + verificação por execução (testes) + golden set anotado; 2.294 problemas, teto de 1,96% na época."
+   },
+   {
+    "date": "2024",
+    "quote": "a curated set of 500 problems... Each problem was reviewed by three experts independently... Overall, our annotation process resulted in 68.3% of SWE-bench samples being filtered out due to underspecification, unfair unit tests, or other issues.",
+    "title": "Introducing SWE-bench Verified (OpenAI)",
+    "url": "https://openai.com/index/introducing-swe-bench-verified/",
+    "what_it_proves": "Como se constrói um golden set confiável: ≥3 anotadores por item, 500 de 1.699 mantidas, 68,3% descartadas — custo humano e viés de filtragem do processo."
+   },
+   {
+    "date": "2026",
+    "quote": "at least 59.4% of the audited problems have flawed test cases that reject functionally correct submissions... all frontier models we tested were able to reproduce the original, human-written bug fix used as the ground-truth reference, known as the gold patch... improvements on SWE-bench Verified no longer reflect meaningful improvements in models' real-world software development abilities.",
+    "title": "Why SWE-bench Verified no longer measures frontier coding capabilities (OpenAI)",
+    "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+    "what_it_proves": "Os dois modos de falha terminais de qualquer eval: verifier imperfeito (teste rejeita solução correta; 35,5% casos estreitos) e contaminação (gold patch no treino) — e o critério para aposentar um benchmark."
+   },
+   {
+    "date": "",
+    "quote": "Stylelint's plugin rule engine intercepts PostCSS Declaration nodes, blocks hardcoded values at lint time, and passes only valid token references to the build.",
+    "title": "Stylelint Plugin Configuration for Design Tokens (CSS Architecture)",
+    "url": "https://www.css-architecture.com/token-scaling-validation-ci-pipelines/stylelint-plugin-configuration/",
+    "what_it_proves": "Existe detector determinístico de violação de design token operando sobre CSS AST (não pixel) — o análogo de design para lint de regra de código."
+   }
+  ],
+  "open_questions": [
+   "Nenhum benchmark publicado mede 'isto é um bom design?' — Design2Code mede fidelidade à referência (reprodução) e WebArena mede conclusão de tarefa. Falta um oráculo de qualidade estética verificável; o mais próximo é preferência humana, que é ruidosa (um avaliador único acha ~42%).",
+   "Como calibrar um juiz LLM de design contra golden set quando o próprio ground truth humano tem concordância baixa? WebVoyager resolveu com κ=0,70 numa amostra de 300 tarefas com 3 anotadores; não há equivalente publicado para estética de UI.",
+   "Contaminação: benchmarks de UI vêm de fontes públicas (Design2Code do C4, WebSight sintético). Nenhum paper de design/UI reporta auditoria de contaminação como a OpenAI fez no SWE-bench. As UIs de referência podem já estar no pré-treino dos modelos avaliados.",
+   "Verifier imperfeito transplantado: se o 'teste' do designcourt é F1 0,578 sobre 38 tells, qual sua precisão/recall por classe e sua taxa de falso positivo? SWE-bench mostrou que 35,5% dos testes 'estreitos' rejeitavam soluções corretas — qual é o análogo em design (tell que dispara em design correto)?",
+   "Falso positivo de lint determinístico em design é subestimado: axe-core garante 0 FP rebaixando casos incertos para 'incomplete', cobrindo só ~57%. Nenhum número público de FP para lint de tokens/design.",
+   "Overfitting ao corpus: WebSight (2M sintético) treina num gerador e pode não generalizar; Design2Code-HARD mostra queda de ~30% de falha em páginas difíceis. Qual a sensibilidade do frictionmap a páginas fora do corpus que ele viu?",
+   "Walker de jornada: UXAgent/WebArena medem ação e conclusão, mas fricção relatada pelo agente é racionalização gerada — não se sabe a correlação entre 'inner monologue' e fricção humana real. Frictionmap mede passos/decisões/drift (objetivo) — essa escolha evita o problema do juiz LLM, mas precisa de validação contra usuário real para provar que passos/drift predizem problema de UX.",
+   "Falta benchmark multilingue/fora do inglês: Design2Code nota que páginas non-English são mais difíceis e estão sub-representadas."
+  ]
+ },
+ "3": {
+  "findings": [
+   {
+    "claim": "Context rot é documentado pela Anthropic como propriedade de todos os modelos: recall cai conforme tokens crescem; contexto é recurso finito com 'attention budget'.",
+    "quote": "as the number of tokens in the context window increases, the model’s ability to accurately recall information from that context decreases ... While some models exhibit more gentle degradation than others, this characteristic emerges across all models. Context, therefore, must be treated as a finite resource with diminishing marginal returns.",
+    "source_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+    "date": "2025-09-29",
+    "confidence": "alta",
+    "implication_for_design": "Memória que só 'empilha' histórico no prompt é anti-padrão; o agente de design deve curar o menor conjunto de tokens de alto sinal por passo, não acumular."
+   },
+   {
+    "claim": "Anthropic: boas práticas de contexto longo = compaction, structured note-taking (arquivo) e multi-agente; e o memory tool é explicitamente file-based, fora da janela de contexto.",
+    "quote": "To enable agents to work effectively across extended time horizons, we've developed a few techniques that address these context pollution constraints directly: compaction, structured note-taking, and multi-agent architectures. ... we released a memory tool in public beta on the Claude Developer Platform that makes it easier to store and consult information outside the context window through a file-based system.",
+    "source_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+    "date": "2025-09-29",
+    "confidence": "alta",
+    "implication_for_design": "Persistência útil = arquivos consultáveis (notas/decision log) + compaction, não embedding store como default."
+   },
+   {
+    "claim": "Anthropic: navegação autônoma em filesystem dá 'progressive disclosure' e usa metadados (nome de pasta, timestamp) como sinal de relevância — mas é mais lenta que recuperar dado pré-computado.",
+    "quote": "This self-managed context window keeps the agent focused on relevant subsets rather than drowning in exhaustive but potentially irrelevant information. Of course, there's a trade-off: runtime exploration is slower than retrieving pre-computed data.",
+    "source_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+    "date": "2025-09-29",
+    "confidence": "alta",
+    "implication_for_design": "Estrutura de arquivos é interface de memória: pastas/nomes de arquivo viram sinais; troca latência por precisão."
+   },
+   {
+    "claim": "Agent Skills só pré-carregam name+description no system prompt; corpo do SKILL.md e arquivos anexos são lidos sob demanda (progressive disclosure em 3 níveis).",
+    "quote": "At startup, the agent pre-loads the name and description of every installed skill into its system prompt. This metadata is the first level of progressive disclosure ... Progressive disclosure is the core design principle that makes Agent Skills flexible and scalable.",
+    "source_url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+    "date": "2025-10-16",
+    "confidence": "alta",
+    "implication_for_design": "Memória procedural do agente de design deve ser pasta de skills com frontmatter curto, não prompt gigante; evita inflar contexto com conhecimento raramente usado."
+   },
+   {
+    "claim": "Chroma (18 modelos): prompts LongMemEval de ~113k tokens com contexto irrelevante degradam sistematicamente vs prompt focado de ~300 tokens com a mesma informação; coerência estrutural do haystack piora o desempenho.",
+    "quote": "Across all models, we see significantly higher performance on focused prompts compared to full prompts. ... Surprisingly, we find that structural coherence consistently hurts model performance.",
+    "source_url": "https://research.trychroma.com/context-rot",
+    "date": "2025-07-14",
+    "confidence": "alta",
+    "implication_for_design": "Memória recuperada deve ser injetada como trecho focado, não como histórico bruto; mais contexto relevante-por-vizinhança piora, não ajuda."
+   },
+   {
+    "claim": "Chroma/LongMemEval: o gap focado-vs-completo é maior na família Claude, dirigido por abstenções sob ambiguidade (modelos conservadores deixam de responder mesmo com o dado presente).",
+    "quote": "The Claude models exhibit the most pronounced gap between focused and full prompt performance. This discrepancy is largely driven by abstentions that arise with ambiguity, leading to model uncertainty",
+    "source_url": "https://research.trychroma.com/context-rot",
+    "date": "2025-07-14",
+    "confidence": "média-alta",
+    "implication_for_design": "Memória ambígua/contraditória induz recusa, não erro — gate humano deve tratar 'não sei' como sinal de memória mal curada."
+   },
+   {
+    "claim": "LongMemEval: assistentes comerciais e LLMs long-context mostram queda de 30% de acurácia ao memorizar informação em interações sustentadas.",
+    "quote": "LongMemEval presents a significant challenge to existing long-term memory systems, with commercial chat assistants and long-context LLMs showing a 30% accuracy drop on memorizing information across sustained interactions.",
+    "source_url": "https://arxiv.org/abs/2410.10813",
+    "date": "2024-10 (v.2025)",
+    "confidence": "alta",
+    "implication_for_design": "Sem design de memória explícito, continuidade entre sessões perde ~1/3 da acurácia; memória precisa de índice+retrieval+leitura desenhados, não só janela grande."
+   },
+   {
+    "claim": "MemoryArena (ICML 2026): adicionar memória externa ou RAG NÃO supera de forma consistente usar só o histórico long-context completo; causas = representation mismatch e training mismatch.",
+    "quote": "We find that augmenting GPT-5-mini with external memory or RAG does not consistently outperform using the model’s full long-context history alone. ... Consequently, pairing strong long-context agents with external memory does not reliably produce a “1+1>2” effect.",
+    "source_url": "https://arxiv.org/abs/2602.16313",
+    "date": "2026-02-18 (v2 2026-09-17)",
+    "confidence": "alta (ICML 2026)",
+    "implication_for_design": "Vetor+abstração não é upgrade automático; memória só se justifica quando histórico bruto estoura a capacidade efetiva."
+   },
+   {
+    "claim": "MemoryArena: memória externa ajuda quando traces passam de ~120k tokens ou quando a subtarefa exige raciocínio complexo/domínio-específico — aí o long-context sofre saturação de atenção e acumula erro.",
+    "quote": "In Progressive Web Search, individual subtask traces can exceed 120k tokens, while in Formal Reasoning, subtasks require highly complex and domain-specific reasoning. Both settings push the agent beyond its effective reasoning capacity when conditioned on long contexts alone. In such regimes, long-context prompts are susceptible to attention saturation and error accumulation",
+    "source_url": "https://arxiv.org/abs/2602.16313",
+    "date": "2026-02-18",
+    "confidence": "alta",
+    "implication_for_design": "Regra de corte prática: histórico pequeno → contexto cheio; histórico grande/deriva → memória seletiva (abstração+distill)."
+   },
+   {
+    "claim": "MemoryArena: quando a subtarefa exige reuso exato de informação anterior, RAG simples (BM25/embedding) é mais robusto que memória com consolidação pesada (Mem0/Letta/Mirix); sistemas com memória externa têm a MAIOR latência.",
+    "quote": "In these cases, agents with RAG systems exhibit slower decay in SR@k than that with external memory. ... Overall, agents with external memory always incur the highest latency, with retrieval-based systems falling in between, while long-context agents consistently exhibit the lowest latency across environments.",
+    "source_url": "https://arxiv.org/abs/2602.16313",
+    "date": "2026-02-18",
+    "confidence": "alta",
+    "implication_for_design": "Para 'reusar literal' use índice verbatim; consolidação/abstração pesada custa precisão e tempo. Medir latência média por paradigma (long-context 33.6–81.8s vs memória 99–132.8s)."
+   },
+   {
+    "claim": "MemoryArena: desempenho decai monotonicamente com a distância de dependência causal, e o problema não é 'não ver' a informação — mesmo agentes com contexto completo pioram.",
+    "quote": "Together, these results indicate that the primary issue is not failure to observe. ... long-context 0.48 0.29 0.21 0.18 0.15 (L0–L4 pass rate)",
+    "source_url": "https://arxiv.org/abs/2602.16313",
+    "date": "2026-02-18",
+    "confidence": "alta",
+    "implication_for_design": "Memória não resolve raciocínio multi-sessão por si: precisa de checklist/estado de tarefa explícito (todo/plan file) reafirmado a cada milestone."
+   },
+   {
+    "claim": "MemoryArena: agentes quase saturados em benchmark de memória long-context (LoCoMo) vão mal em setting multi-sessão agêntico — benchmark de recall não prevê uso de memória na ação.",
+    "quote": "reveals that agents with near-saturated performance on existing long-context memory benchmarks like LoCoMo perform poorly in our agentic setting, exposing a gap in current evaluations for agents with memory.",
+    "source_url": "https://arxiv.org/abs/2602.16313",
+    "date": "2026-02-18",
+    "confidence": "alta",
+    "implication_for_design": "Avaliar memória por 'acertar o fato' é insuficiente; medir se a memória muda a próxima entrega (tarefa dependente de sessão anterior)."
+   },
+   {
+    "claim": "Cognition (2025): subagentes paralelos escrevendo são frágeis porque ações carregam decisões implícitas e cada agente trabalha com pressupostos conflitantes.",
+    "quote": "The actions subagent 1 took and the actions subagent 2 took were based on conflicting assumptions not prescribed upfront. Principle 2: Actions carry implicit decisions, and conflicting decisions carry bad results",
+    "source_url": "https://cognition.ai/blog/dont-build-multi-agents",
+    "date": "2025-06-12",
+    "confidence": "alta (opinião de fornecedor, com exemplo concreto)",
+    "implication_for_design": "Paralelizar escrita sem contrato de estilo/estado compartilhado gera retrabalho; paralelize leitura/pesquisa, serialize escrita."
+   },
+   {
+    "claim": "Cognition (2026, 10 meses depois): multi-agente passou a funcionar num padrão estreito — vários agentes contribuem inteligência, mas as escritas permanecem single-threaded; swarms de escritores paralelos seguem sem adoção.",
+    "quote": "But we've found a narrower class of patterns that do: setups where multiple agents contribute intelligence to a task while writes stay single-threaded.",
+    "source_url": "https://cognition.ai/blog/multi-agents-whats-actually-working",
+    "date": "2026-04-22",
+    "confidence": "média-alta",
+    "implication_for_design": "Arquitetura recomendada: fan-out de leitura/análise + fan-in determinístico; um único escritor do artefato final."
+   },
+   {
+    "claim": "Anthropic multi-agente de pesquisa: 90.2% acima do single-agent Opus 4 no eval interno, mas consome ~15x tokens de um chat (agentes em geral ~4x); token usage explica 80% da variância de desempenho (95% com nº de tool calls + modelo).",
+    "quote": "a multi-agent system with Claude Opus 4 as the lead agent and Claude Sonnet 4 subagents outperformed single-agent Claude Opus 4 by 90.2% on our internal research eval. ... agents typically use about 4× more tokens than chat interactions, and multi-agent systems use about 15× more tokens than chats ... token usage by itself explains 80% of the variance",
+    "source_url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+    "date": "2025-06-13",
+    "confidence": "média-alta (eval interno, não replicado)",
+    "implication_for_design": "Ganho de multi-agente é ganho de orçamento de tokens: só vale com tarefa de valor alto por resposta. Custo é previsível: ~15x."
+   },
+   {
+    "claim": "Anthropic: multi-agente serve para breadth-first com direções independentes; domínios que exigem contexto compartilhado ou muitas dependências entre agentes NÃO são bom encaixe hoje; falha comum = trabalho duplicado.",
+    "quote": "some domains that require all agents to share the same context or involve many dependencies between agents are not a good fit for multi-agent systems today ... while 2 others duplicated work investigating current 2025 supply chains, without an effective division of labor.",
+    "source_url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+    "date": "2025-06-13",
+    "confidence": "alta",
+    "implication_for_design": "Gate de arquitetura: só fan-out quando subtarefas são independentes e divisíveis; caso contrário single thread."
+   },
+   {
+    "claim": "Anthropic: esforço deve escalar com a complexidade da query (1 agente/3-10 tool calls para fato simples; 2-4 subagentes/10-15 calls para comparação; >10 para pesquisa complexa) porque agentes erram o 'quanto investir'.",
+    "quote": "Scale effort to query complexity. Agents struggle to judge appropriate effort for different tasks, so we embedded scaling rules in the prompts. Simple fact-finding requires just 1 agent with 3-10 tool calls, direct comparisons might need 2-4 subagents with 10-15 calls each",
+    "source_url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+    "date": "2025-06-13",
+    "confidence": "alta",
+    "implication_for_design": "Colocar regras de orçamento em arquivo de política (ex.: plataforma/design-system/AGENTS.md) em vez de deixar o modelo decidir."
+   },
+   {
+    "claim": "Scaling de sistemas de agente (260 configurações, 6 benchmarks): efeito de saturação de capacidade — coordenação rende cada vez menos quando o baseline single-agent já é bom; variação de +80.8% (raciocínio financeiro decomponível) a -70.0% (planejamento sequencial).",
+    "quote": "(1) a coordination yields diminishing returns once single-agent baselines exceed certain performance; (2) tool-heavy tasks appear to incur multi-agent overhead ... Relative performance change compared to single-agent baseline ranges from +80.8% on decomposable financial reasoning to -70.0% on sequential planning, demonstrating that architecture-task alignment determines collaborative success.",
+    "source_url": "https://arxiv.org/abs/2512.08296",
+    "date": "2025-12 (v3)",
+    "confidence": "alta",
+    "implication_for_design": "Alinhamento arquitetura-tarefa decide: mesma stack que dá +80% em tarefa decomponível dá -70% em tarefa sequencial."
+   },
+   {
+    "claim": "Scaling: arquiteturas sem verificação centralizada propagam erros mais que as com coordenação centralizada; modelo preditivo R²=0.373 e acerta melhor arquitetura em 87% das configurações held-out.",
+    "quote": "(3) architectures without centralized verification tend to propagate errors more than those with centralized coordination ... The framework identifies the best-performing architecture for 87% of held-out configurations",
+    "source_url": "https://arxiv.org/abs/2512.08296",
+    "date": "2025-12 (v3)",
+    "confidence": "alta",
+    "implication_for_design": "Se houver multi-agente, alguém central valida (verifier/lead) — verificação é o componente que impede cascata de erro."
+   },
+   {
+    "claim": "Single-agent vs multi-agent: benefícios do MAS diminuem conforme o LLM melhora; cascading híbrido (rotear entre MAS e SAS) melhora acurácia 1.1-12% e corta custo de deploy em até 20%.",
+    "quote": "We find that the benefits of MAS over SAS diminish as LLM capabilities improve ... Our design improves accuracy by 1.1-12% while reducing deployment costs by up to 20% across various agentic applications.",
+    "source_url": "https://arxiv.org/abs/2505.18286",
+    "date": "2025-05-23",
+    "confidence": "alta",
+    "implication_for_design": "Default = single agent + rota para multi-agente só quando o caso pede; economiza custo sem perder acurácia."
+   },
+   {
+    "claim": "SupervisorAgent (ICLR 2026): supervisão de runtime, sem mudar a arquitetura base, corta consumo de tokens do SmolAgent em 29.68% em média no GAIA sem reduzir taxa de sucesso.",
+    "quote": "we introduce SupervisorAgent, a lightweight and modular framework for runtime, adaptive supervision ... On the challenging GAIA benchmark, SupervisorAgent reduces the token consumption of the Smolagent framework by an average of 29.68% without compromising its success rate.",
+    "source_url": "https://arxiv.org/abs/2510.26585",
+    "date": "2025-10-30 (v2 2026-03-02)",
+    "confidence": "alta (ICLR 2026)",
+    "implication_for_design": "Supervisor leve + filtro adaptativo é intervenção de maior ROI que redesenhar a orquestração."
+   },
+   {
+    "claim": "MAST (1600+ traces anotados, 7 frameworks): ganhos de MAS em benchmarks populares são 'frequentemente mínimos'; 14 modos de falha em 3 categorias (design de sistema, desalinhamento inter-agente, verificação de tarefa), kappa=0.88.",
+    "quote": "Despite enthusiasm for Multi-Agent LLM Systems (MAS), their performance gains on popular benchmarks are often minimal. ... This process identifies 14 unique modes, clustered into 3 categories: (i) system design issues, (ii) inter-agent misalignment, and (iii) task verification.",
+    "source_url": "https://arxiv.org/abs/2503.13657",
+    "date": "2025-03-17 (v3 2025-10-26)",
+    "confidence": "alta",
+    "implication_for_design": "Instrumentar o pipeline com a taxonomia: contar repetição de passo e não-reconhecimento de conclusão antes de culpar o modelo."
+   },
+   {
+    "claim": "MAST: os modos mais frequentes são de execução/design — step repetition FM-1.3 15.7%, não reconhecer conclusão FM-1.5 12.4%, falha de especificação FM-1.1 11.8%, tarefa derailment FM-2.6 13.2%; perfil de falha varia por sistema ('no one-size-fits-all').",
+    "quote": "These include failing to follow task requirements (FM-1.1, 11.8%) or agent roles (FM-1.2, 1.5%), step repetitions (FM-1.3, 15.7%), context loss (FM-1.4, 2.80%), or not recognizing task completion (FM-1.5, 12.4%). ... These system-specific profiles underscore that there is no one-size-fits-all solution to MAS failures.",
+    "source_url": "https://arxiv.org/abs/2503.13657",
+    "date": "2025-03-17 (v3 2025-10-26)",
+    "confidence": "alta",
+    "implication_for_design": "Dois maiores modos de falha são 'loop sem progresso' e 'não parar' — exatamente o que um gate por milestone resolve: critério de conclusão explícito e parada forçada."
+   },
+   {
+    "claim": "Context rot em deep search (4 modelos, 3 benchmarks): 'premature termination' — com contexto extenso o modelo desiste ou responde incerto muito antes de esgotar a janela, e a taxa cresce com o comprimento do contexto; métodos de context management reduzem isso por serem test-time scaling; filtragem behavior-aware em parallel sampling ganha 2.6-4.9%.",
+    "quote": "we identify a previously overlooked phenomenon, which we term premature termination: under extensive context, models give up or provide uncertain incorrect answers long before exhausting the context window ... we show that the premature termination rate is positively correlated with context length.",
+    "source_url": "https://arxiv.org/abs/2606.29718",
+    "date": "2026",
+    "confidence": "média-alta (abstract lido; paper não lido inteiro)",
+    "implication_for_design": "Longo contexto não só degrada acurácia: aumenta desistência silenciosa. Gate humano deve detectar 'parou cedo' como sinal, não só 'errado'."
+   },
+   {
+    "claim": "File-based vs vector (LlamaIndex, jan/2026): em corpus pequeno (5 PDFs de 22-52 págs) o agente com ferramentas de filesystem vence RAG híbrido em correção (8.4 vs 6.4) e relevância (9.6 vs 8.0), mas é 3.81s mais lento (11.17s vs 7.36s); ao escalar para 100/1000 abstracts o RAG supera em velocidade (substancialmente) e correção (ligeiramente), empate em relevância.",
+    "quote": "For both correctness and relevance, the file-system agent outperformed traditional RAG, scoring 2 points higher on the average correctness (8.4 VS 6.4) and 1.6 higher on the average relevance (9.6 VS 8). ... Contrary to what observed in the main experiment, scaling is easier with RAG than with agentic file search ... RAG outperformed the fs-explorer approach in terms of speed (substantially) and of correctness (slightly)",
+    "source_url": "https://www.llamaindex.ai/blog/vector-search-vs-filesystem-tools-2026-benchmarks",
+    "date": "2026-01-13",
+    "confidence": "média (experimento pequeno, 5 tarefas, LLM-juiz, fornecedor de RAG)",
+    "implication_for_design": "Corte de decisão: arquivo+agente para acervo pequeno/estável e tarefa assíncrona; índice vetorial/híbrido quando o acervo cresce ou latência importa. Não é 'um mata o outro'."
+   },
+   {
+    "claim": "OpenAI Agents SDK: gates de aprovação são declarados na ferramenta (needs_approval), suspensão é run-wide (vale para agente atual, agente alcançado por handoff e Agent.as_tool aninhado) e exige serializar RunState para retomar depois.",
+    "quote": "Use the human-in-the-loop (HITL) flow to pause agent execution until a person approves or rejects sensitive tool calls. Tools declare when they need approval, run results surface pending approvals as interruptions, and RunState lets you serialize paused runs and resume them after decisions are made. That approval surface is run-wide, not limited to the current top-level agent.",
+    "source_url": "https://openai.github.io/openai-agents-python/human_in_the_loop/",
+    "date": "2026 (doc viva)",
+    "confidence": "alta",
+    "implication_for_design": "Gate no nível da ferramenta sensível (write/delete/deploy), não no nível da conversa; e o estado do gate precisa ser persistível para sobreviver a long-running approvals."
+   },
+   {
+    "claim": "OpenAI (guardrails + human review): separar controle automático (input/output/tool guardrails) de aprovação humana; bloquear vs paralelo é trade-off de latência vs trabalho especulativo; e o revisor deve receber a ação proposta exata com apenas o contexto necessário, negando fora de escopo, com fail closed se a revisão expirar.",
+    "quote": "Use blocking execution when the cost or risk of starting the main agent is too high. Use parallel guardrails when lower latency matters more than avoiding speculative work. ... Give a separate policy component or reviewer the exact proposed action and only the context needed to evaluate it. ... Pause ambiguous or high-risk actions for explicit human approval before the tool runs. ... fail closed if review times out or becomes unavailable.",
+    "source_url": "https://developers.openai.com/api/docs/guides/agents-sdk/guardrails",
+    "date": "2026 (doc viva)",
+    "confidence": "alta",
+    "implication_for_design": "Pacote de aprovação = ação proposta + escopo + evidência mínima; gate deve falhar fechado (timeout nega) e nunca receber o transcript inteiro."
+   },
+   {
+    "claim": "LangGraph docs: interrupt() suspende o grafo no ponto exato, salva estado no checkpointer e espera indefinidamente; retomada via Command(resume=...); padrões canônicos = approve/reject e review-and-edit-state; regras de robustez incluem 'efeitos colaterais antes do interrupt devem ser idempotentes'.",
+    "quote": "Interrupts allow you to pause graph execution at specific points and wait for external input before continuing ... LangGraph saves the graph state using its persistence layer and waits indefinitely until you resume execution ... Side effects called before interrupt must be idempotent",
+    "source_url": "https://docs.langchain.com/oss/python/langgraph/interrupts",
+    "date": "2026 (doc viva)",
+    "confidence": "alta",
+    "implication_for_design": "Gate = ponto de persistência, não bloqueio em memória. Efeitos colaterais antes do gate têm que ser idempotentes para o resume ser seguro."
+   },
+   {
+    "claim": "HITL desacoplado (arXiv 2604.23049): implementações de HITL embutidas na lógica da aplicação limitam reuso, consistência e escala em ambientes multi-agente; proposta = tratar supervisão humana como componente independente, formalizada em 4 dimensões (condições de intervenção, resolução de papel, semântica de interação, canal) e nível de protocolo.",
+    "quote": "existing implementations of Human-in-the-Loop (HITL) mechanisms are typically embedded within application logic, limiting reuse, consistency, and scalability across multi-agent environments ... treats human oversight as an independent system component within the agent operating environment.",
+    "source_url": "https://arxiv.org/abs/2604.23049",
+    "date": "2026",
+    "confidence": "média (posição de arquitetura, sem avaliação empírica)",
+    "implication_for_design": "Definir o gate como serviço/política reutilizável (quem aprova, quando, por qual canal), não como if espalhado no código do produto."
+   },
+   {
+    "claim": "Human-on-the-Bridge (23.500 turns de agente): revisão HITL preserva julgamento especialista mas não escala; a alternativa é mover expertise para montante — traps de red-team, personas de jurado, regras de auditoria e políticas de fallback curadas antes do teste; falhas detectadas incluem phantom tool-call claims, policy drift e recusas 'seguras mas não resolutivas'.",
+    "quote": "Human-in-the-Loop review preserves expert judgment but does not scale easily ... HOB places human expertise upstream, where experts curate reusable evaluation intelligence before testing begins ... The evaluation surfaces failures often missed by static benchmarks and single-evaluator scoring, including phantom tool-call claims, missing mandatory tool calls, policy drift, manipulation paths, and safe but non-resolving refusals.",
+    "source_url": "https://arxiv.org/abs/2606.16871",
+    "date": "2026",
+    "confidence": "média-alta (abstract; estudo em finance/health/code)",
+    "implication_for_design": "Gate por exceção + política curada a montante escala mais que aprovar cada passo; e 'recusa segura que não resolve' deve contar como falha no painel de qualidade."
+   },
+   {
+    "claim": "Anthropic (building effective agents, ref. de padrão): agentes devem buscar ground truth do ambiente a cada passo, pausar para feedback humano em checkpoints ou quando travam, e ter condições de parada (ex.: máximo de iterações); autonomia traz custo maior e erro composto.",
+    "quote": "During execution, it's crucial for the agents to gain “ground truth” from the environment at each step ... Agents can then pause for human feedback at checkpoints or when encountering blockers. The task often terminates upon completion, but it’s also common to include stopping conditions (such as a maximum number of iterations) to maintain control.",
+    "source_url": "https://www.anthropic.com/engineering/building-effective-agents",
+    "date": "2024-12-19 (página atualizada c/ link p/ Managed Agents)",
+    "confidence": "alta",
+    "implication_for_design": "Todo gate deve vir com evidência de ground truth (teste/print/tool output) e orçamento de iterações — checker, não conversa."
+   },
+   {
+    "claim": "OpenAI (doc de orquestração): multi-agente 'não deve ser a solução padrão'; considerar só quando há tarefas que não se sobrepõem e, para uma ou mais delas, instruções muito complexas/longas ou muitas ferramentas.",
+    "quote": "Multi-agent collaboration ... This shouldn’t be your go-to solution, but something you might consider if you have separate tasks that do not overlap and if for one or more of those tasks you have: Very complex or long instructions ... A lot of tools (or similar tools across tasks)",
+    "source_url": "https://developers.openai.com/tracks/building-agents",
+    "date": "2026 (doc viva)",
+    "confidence": "alta",
+    "implication_for_design": "Critério objetivo para abrir multi-agente: subtarefas não sobrepostas + sobrecarga de instruções/ferramentas num delas. Fora disso, single agent."
+   }
+  ],
+  "patterns": [
+   {
+    "pattern": "Memória em arquivo + índice por metadados (progressive disclosure)",
+    "evidence": "Anthropic: memory tool file-based, structured note-taking, skills com name+description apenas no startup; pasta/nome/timestamp como sinal de relevância. LlamaIndex: fs-explorer 8.4 vs 6.4 correção e 9.6 vs 8 relevância em corpus de 5 PDFs.",
+    "when_it_works": "Acervo pequeno/estável, decisões e artefatos que o humano precisa inspecionar, agente assíncrono/background; quando o próprio arquivo é auditável (design log, spec, tokens.json).",
+    "when_it_fails": "Acervo grande e crescente (100/1000 docs: RAG ganha em velocidade e correção) e fluxos com SLA de latência; leitura de arquivos longos estoura a janela.",
+    "source_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+   },
+   {
+    "pattern": "Memória vetorial/híbrida com retrieval",
+    "evidence": "MemoryArena: RAG decai mais devagar que memória com consolidação pesada quando a subtarefa exige reuso exato; long-context tem latência menor (33.6-81.8s) que memória (99-132.8s) e RAG fica no meio. LlamaIndex usa híbrido (BM25+embedding+RRF) como baseline.",
+    "when_it_works": "Muitos itens, necessidade de recall literal (trechos, decisões passadas, nomes), reuso exato entre sessões, orquestração real-time.",
+    "when_it_fails": "Corpus pequeno (custos de índice/retrieval > benefício), quando a abstração/consolidação reescreve a informação (representation mismatch), e quando não há query formulation boa (training mismatch).",
+    "source_url": "https://arxiv.org/abs/2602.16313"
+   },
+   {
+    "pattern": "Contexto completo em vez de memória (no-memory baseline)",
+    "evidence": "MemoryArena: 'não supera consistentemente'; latência mais baixa de todas; passa a falhar com traces >120k tokens. Chroma: prompt cheio de 113k tokens degrada vs focado de ~300.",
+    "when_it_works": "Histórico curto, tarefas de uma sessão, quando consistência verbatim importa (agente raciocina sobre histórico autoconsistente).",
+    "when_it_fails": "Traces longos (>120k), dependências profundas entre sessões (pass rate 0.48→0.15 de L0 a L4), custo por token alto em produção.",
+    "source_url": "https://arxiv.org/abs/2602.16313"
+   },
+   {
+    "pattern": "Compaction / sumarização com notas estruturadas",
+    "evidence": "Anthropic: compaction 'distills the contents of a context window in a high-fidelity manner' preservando decisões arquiteturais, bugs não resolvidos e detalhes de implementação, mais os 5 arquivos recém-acessados.",
+    "when_it_works": "Horizonte longo contínuo (horas de sessão), quando há notas externas que sobrevivem ao reset e o agente as relê.",
+    "when_it_fails": "Compaction é lossy e depende da seleção do que descartar; sem notas externas a coerência se perde entre resets; não substitui verificação.",
+    "source_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+   },
+   {
+    "pattern": "Multi-agente com escrita single-threaded e leitura paralela",
+    "evidence": "Cognition 2026: 'setups where multiple agents contribute intelligence to a task while writes stay single-threaded'; Anthropic: 90.2% em breadth-first, mas não serve contexto compartilhado/muitas dependências, e trabalho duplicado é falha comum; scaling paper: +80.8% a -70.0%.",
+    "when_it_works": "Subtarefas independentes e decomponíveis (pesquisa breadth-first, exploração, comparação), valor por resposta alto (paga ~15x tokens), sem sobreposição de escrita.",
+    "when_it_fails": "Tarefas sequenciais/dependentes (-70.0%), contexto compartilhado, muitos tokens em ferramentas, e swarms de escrita paralela (pressupostos conflitantes).",
+    "source_url": "https://cognition.ai/blog/multi-agents-whats-actually-working"
+   },
+   {
+    "pattern": "Verificação centralizada + supervisor de runtime",
+    "evidence": "Scaling: sem verificação centralizada erros se propagam mais; MAST: categorias incluem task verification e FM-1.5 'não reconhece conclusão' 12.4%; SupervisorAgent: -29.68% tokens no GAIA sem perder sucesso.",
+    "when_it_works": "Quando há orquestração com vários agentes/etapas e um artefato verificável (teste, diff, checklist) que serve de evidência.",
+    "when_it_fails": "Quando não existe critério objetivo de sucesso, ou quando o verificador é o mesmo modelo/prompt do produtor (auto-confirmação).",
+    "source_url": "https://arxiv.org/abs/2512.08296"
+   },
+   {
+    "pattern": "Gates de aprovação humana por milestone com estado serializado",
+    "evidence": "OpenAI SDK: needs_approval por ferramenta, suspensão run-wide (inclui handoff e Agent.as_tool), RunState serializável, long-running approvals; LangGraph: interrupt + checkpointer, 'waits indefinitely', approve/reject e review-and-edit-state; Anthropic: pausar em checkpoints + condições de parada.",
+    "when_it_works": "Ações sensíveis/irreversíveis (publicar, gastar, deletar, deploy), milestones de design (aprovar spec antes de gerar), quando o humano precisa inspecionar o artefato e não o raciocínio.",
+    "when_it_fails": "Gate por passo (fadiga/rubber-stamp), gate sem evidência (aprovação às cegas), estado não persistido (perde o gate ou refaz trabalho), e efeitos colaterais não idempotentes antes do gate.",
+    "source_url": "https://openai.github.io/openai-agents-python/human_in_the_loop/"
+   },
+   {
+    "pattern": "Política de controle separada + fail closed + escopo mínimo",
+    "evidence": "OpenAI: input/output/tool guardrails vs human review, bloqueante vs paralelo por latência, 'give a separate policy component or reviewer the exact proposed action and only the context needed', 'fail closed if review times out'; HITL desacoplado: oversight como componente independente com 4 dimensões; Human-on-the-Bridge: expertise curada a montante (traps, personas, fallback) escala melhor que HITL por passo.",
+    "when_it_works": "Pipelines com múltiplos agentes/tenants e requisitos de governança; quando aprovar em lote (policy) é suficiente e só exceções sobem para humano.",
+    "when_it_fails": "Quando a política é vaga (nega/permite indiscriminado), quando o revisor recebe contexto demais (decide por narrativa), e quando não há fallback definido ao expirar a revisão.",
+    "source_url": "https://developers.openai.com/api/docs/guides/agents-sdk/guardrails"
+   }
+  ],
+  "open_questions": [
+   "Nenhuma fonte mediu o custo/latência de um gate humano (tempo de fila, taxa de reprovação, custo por aprovação) — só existe o padrão de implementação (OpenAI/LangGraph) e a crítica de não escalar (HITL desacoplado, Human-on-the-Bridge).",
+   "Não encontrei benchmark head-to-head de substrato de memória isolado (arquivo vs vetor vs híbrido com mesmo conteúdo e mesma tarefa); MemoryArena compara paradigmas (memória vs RAG vs long-context), não substratos.",
+   "Evidência de 'memória muda a próxima entrega' é de benchmark acadêmico (MemoryArena/LongMemEval), não de métrica de produto (qualidade da 2ª entrega, retenção); falta estudo de campo.",
+   "MAST/MAST-Data anota frameworks de código (MetaGPT, ChatDev, AppWorld, OpenManus); não há taxonomia equivalente para agentes de product design.",
+   "Sobre rubber-stamping / approval fatigue existe amplo material secundário (blogs, substacks) mas não li paper primário avaliando o fenômeno — não tratei como achado.",
+   "O 'A Practical Guide to Building AI Agents' (OpenAI, PDF) não pôde ser extraído em texto no ambiente (sem pypdf/pdftotext); as citações da OpenAI vêm das docs vivas (guardrails, HITL, tracks).",
+   "Anthropic não publicou números de custo financeiro do sistema multi-agente de pesquisa (só múltiplos de token: 4x chat, 15x multi-agente); câmbio de token para US$ depende do preço do modelo."
+  ]
+ },
+ "4": {
+  "findings": [
+   {
+    "claim": "Canal de massa já existe e é um CLI de uma linha: skills.sh instala qualquer skill de qualquer repo com `npx skills add <owner/repo>`, suporta 78 harnesses e ranqueia por telemetria anônima de instalação — ranking contestado por viés pró-Vercel.",
+    "confidence": "alta",
+    "date": "2026-01-20",
+    "quote": "andrewqu (Vercel): \"skills are ranked by anonymous telemetry from running `npx skills add <owner/repo>`\" / straydusk: \"Seems a little bit fishy to me that you can only tell it's from Vercel if you click the top left corner, and the top two skills come from vercel...\"",
+    "source_url": "https://news.ycombinator.com/item?id=46697908"
+   },
+   {
+    "claim": "Instalar sem medir não mede nada: eval da Vercel mostrou que em 56% dos casos a skill NUNCA foi invocada e não houve ganho sobre o baseline — contagem de instalação superestima adoção real.",
+    "confidence": "media",
+    "date": "2026-02-03",
+    "quote": "\"In 56% of eval cases, the skill was never invoked. The agent had access to the documentation but didn't use it. Adding the skill produced no improvement over baseline.\" (comentarista citando achado da Vercel)",
+    "source_url": "https://news.ycombinator.com/item?id=46871173"
+   },
+   {
+    "claim": "Benchmark público já existe e quantifica ganho: SkillsBench (87 tarefas, 8 domínios, 18 configs modelo-harness) mede par a par com/sem skill, e mostra que skills focadas vencem bundles grandes — logo um agente de design portátil precisa de eval próprio para ser adotado.",
+    "confidence": "alta",
+    "date": "2026-06-14",
+    "quote": "\"Curated Skills raise the average pass rate from 33.9% to 50.5% (+16.6 percentage points; 25.5% normalized gain), with configuration-level gains ranging from +4.1 to +25.7 pp. Focused Skills with at most three modules outperform larger or exhaustive bundles\"",
+    "source_url": "https://arxiv.org/abs/2602.12670"
+   },
+   {
+    "claim": "Demanda viva por design skill em out/2026: posts pedindo recomendação de skill de frontend/UX para dashboards (duplicado em r/ClaudeDesign e r/ClaudeAI, 02/10/2026) porque as skills que a pessoa já tem 'são fracas' e não atendem.",
+    "confidence": "alta",
+    "date": "2026-10-02",
+    "quote": "\"I am currently developing a dashboard app and realized that my current available skills are too poor and do not meet my expectations with the results. What can you recommend me as the best skill set / plugin for frontend design for Claude?\"",
+    "source_url": "https://reddit.com/r/ClaudeAI/comments/1wvffzn/best_claude_frontenddesignuxui_skill_set/"
+   },
+   {
+    "claim": "A demanda por 'design taste skill' já foi precificada por terceiros: roundup de r/claudeskills derivado de threads com 9.143 upvotes lista 'Design taste skill' a US$39 por pacote de estilo, citando o post 'I condensed 8 years of product design experience into a Claude skill' (875 upvotes) e uma lista de 48 arquivos de design (1.077 upvotes).",
+    "confidence": "media",
+    "date": "2026-09-25",
+    "quote": "\"2. **Design taste skill** ($39 per style pack). One clear visual style so new screens stop looking like generic AI UI. From \\\"I condensed 8 years of product design experience into a Claude skill\\\" (875) and a list of 48 design skill files (1,077)\"",
+    "source_url": "https://reddit.com/r/claudeskills/comments/1wq629f/8_claude_code_skills_worth_building_based_on/"
+   },
+   {
+    "claim": "Design é a categoria com maior adoção instalada do ecossistema: frontend-design (anthropics/skills) tem 862k instalações e 175k estrelas; Leonxlnx/taste-skill tem 5 skills de design somando ~1,7M instalações; ui-ux-pro-max 347k. Skillselion rastreia ~5k skills de design.",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "\"The most-installed is frontend-design (862k installs and 175k GitHub stars). Skillselion tracks 5k design skills\"",
+    "source_url": "https://skillselion.com/design"
+   },
+   {
+    "claim": "Oferta explode e o conteúdo duplica: 111.810 skills ativas indexadas em 02/09/2026, +715/dia, 816 clusters de skills byte-idênticas sob nomes diferentes, top-20 repos = 30,6% do corpus, design = 1.392 skills (1,2%) — abundância e clonagem, não escassez, definem a categoria.",
+    "confidence": "alta",
+    "date": "2026-09-02",
+    "quote": "\"111,810 active Claude skills indexed (September 2, 2026) ... 21,462 skills added to the index in the last 30 days — an average of 715 per day ... 816 clusters of byte-identical skills published under different names\"",
+    "source_url": "https://www.skillsdirectory.com/blog/claude-skills-statistics"
+   },
+   {
+    "claim": "Custo de confiança é material e é o que marketplaces curados cobram para resolver: auditoria de 22.511 skills achou 140.963 problemas (6,3 por skill) e Snyk ToxicSkills encontrou prompt injection em 36% das skills testadas.",
+    "confidence": "media",
+    "date": "2026-09-27",
+    "quote": "\"a security audit of 22,511 skills across skills.sh, ClawHub, GitHub, and Tessl found 140,963 issues. That's 6.3 issues per skill on average ... Snyk's ToxicSkills research found prompt injection in 36% of skills tested.\"",
+    "source_url": "https://www.agensi.io/learn/best-ai-agent-skills-marketplaces-2026"
+   },
+   {
+    "claim": "Marketplaces pagos existem e pagam criador, mas com catálogo pequeno e curadoria: Agensi (200+ skills, split 70/30 para o criador, Pro US$9/mês com acesso via MCP e scan de 8 pontos), contra agregadores de escala sem filtro (SkillsMP 800.000 indexadas) e catálogo oficial Anthropic (~20 skills).",
+    "confidence": "alta",
+    "date": "2026-09-27",
+    "quote": "\"Agensi 200+ | Manual + automated | 8-point scan on every submission | Yes, 70/30 split | Yes, $9/mo Pro tier\" / \"SkillsMP's 800,000 number sounds impressive until you realize it's indexed public GitHub repos with no quality filter beyond \\\"has 2 stars.\\\"\"",
+    "source_url": "https://www.agensi.io/learn/best-ai-agent-skills-marketplaces-2026"
+   },
+   {
+    "claim": "Solo founder consegue receita real vendendo skill fora de marketplace, mas 'skill genérica' satura em ~US$1k/mês: 4 de 14 fundadores monitorados fizeram US$1.400-8.200 no 1º mês; faixas US$5-29 genérica, US$49-199 workflow, US$299-2.499 expertise vertical.",
+    "confidence": "media",
+    "date": "2026-05-08",
+    "quote": "\"Founder A: $39 productivity skill, 144 sales in 30 days = $5,616 (newsletter audience ~3,200) ... Three viable price tiers: $5-29 generic, $49-199 workflow, $299-2,499 vertical expertise ... Generic skills max around $1K/mo.\"",
+    "source_url": "https://500k.io/journal/how-to-sell-claude-skills"
+   },
+   {
+    "claim": "Vender arquivo é vazamento de IP; quem monetiza empacota execução, não SKILL.md: Agent37 vende acesso hospedado (instância por URL, US$3,44-3,99/mês, >1.000 pagantes, #1 Product of the Day) com o argumento de que 'file sales expose your IP'.",
+    "confidence": "media",
+    "date": "2026-07-19",
+    "quote": "\"Do I need to share my source code to sell a Claude skill? No. With hosted access, users interact with a running instance of your skill, not the files that power it. File sales expose your IP. Hosted skills protect it.\" / \"More than 1,000 people pay for Agent37 hosting today\"",
+    "source_url": "https://www.agent37.com/blog/claude-skills-marketplace"
+   },
+   {
+    "claim": "Medir adoção é impossível de dentro do formato — os autores do repo mais adotado instrumentaram telemetria própria ('skills e plugins não dão nenhum feedback aos criadores'), prova de que sem analytics próprio o produtor de skill voa cego.",
+    "confidence": "alta",
+    "date": "2026-10-10",
+    "quote": "\"Because skills and plugins don't provide any feedback to creators, we have no idea how many of you are using Superpowers. By default, the Prime Radiant logo on brainstorming's optional visual companion feature is loaded from our website.\"",
+    "source_url": "https://raw.githubusercontent.com/obra/superpowers/main/README.md"
+   },
+   {
+    "claim": "O que faz o repo mais adotado funcionar: licença MIT, instalador de 1 linha por harness (inclusive marketplaces oficiais), evals próprios (dill/superpowers-evals, testes em tests/) e oferta comercial separada — não a qualidade isolada do markdown.",
+    "confidence": "alta",
+    "date": "2026-10-10",
+    "quote": "\"Skill-behavior tests use the drill eval harness from superpowers-evals, cloned into `evals/` ... If you're using Superpowers in enterprise and could benefit from commercial support, additional tooling, or managed spending, please don't hesitate to drop us a line at sales@primeradiant.com.\" / \"MIT License - see LICENSE file for details\"",
+    "source_url": "https://raw.githubusercontent.com/obra/superpowers/main/README.md"
+   },
+   {
+    "claim": "Autor conhecido + instalador de 1 linha domina adoção, não a vertical: mattpocock/skills 287.541★, obra/superpowers 298.070★, anthropics/skills 180.692★, ui-ux-pro-max-skill (design, anônimo) 135.091★ — mas design skill de autor famoso e MIT (Nutlope/hallmark) fez só 7 pontos no HN.",
+    "confidence": "alta",
+    "date": "2026-10-12",
+    "quote": "GitHub API: mattpocock/skills ★287541 forks 24132 lic=MIT; obra/superpowers ★298070 forks 26636 lic=MIT; Nutlope/hallmark ★29945 forks 1533 lic=MIT pushed=2026-08-06",
+    "source_url": "https://api.github.com/repos/Nutlope/hallmark"
+   },
+   {
+    "claim": "Design skill é julgada convergente/commodity por quem usa: no Show HN do Hallmark (skill anti-AI-slop, 7 pts), usuários dizem que skills de design 'convergem para a mesma coisa', que o output segue slop, e que não querem instruções prescritivas embutidas.",
+    "confidence": "alta",
+    "date": "2026-07-26",
+    "quote": "mstkllah: \"I have used skills like impeccable, ui-ux-max, and many, many others and they all seem to converge on the same thing ... the design itself is the same unless you are extremely explicit.\" / joshribakoff: \"If I'm doing design who's to say I want instructions in there in the first place like 'pick an extreme'\"",
+    "source_url": "https://news.ycombinator.com/item?id=49058547"
+   },
+   {
+    "claim": "Adoção marginal decai com higiene acumulada: usuário em r/ClaudeCode cortou de ~150 skills para 37 (8 de design) e pergunta se elas 'brigam' entre si; no HN os topos de thread sobre skills tratam de falta de versionamento/update/uninstall.",
+    "confidence": "alta",
+    "date": "2026-10-04",
+    "quote": "\"Just cut my Claude Code setup from ~150 skills to 37 ... about 8 design ones (frontend design, motion, patterns from award sites) ... Still 8 design skills. Do they fight each other? Would you keep one, or merge them into one skill of my own?\"",
+    "source_url": "https://reddit.com/r/ClaudeCode/comments/1wxayip/just_cut_my_claude_code_setup_from_150_skills_to/"
+   },
+   {
+    "claim": "Falta de gestão de pacote é o ponto fraco estrutural do canal: o instalador é criticado no HN por não documentar update, version-pinning ou uninstall — 'sensação de faroeste pré-controle de versão'.",
+    "confidence": "alta",
+    "date": "2026-01-20",
+    "quote": "m-hodges: \"Why do none of these \\\"npm for Skills\\\" document any way to do basic package management things like updates, version-pinning, or even uninstalls?\" / Traubenfuchs: \"Skills certainly got a wildwest pre VCS copy-paste feeling going on.\"",
+    "source_url": "https://news.ycombinator.com/item?id=46697908"
+   },
+   {
+    "claim": "A plataforma absorve a categoria de design e empurra o valor para o workflow: Claude Docs/Slides/Design saíram de beta e entraram em todos os planos, inclusive Free; no X o que se vende é processo/entrega ('motion engineering prompts and delivery process'), não a skill.",
+    "confidence": "media",
+    "date": "2026-10-12",
+    "quote": "meetLCA: \"Last week Anthropic took Claude Docs, Slides and Design out of beta and put them on every plan, including Free.\" / beamnxw (299 likes): \"Opus 5.5 can run a whole motion design studio ... Copy the motion engineering prompts and delivery process ... Build your offer before the next product launch\"",
+    "source_url": "https://x.com/meetLCA/status/2109678654590525822"
+   },
+   {
+    "claim": "X funciona como canal de distribuição por listicle, não por busca: posts que listam repos e instaladores de uma linha é que movem instalações de skill.",
+    "confidence": "alta",
+    "date": "2026-09-01",
+    "quote": "undefinedKi: \"The Claude Code ecosystem you did not know existed — 18 repositories, sorted by what they do ... (173k stars) - the official skill library\" / sakatayasha: \"you can install 1,935 AI agent skills with a single npx command ... one command and your agent wakes up with 1,935 proven playbooks\"",
+    "source_url": "https://x.com/undefinedKi/status/2094769939487809565"
+   },
+   {
+    "claim": "Tese de demanda dominante em 2026: 'a feature não está pronta até o Claude Code conseguir usar' — skills/MCP tratados como SEO/acessibilidade, o que cria demanda por assets portáteis e por conformidade de formato, não por gosto visual.",
+    "confidence": "media",
+    "date": "2026-02-03",
+    "quote": "baal80spam: \"If you are building a product today, the feature you are working on is not done until Claude Code can use it. A skill and an MCP isn't a \\\"nice to have\\\", it is going to be as important as SEO and accessibility\"",
+    "source_url": "https://news.ycombinator.com/item?id=46871173"
+   },
+   {
+    "claim": "Marketplace oficial (catálogo curado Anthropic) é canal de alto alcance e baixo custo de entrada: 314 plugins no marketplace.json oficial, e o repo de design/UI mais instalado é justamente anthropics/skills (frontend-design).",
+    "confidence": "alta",
+    "date": "2026-09-28",
+    "quote": "\"anthropics/skills (~179k stars) Anthropic's reference skills: skill-creator, mcp-builder, frontend-design, webapp-testing, docx, pdf, pptx, xlsx, and more /plugin marketplace add anthropics/skills\" / \"catalog (314 plugins)\"",
+    "source_url": "http://developersdigest.tech/blog/best-claude-code-skills-2026"
+   }
+  ],
+  "channels": [
+   {
+    "channel": "skills.sh + CLI `npx skills add` (Vercel Labs, MIT, 78 harnesses)",
+    "evidence": "Instalador de uma linha por repo; ranking por telemetria anônima de instalação; foi o Show HN de maior tráfego do ecossistema (135 pts) com disputa sobre viés pró-Vercel.",
+    "reach": "33.975★ no CLI (vercel-labs/skills); indexa todo o corpus público de SKILL.md do GitHub",
+    "source_url": "https://news.ycombinator.com/item?id=46697908"
+   },
+   {
+    "channel": "Marketplace oficial de plugins Claude (`/plugin install x@claude-plugins-official`)",
+    "evidence": "Canal que levou o Superpowers a 298k★; catálogo curado com 314 plugins; também usado por anthropics/skills e pelo repo de knowledge-work.",
+    "reach": "314 plugins no catálogo oficial; anthropics/skills 180.692★",
+    "source_url": "http://developersdigest.tech/blog/best-claude-code-skills-2026"
+   },
+   {
+    "channel": "Publicação multi-harness do mesmo pacote (Codex, Gemini, Copilot, Grok, Devin, Factory, Qwen, Cursor)",
+    "evidence": "Superpowers documenta comando de instalação distinto por harness (ex.: `gemini extensions install`, `copilot plugin marketplace add`, marketplaces oficiais OpenAI e xAI).",
+    "reach": "README cobre 12+ harnesses; inclui openai/plugins e xai-org/plugin-marketplace",
+    "source_url": "https://raw.githubusercontent.com/obra/superpowers/main/README.md"
+   },
+   {
+    "channel": "GitHub (repo + badges de registry + README com tabela e comandos por cliente)",
+    "evidence": "Hallmark usa `npx skills add nutlope/hallmark` e caminhos manuais por cliente (Claude Code/Cursor/Codex); repos de design acumulam 95k-135k★.",
+    "reach": "Leonxlnx/taste-skill 95.046★; nextlevelbuilder/ui-ux-pro-max-skill 135.091★",
+    "source_url": "https://api.github.com/repos/Leonxlnx/taste-skill"
+   },
+   {
+    "channel": "Reddit (r/ClaudeAI, r/ClaudeCode, r/claudeskills, r/ClaudeDesign)",
+    "evidence": "Threads de 'o que instalar' e roundups com preço; o roundup de 8 skills foi montado a partir de 20 threads com 9.143 upvotes.",
+    "reach": "Posts de design skill com 875-1.077 upvotes; canal de descoberta e de validação de preço",
+    "source_url": "https://reddit.com/r/claudeskills/comments/1wq629f/8_claude_code_skills_worth_building_based_on/"
+   },
+   {
+    "channel": "Hacker News (Show HN e threads de skills)",
+    "evidence": "Threads de skills fazem 65-544 pontos; design skill específica (Hallmark) ficou em 7 pontos com comentários céticos — canal de reputação, não de volume para design.",
+    "reach": "Show HN Agent Skills 544 pts/260 comments; Hallmark 7 pts/5 comments",
+    "source_url": "https://news.ycombinator.com/item?id=49058547"
+   },
+   {
+    "channel": "X/Twitter (listicles e threads de repos)",
+    "evidence": "Posts que listam 18 repos ou prometem '1.935 skills com um npx' atingem dezenas a centenas de likes e são elo rastreável entre repo e instalação; também é onde se vende workflow de design, não a skill.",
+    "reach": "Posts de listicle com 50-300 likes; listas de repos citando 173k★",
+    "source_url": "https://x.com/undefinedKi/status/2094769939487809565"
+   },
+   {
+    "channel": "Marketplaces curados pagos e hospedagem (Agensi, PromptBase, Agent37)",
+    "evidence": "Agensi: 200+ skills, 70/30, Pro US$9/mês via MCP, scan de 8 pontos. PromptBase: item a US$1-9, taxa de 20%. Agent37: venda por instância hospedada sem entregar arquivo.",
+    "reach": "Agensi 200+ skills; PromptBase centenas de milhares de listings; Agent37 >1.000 pagantes",
+    "source_url": "https://www.agensi.io/learn/best-ai-agent-skills-marketplaces-2026"
+   }
+  ],
+  "adoption_signals": [
+   {
+    "metric": "instalações (registry skills.sh)",
+    "subject": "anthropics/skills — frontend-design",
+    "value": "862.000 instalações",
+    "source_url": "https://skillselion.com/design"
+   },
+   {
+    "metric": "estrelas/forks GitHub",
+    "subject": "anthropics/skills",
+    "value": "180.692★ / 21.413 forks (sem licença declarada)",
+    "source_url": "https://api.github.com/repos/anthropics/skills"
+   },
+   {
+    "metric": "instalações",
+    "subject": "Leonxlnx/taste-skill (5 skills de design)",
+    "value": "451k + 334k + 330k + 307k + 286k instalações; 95.046★",
+    "source_url": "https://skillselion.com/design"
+   },
+   {
+    "metric": "instalações + estrelas",
+    "subject": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "value": "347k instalações / 135.091★ / 14.357 forks",
+    "source_url": "https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill"
+   },
+   {
+    "metric": "estrelas/forks/frescor",
+    "subject": "obra/superpowers (teto de adoção)",
+    "value": "298.070★ / 26.636 forks / MIT / último push 2026-10-10",
+    "source_url": "https://api.github.com/repos/obra/superpowers"
+   },
+   {
+    "metric": "estrelas/forks/frescor",
+    "subject": "Nutlope/hallmark (design skill de autor conhecido)",
+    "value": "29.945★ / 1.533 forks / MIT / último push 2026-08-06 (2+ meses parado)",
+    "source_url": "https://api.github.com/repos/Nutlope/hallmark"
+   },
+   {
+    "metric": "upvotes como proxy de demanda",
+    "subject": "'I condensed 8 years of product design experience into a Claude skill'",
+    "value": "875 upvotes; roundup agregou 20 threads com 9.143 upvotes",
+    "source_url": "https://reddit.com/r/claudeskills/comments/1wq629f/8_claude_code_skills_worth_building_based_on/"
+   },
+   {
+    "metric": "tamanho do corpus e velocidade de publicação",
+    "subject": "índice Skills Directory",
+    "value": "111.810 skills ativas; +715/dia; 816 clusters byte-idênticos; design = 1.392 skills (1,2%)",
+    "source_url": "https://www.skillsdirectory.com/blog/claude-skills-statistics"
+   },
+   {
+    "metric": "alcance do canal (estrelas do instalador)",
+    "subject": "vercel-labs/skills (CLI `npx skills`)",
+    "value": "33.975★ / 2.909 forks / 1.098 issues abertas",
+    "source_url": "https://api.github.com/repos/vercel-labs/skills"
+   },
+   {
+    "metric": "assinatura/pagantes de marketplace",
+    "subject": "Agensi Pro (acesso via MCP a 200+ skills)",
+    "value": "US$9/mês; criador recebe 70%",
+    "source_url": "https://www.agensi.io/learn/best-ai-agent-skills-marketplaces-2026"
+   },
+   {
+    "metric": "pagantes de infraestrutura de skill",
+    "subject": "Agent37 (hospedagem de skill/agente)",
+    "value": ">1.000 pagantes; ~1.000 instâncias; #1 Product of the Day no Product Hunt",
+    "source_url": "https://www.agent37.com/blog/claude-skills-marketplace"
+   },
+   {
+    "metric": "ganho medido de skill (benchmark público)",
+    "subject": "SkillsBench",
+    "value": "pass rate 33.9% para 50.5% (+16.6 pp; ganho normalizado 25,5%) em 87 tarefas/18 configs",
+    "source_url": "https://arxiv.org/abs/2602.12670"
+   },
+   {
+    "metric": "falha de medição",
+    "subject": "eval da Vercel sobre invocação de skill",
+    "value": "em 56% dos casos a skill nunca foi invocada",
+    "source_url": "https://news.ycombinator.com/item?id=46871173"
+   },
+   {
+    "metric": "custo de confiança",
+    "subject": "varredura de segurança do corpus",
+    "value": "22.511 skills auditadas para 140.963 problemas (6,3/skill); prompt injection em 36% das skills testadas (Snyk ToxicSkills)",
+    "source_url": "https://www.agensi.io/learn/best-ai-agent-skills-marketplaces-2026"
+   }
+  ],
+  "monetization": [
+   "Venda direta de arquivo (Gumroad/LemonSqueezy/Stripe): US$39x144=US$5.616; US$99x47=US$4.653; US$299x23=US$6.877 em 30 dias; faixas US$5-29 genérica, US$49-199 workflow, US$299-2.499 expertise vertical — mas 'generic skills max around $1K/mo'.",
+   "Marketplace curado com split: Agensi paga 70% ao criador, com Pro a US$9/mês (acesso via MCP) e scan de segurança de 8 pontos por skill.",
+   "Microtransação em marketplace de prompt/skill: PromptBase, US$1-9 por item (maioria US$2-5), taxa de 20% da plataforma.",
+   "Assinatura/recorrência: US$9/mês (Agensi Pro) e tiers de atualização mensal no roundup de skills do Reddit.",
+   "Hospedagem como produto anti-cópia: Agent37 vende instância hospedada (gVisor) a partir de US$3,44/mês (managed US$3,99/mês), >1.000 pagantes, com Starter Kit white-label para revender skill como serviço.",
+   "Serviço comercial aberto pelo autor do skill mais adotado: 'commercial support, additional tooling, or managed spending' via sales@primeradiant.com (Superpowers) — enterprise como saída, não venda de arquivo.",
+   "Sponsor/visibilidade: leaderboards e badges (skills.sh, Skillselion, Skills Directory) são canal gratuito; o retorno é adoção e pipeline, não pagamento direto.",
+   "Sinal contrário (commoditização): plataforma entrega design de graça — Claude Docs/Slides/Design saíram de beta para todos os planos, inclusive Free; 816 clusters byte-idênticos fixam o preço no piso.",
+   "Treinamento/mentoria substitui skill vendida: no X o monetizado é o processo ('motion engineering prompts and delivery process', 'turn what you build into paid work').",
+   "Licença define monetização: anthropics/skills, vercel-labs/agent-skills e openai/skills não trazem SPDX; os repos que viram produto e monetizam (superpowers, hallmark, taste-skill, ui-ux-pro-max, CLI skills) usam MIT."
+  ]
+ }
+}

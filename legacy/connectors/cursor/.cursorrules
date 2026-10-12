@@ -1,0 +1,6 @@
+# Cursor Rules: Product Designer Agent
+
+- Enforce Design Tokens: do not hardcode arbitrary hex colors; map to theme CSS variables or Tailwind tokens.
+- Every interactive element requires `:hover`, `:active`, `:focus-visible`, and `disabled` states.
+- Animations must declare spring physics or `cubic-bezier(0.16, 1, 0.3, 1)` easing. No default linear transitions.
+- Check WCAG contrast >= 4.5:1 on all text nodes.
