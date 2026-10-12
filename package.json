@@ -1,7 +1,6 @@
 {
   "name": "agent-product-designer",
   "version": "0.1.0",
-  "private": true,
   "description": "Agente product designer com tres portoes bloqueantes (sem AI slop, sem decisao sem estrategia, sem excessos).",
   "type": "module",
   "license": "MIT",
