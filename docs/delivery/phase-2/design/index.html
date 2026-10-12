@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fase 2 — o placar</title>
+<style>
+  :root {
+    --bg: #12110f;
+    --panel: #181614;
+    --ink: #ece7dd;
+    --muted: #9a9083;
+    --rule: #2b2723;
+    --accent: #c07a2e;
+    --ok: #7d9a5b;
+    --bad: #d98a6b;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 17px/1.62 Inter, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 78ch; margin: 0 auto; padding: 4.5rem 1.5rem 4rem; }
+  h1, h2 { font-family: Newsreader, Georgia, serif; font-weight: 600; line-height: 1.15; margin: 0 0 .7rem; }
+  h1 { font-size: clamp(2.1rem, 5.4vw, 3.4rem); }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1rem; letter-spacing: .01em; margin: 0 0 .3rem; }
+  p { margin: 0 0 1rem; }
+  .kicker { font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+  .lede { color: var(--muted); font-size: 1.15rem; max-width: 62ch; }
+  section { border-top: 1px solid var(--rule); padding: 2.4rem 0; }
+  section:first-of-type { border-top: 0; padding-top: 0; }
+  code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em; }
+  code { background: var(--panel); border: 1px solid var(--rule); border-radius: 2px; padding: .05em .3em; }
+  pre {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 1.05rem 1.15rem; overflow-x: auto; margin: 0 0 1rem;
+  }
+  pre code { background: none; border: 0; padding: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 0 0 1rem; font-size: .95rem; }
+  th, td { text-align: left; padding: .55rem .7rem .55rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+  .num { font-family: ui-monospace, monospace; white-space: nowrap; }
+  .ok { color: var(--ok); }
+  .bad { color: var(--bad); }
+  tr.me td { background: #1d1a17; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .cell { background: var(--panel); padding: .95rem 1rem; }
+  .cell b { display: block; font-family: Newsreader, Georgia, serif; font-size: 1.7rem; line-height: 1.1; }
+  .cell span { color: var(--muted); font-size: .84rem; }
+  .flag { border-left: 2px solid var(--accent); padding-left: 1rem; margin: 0 0 1.1rem; }
+  .flag.warn { border-left-color: var(--bad); }
+  ol.threats { margin: 0 0 1rem; padding-left: 1.3rem; color: var(--ink); }
+  ol.threats li { margin-bottom: .6rem; }
+  footer { color: #a89e8f; font-size: .9rem; padding-top: 1.8rem; border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section>
+    <p class="kicker">Entrega · fase 2 de 3</p>
+    <h1>O placar</h1>
+    <p class="lede">A fase 1 fazia o kernel recusar. A fase 2 perguntou se ele <em>acerta</em>: corpus
+    rotulado de 48 páginas, quatro detectores medidos no mesmo alvo, pré-registro congelado
+    <strong>antes</strong> da primeira medição. Os critérios que eu escrevi no dia 12 batem com os
+    números que saíram — ou o repo publicaria o contrário.</p>
+  </section>
+
+  <section>
+    <h2>Estado verificado agora</h2>
+    <div class="grid">
+      <div class="cell"><b>0,574</b><span>F1 do juiz (2× exigido)</span></div>
+      <div class="cell"><b>1 / 15</b><span>blockers que escaparam</span></div>
+      <div class="cell"><b>3×</b><span>execuções byte-idênticas</span></div>
+      <div class="cell"><b>48</b><span>páginas no corpus</span></div>
+      <div class="cell"><b>4</b><span>detectores no mesmo alvo</span></div>
+      <div class="cell"><b>132</b><span>asserções passando</span></div>
+    </div>
+      <p class="mono" style="margin-top:1rem;font-size:.9rem">
+        <span class="ok">H1</span> F1 4,6× o <code>impeccable</code> · <span class="ok">H2</span> escape 0,067 ≤ 0,15 ·
+        <span class="ok">H3</span> precisão 1,000 · <span class="ok">H4</span> sha256 <code>595c71866674c924</code>
+      </p>
+  </section>
+
+  <section>
+    <h2>Placar: quem acusa o quê</h2>
+    <table>
+      <thead><tr><th>Detector</th><th>Cobertura</th><th>Precisão</th><th>Recall</th><th>F1</th><th>Escape</th></tr></thead>
+      <tbody>
+        <tr class="me"><td>juiz determinístico</td><td class="num">38 tells</td><td class="num">0,448</td><td class="num">0,796</td><td class="num ok">0,574</td><td class="num ok">0,067</td></tr>
+        <tr><td><code>impeccable</code> 3.6.0</td><td class="num">5 mapeamentos</td><td class="num">0,173</td><td class="num">0,097</td><td class="num">0,124</td><td class="num">0,133</td></tr>
+        <tr><td>portões r1/r2/r3</td><td class="num">6 tells</td><td class="num ok">1,000</td><td class="num bad">0,022</td><td class="num">0,042</td><td class="num bad">0,867</td></tr>
+        <tr><td>produto anterior (baseline)</td><td class="num">7 mapeamentos</td><td class="num">0,057</td><td class="num">0,118</td><td class="num">0,077</td><td class="num bad">1,000</td></tr>
+      </tbody>
+    </table>
+    <p>15 páginas do corpus têm defeito bloqueante. Um arquivo vale 6,7 pontos de escape. O juiz
+    acusa 74 dos 93 blockers e deixa passar <strong>um</strong>. O <code>impeccable</code> deixa passar dois
+    e erra 43 vezes para o lado do falso positivo.</p>
+    <p>O número que eu não esperava: <strong>o baseline escapou 100%</strong>. As três regras duras que
+    publiquei na fase 1 não barraram <em>nenhuma</em> das 15 páginas ruins. Elas media 6 tells, e para
+    6 tells elas acertam — precisão 1,000. Cobertura é outra coisa.</p>
+  </section>
+
+  <section>
+    <h2>O pré-registro, linha por linha</h2>
+    <table>
+      <thead><tr><th>Hipótese</th><th>Critério escrito antes</th><th>Medido</th><th></th></tr></thead>
+      <tbody>
+        <tr><td class="num">H1</td><td>F1 do juiz ≥ 2× o do <code>impeccable</code></td><td class="num">0,574 vs 0,124 (4,6×)</td><td class="ok">confirmada</td></tr>
+        <tr><td class="num">H2</td><td>escape de blocker ≤ 0,15</td><td class="num">0,067</td><td class="ok">confirmada</td></tr>
+        <tr><td class="num">H3</td><td>precisão dos portões ≥ 0,80 nos tells declarados</td><td class="num">1,000</td><td class="ok">confirmada</td></tr>
+        <tr><td class="num">H4</td><td>duas execuções, JSON byte-idêntico</td><td class="num">3 execuções, 1 hash</td><td class="ok">confirmada</td></tr>
+      </tbody>
+    </table>
+    <p>A condição que matava a tese — escape do juiz ≥ 0,25 ou F1 abaixo de 0,40 — não disparou.
+    Se tivesse disparado, este arquivo seria o relato do fracasso, não do placar.</p>
+    <pre><code>npm run bench                                  # lane completa, ~140s
+node -e "console.log(require('./bench/results/lane-a.json').adapters[1])"</code></pre>
+    <p class="mono" style="color:var(--muted)">{ adapter: 'judge', tp: 74, fp: 91, fn: 19, precision: 0.448, recall: 0.796, f1: 0.574, escape_rate: 0.067 }</p>
+  </section>
+
+  <section>
+    <h2>As cinco ameaças que continuam de pé</h2>
+    <ol class="threats">
+      <li><strong>Eu sou o autor do juiz e o anotador do corpus.</strong> O rótulo é minha opinião sobre
+      o que é blocker, e o κ contra um anotador independente não existe. Está no pré-registro, não
+      numa nota de rodapé.</li>
+      <li><strong>48 páginas.</strong> Sustentam ordem de grandeza, não intervalo de confiança. E o corpus
+      vem do <code>designcourt</code>, que também é meu — não é amostra do mundo.</li>
+      <li><strong>O <code>impeccable</code> não está pinado.</strong> 3.6.0 veio do <code>npx</code> no dia da
+      medição. O F1 dele aqui é indicativo, não veredito sobre a ferramenta.</li>
+      <li><strong>Precisão 1,000 com recall 0,022 é troca deliberada, não vitória.</strong> Num portão
+      sobre o artefato que o agente acabou de escrever, falso positivo joga fora trabalho bom; acusação
+      perdida custa uma revisão humana. O recall baixo está publicado no README, não escondido.</li>
+      <li><strong>Nada aqui mede gosto.</strong> Mede detecção de defeito estrutural. O repo não vende
+      gosto, vende prova — e prova não é a mesma coisa que acerto.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>O que a fase 2 corrigiu de verdade</h2>
+    <div class="flag warn">
+      <h3>O benchmark não rodava</h3>
+      <p>A lane estourava 420s. O <code>impeccable</code> via <code>npx</code> custa 139s dos ~140s,
+      e redirecionar <code>stderr</code> junto de <code>stdout</code> sem TTY faz o <code>npx</code>
+      morrer com <code>stdin is not a tty</code>. Agora o adapter é reportado <code>unavailable</code> —
+      <strong>nunca como 0</strong> — e existe <code>--only</code>/<code>--out</code> para a suíte provar
+      determinismo em 4s em vez de 8 minutos.</p>
+    </div>
+    <div class="flag warn">
+      <h3>Um teste que acusava a coisa errada</h3>
+      <p>A checagem "métrica do pré-registro aparece no resultado" exigia as chaves em inglês dentro de um
+      pré-registro escrito em português. Três falhas apontando para o arquivo errado. Corrigido: o
+      pré-registro nomeia a métrica na língua dele, o JSON carrega a chave exata.</p>
+    </div>
+    <div class="flag">
+      <h3>O kernel não sabia se era genérico</h3>
+      <p><code>tests/swap.mjs</code> copia o repo, troca <code>skills/</code> por uma skill de
+      <em>ecologia marinha</em>, aperta o teto do pacote e exige que o exemplo <strong>reprove</strong>;
+      restaura o teto e exige que ele <strong>passe</strong>. Mais: o teste varre o kernel e falha se
+      ele citar <code>examples/landing</code>, <code>impeccable</code> ou <code>hallmark</code> por nome.
+      O teto vem do pacote, não do código.</p>
+    </div>
+    <div class="flag">
+      <h3>O relatório passa nos portões que descreve</h3>
+      <p><code>node gates/run.mjs docs/delivery/phase-2</code> → <code>PASS (0 violações, 0 incertezas)</code>.
+      Dentro do teto do pacote: 10 cores, 1 accent, 2 famílias, 3 pesos, 8 seções, 900 palavras —
+      e os 10 tokens cobertos por 3 decisões com fonte. O benchmark está autorizado a ser feio; o
+      relatório não.</p>
+    </div>
+    <div class="flag">
+      <h3>Degradação, declarada em vez de descoberta depois</h3>
+      <p><code>docs/degradation.md</code>: o que funciona em Claude Code, Hermes, Codex, Cursor e num
+      client qualquer — e o que quebra. Claude Code e Hermes <strong>não leem</strong>
+      <code>AGENTS.md</code>: ali o kernel deixa de ser sempre-ativo e vira skill carregada por gatilho.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>O que esta fase não prova</h2>
+    <p>Que o juiz generaliza. Ele foi medido no corpus que eu rotulei, com as regras que eu escrevi.
+    Um anotador independente pode discordar de metade dos rótulos, e esse número — o κ — é exatamente
+    o que falta.</p>
+    <p>Que a métrica de escape é a métrica certa. Ela foi escolhida porque um portão que fica quieto
+    libera entrega ruim, e isso está escrito no pré-registro antes de qualquer medição. Continuo
+    achando que está certa; continuo sendo parte interessada.</p>
+  </section>
+
+  <section>
+    <h2>Próximo passo</h2>
+    <p>A fase 3 é a única que não dá para fazer sozinho, porque mede <strong>gente</strong>: κ de um painel
+    com anotadores que não sou eu, ganho medido contra "sem agente", taxa de invocação real e o gate
+    humano cronometrado. Sem isso, o placar vale para mim e para quem aceitar meu rótulo.</p>
+    <pre><code>cd agent-product-designer
+npm test                        # 132 asserções
+npm run bench                   # reproduz o placar deste artefato
+node gates/run.mjs examples/landing
+node install.mjs --client all   # claude | hermes | agents | codex</code></pre>
+  </section>
+
+  <footer>
+    <p>Lane A medida em 2026-10-12 · corpus <code>2a89573272b668f2</code> · JSON
+    <code>595c71866674c924</code> · Node v24.12.0 / Windows 11 · 132 asserções, 0 falhas.
+    Duas decisões são suas: aceitar o placar como fase 2 entregue, ou mandar refazer a medição com
+    anotador independente antes de publicar.</p>
+  </footer>
+</main>
+</body>
+</html>

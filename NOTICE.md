@@ -27,3 +27,19 @@ Só entra em `skills/` o que está completo: nome do diretório igual ao `name` 
 `description` presente e **toda referência citada presente no disco**. O teste `# 8` da suíte
 verifica isso a cada execução — foi assim que a vendorização pela metade (hallmark com 66 KB de
 SKILL.md citando 28 referências ausentes) foi detectada e corrigida.
+
+## Harness de medicao vendorizado (designcourt)
+
+Alem das skills, este repo vendoriza o **juiz** e o **harness de benchmark** do repositorio
+`designcourt` (MIT), commit `d568871`, copiados verbatim em 2026-10-12:
+
+| O que | Onde | Licenca |
+|---|---|---|
+| juiz deterministico (`judge.mjs`, `checks.mjs`, `dom.mjs`, `cli.mjs`, fixtures, `spec/CHECKS.md`) | `judge/` | MIT (upstream) |
+| skill `designcourt-judge` | `skills/designcourt-judge/` | MIT (upstream) |
+| metricas, corpus rotulado e builder do corpus | `bench/lib/metrics.mjs`, `bench/corpus/`, `bench/build-corpus.mjs` | MIT (upstream) |
+| protocolo de medicao da Lane A | `bench/spec/BENCH-PROTOCOL.md` | MIT (upstream) |
+
+Nada de terceiro foi reescrito: onde um caminho de import mudou, so o caminho mudou.
+`judge/VENDORED.md` e `bench/VENDORED.md` registram arquivo por arquivo com sha256.
+`bench/lib/adapters.mjs` e `bench/run-lane-a.mjs` sao deste repo, nao do upstream.

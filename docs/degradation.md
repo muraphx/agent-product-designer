@@ -1,0 +1,52 @@
+# Degradação por client
+
+O que este pacote faz em cada client, e o que ele **perde**. A6 do plano (`docs/research/05-deliver-plan.md`).
+
+Regra de leitura: `verificado` significa que eu rodei e vi o resultado. `declarado` significa que o
+arquivo existe e o client afirma ler aquilo — ninguém rodou. `não funciona` significa que o client
+não tem o mecanismo.
+
+## Matriz
+
+| Capacidade | Claude Code | Hermes Agent | Codex / ChatGPT | Cursor | Client que só lê `AGENTS.md` |
+|---|---|---|---|---|---|
+| Portões (CLI `node gates/run.mjs`) | verificado | verificado | verificado | verificado | verificado |
+| Suíte (`npm test`, 132 asserções) | verificado | verificado | verificado | verificado | verificado |
+| Agent Skills (`skills/`) | verificado: plugin instalado e habilitado, `claude plugin list` | verificado: 6 skills copiadas e relidas do diretório do profile | declarado: precisa de `--client agents` (copia para `~/.agents/skills`) | declarado: lê `~/.agents/skills` | declarado |
+| Kernel sempre-ativo (`AGENTS.md`) | **não funciona** (lê `CLAUDE.md`) | **não funciona** (lê skills + memória) | verificado: bloco escrito em `~/.codex/AGENTS.md` | declarado: lê `AGENTS.md` | verificado |
+| Memória MCP (`bin/memory-server.mjs`) | declarado em `.mcp.json` (`${CLAUDE_PLUGIN_ROOT}`); servidor verificado por fora, conexão na sessão **não verificada** | **não registrado** no profile: rodar à mão | não registrado | não registrado | não se aplica |
+| Slash commands / hooks | não embarcados (fora da Agent Plugins Spec 1.0.0) | não embarcados | não embarcados | não embarcados | não embarcados |
+
+Asserções: `npm test` (102) + `tests/swap.mjs` (30) = **132**.
+
+## O piso: o que funciona sem client nenhum
+
+Três coisas não dependem de client, porque são um processo Node e um diretório de arquivos:
+
+1. `node gates/run.mjs <alvo>` — os três portões, com código de saída. Qualquer CI roda isso.
+2. `node bin/memory-server.mjs` — memória como servidor MCP stdio (JSON-RPC por linha). Qualquer
+   client que fale MCP pode ligá-lo; nenhum precisa entender o repo.
+3. `node install.mjs --client agents` — skills no diretório portátil `~/.agents/skills`.
+
+Esse piso é o que sobra quando o client não coopera. A degradação real é **conveniência**, não
+capacidade: sem plugin instalado, o humano tem que lembrar de rodar os portões. Com plugin, o
+kernel está no contexto o tempo todo.
+
+## O que degrada de verdade
+
+1. **Kernel sempre-ativo** em Claude Code e Hermes. Os dois não leem `AGENTS.md` sozinhos. Lá, o
+   kernel vira *skill* (carregada por gatilho) ou instrução copiada à mão. Não é o mesmo que
+   sempre-ativo: o agente pode agir sem lembrar do portão.
+2. **Memória MCP** fora do Claude Code. O `.mcp.json` só vale no plugin do Claude; nos outros
+   clients o servidor tem que ser registrado à mão. A recusa de gravar decisão incompleta continua
+   valendo — ela é do servidor, não do client.
+3. **Skills vendorizadas e os binários que elas citam.** `impeccable`, `hallmark` e `motion-design`
+   chegam como texto. `impeccable` ainda chama `npx impeccable`: sem rede, o benchmark o reporta
+   `unavailable` (nunca `0`).
+
+## O que eu não verifiquei
+
+- Conexão MCP viva dentro do Claude Code e dentro do Hermes (declarei o arquivo, não a conexão).
+- Codex e Cursor de ponta a ponta: escrevi o bloco de inclusão e conferi o conteúdo do arquivo;
+  não abri uma sessão em nenhum dos dois.
+- Nenhum client fora dos quatro acima.

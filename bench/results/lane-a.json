@@ -1,0 +1,70 @@
+{
+  "seed": 20261012,
+  "corpus_files": 48,
+  "corpus_sha256": "2a89573272b668f28ab8174a98fc9cb74e7bfa950eaec63d08184b5ce5c03c60",
+  "node_version": "v24.12.0",
+  "adapters": [
+    {
+      "adapter": "kernel",
+      "coverage": "6 tells",
+      "available": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 91,
+      "precision": 1,
+      "recall": 0.022,
+      "f1": 0.042,
+      "blockers": 15,
+      "escaped_blockers": 13,
+      "escape_rate": 0.867,
+      "unmapped_rules": [
+        "stock-copy"
+      ]
+    },
+    {
+      "adapter": "judge",
+      "coverage": "38 tells",
+      "available": true,
+      "tp": 74,
+      "fp": 91,
+      "fn": 19,
+      "precision": 0.448,
+      "recall": 0.796,
+      "f1": 0.574,
+      "blockers": 15,
+      "escaped_blockers": 1,
+      "escape_rate": 0.067,
+      "unmapped_rules": []
+    },
+    {
+      "adapter": "impeccable",
+      "coverage": "5 mapeamentos",
+      "available": true,
+      "tp": 9,
+      "fp": 43,
+      "fn": 84,
+      "precision": 0.173,
+      "recall": 0.097,
+      "f1": 0.124,
+      "blockers": 15,
+      "escaped_blockers": 2,
+      "escape_rate": 0.133,
+      "unmapped_rules": []
+    },
+    {
+      "adapter": "gate_baseline",
+      "coverage": "7 mapeamentos",
+      "available": true,
+      "tp": 11,
+      "fp": 181,
+      "fn": 82,
+      "precision": 0.057,
+      "recall": 0.118,
+      "f1": 0.077,
+      "blockers": 15,
+      "escaped_blockers": 15,
+      "escape_rate": 1,
+      "unmapped_rules": []
+    }
+  ]
+}

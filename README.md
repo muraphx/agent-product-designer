@@ -17,7 +17,7 @@ Sem `npx`? Clone e rode direto:
 git clone https://github.com/muraphx/agent-product-designer && cd agent-product-designer
 node install.mjs --client all        # claude | hermes | agents | codex
 node gates/run.mjs examples/landing  # veredito dos três portões
-npm test                             # 84 asserções
+npm test                             # 132 asserções
 ```
 
 ## Os três portões
@@ -56,6 +56,11 @@ gates/                 r1, r2, r3 + biblioteca de leitura determinística (caps.
 skills/                design-process, strategy-trace, anti-slop (+ impeccable, hallmark, motion-design vendorizadas)
 examples/landing/      alvo de referência: página real que passa nos três portões
 tests/                 fixtures com UM defeito cada + suíte que prova acusação e silêncio
+                       swap.mjs: troca skills/ e o teto por outra disciplina e exige que o kernel siga de pé
+prereg/lane-a.md       pré-registro do benchmark, congelado antes de medir
+bench/                 corpus rotulado, métricas, juiz e adapters medidos; RESULTS.md é o placar
+docs/delivery/phase-2/ artefato da fase 2: strategy.md + tokens + decisões + o relatório (que passa nos portões)
+docs/degradation.md    o que cada client ganha e o que ele perde
 docs/research/         Double Diamond de pesquisa: 00 brief … 05 plano de entrega
 legacy/                esqueleto anterior + diagnóstico do que estava errado
 ```
@@ -84,23 +89,63 @@ O instalador imprime o caminho/comando exato de cada ação e **relê o destino*
 Nada é sobrescrito sem `--force`. `node install.mjs --validate` roda o validador oficial do Claude
 mais a suíte de empacotamento.
 
+A tabela acima diz o que funciona; `docs/degradation.md` diz o que **quebra** em cada client — Claude
+Code e Hermes não leem `AGENTS.md`, então ali o kernel deixa de ser sempre-ativo e vira skill de
+gatilho. Declarado, não descoberto depois.
+
+## Benchmark (Lane A, medido)
+
+Corpus rotulado de 48 páginas, 15 delas com defeito bloqueante. Pré-registro em `prereg/lane-a.md`
+foi **congelado antes** da medição; o resultado está em `bench/RESULTS.md`.
+
+| Adapter | Cobertura | precisão | recall | F1 | escape |
+|---|---|---|---|---|---|
+| juiz determinístico | 38 tells | 0,448 | 0,796 | **0,574** | **0,067** |
+| `impeccable` 3.6.0 | 5 mapeamentos | 0,173 | 0,097 | 0,124 | 0,133 |
+| portões r1/r2/r3 deste repo | 6 tells | 1,000 | 0,022 | 0,042 | 0,867 |
+| produto anterior (baseline) | 7 mapeamentos | 0,057 | 0,118 | 0,077 | 1,000 |
+
+Critérios do pré-registro: F1 ≥ 2× o `impeccable` (0,574 vs 0,124 — 4,6×), escape ≤ 0,15 (0,067),
+precisão dos portões ≥ 0,80 (1,000), JSON byte-idêntico em execuções repetidas (3×,
+`595c71866674c924`). **Todos confirmados**; a condição que matava a tese não disparou.
+
+```bash
+npm run bench       # lane completa (inclui o `impeccable` via npx, ~140s)
+npm run bench:quick # kernel + judge, ~4s
+```
+
+Conflito de interesse declarado: eu escrevi o juiz **e** rotulei o corpus. As cinco ameaças à
+validade estão em `bench/RESULTS.md` — a primeira é essa.
+
+O relatório da fase 2 é o artefato em `docs/delivery/phase-2/design/index.html` (PNG ao lado), com
+estratégia e três decisões registradas. Ele passa nos próprios portões:
+
+```bash
+node gates/run.mjs docs/delivery/phase-2   # PASS (0 violações, 0 incertezas)
+```
+
 ## O que este repo **não** prova
 
-- Passar nos portões não prova que o design é bom. Prova que ele não é genérico por acidente, que
-  tem rastro e que não estourou o teto. Gosto continua sendo julgamento humano.
-- O benchmark público contra o juiz determinístico **ainda não foi rodado**. As ameaças à validade
-  estão pré-registradas em `docs/research/` — inclusive a que mata o projeto: se o benchmark não
-  puder ser publicado, a tese "prova primeiro" perde valor.
+- **Passar nos portões não prova que o design é bom.** Prova que ele não é genérico por acidente,
+  que tem rastro e que não estourou o teto. Gosto continua sendo julgamento humano.
+- **O corpus do benchmark é meu, pequeno e enviesado.** 48 páginas, rótulo de um anotador só
+  (autor do juiz). Não sustenta intervalo de confiança; sustenta ordem de grandeza.
+- **Os portões têm precisão alta e recall baixo por escolha** (1,000 / 0,022). Eles barram o que
+  sabem provar e mandam o resto para revisão humana. Ler 0,022 como "detector ruim" é errado;
+  ler como "detector suficiente" também.
+- **`impeccable` não está pinado**: foi medido via `npx` no dia, versão 3.6.0. O F1 dele aqui é
+  indicativo.
 - As skills `impeccable` e `hallmark` citam comandos (`npx impeccable`, scripts próprios) cujos
   binários **não** estão vendorizados aqui. O texto está completo; o binário não.
 - `motion-design` não traz arquivo de licença no pacote de origem (ver `vendor-status.json`).
 
 ## Fases
 
-1. **Kernel que recusa** — portões, testes, memória MCP, instalador. ← esta fase
-2. **Harness público** — corpus rotulado, juiz determinístico, placar reprodutível.
-3. **Confronto publicado** — F1 e escape contra o `impeccable`, κ do painel de leigos, ganho
-   contra "sem agente", taxa de invocação, gate humano medido.
+1. **Kernel que recusa** — portões, testes, memória MCP, instalador. ✔
+2. **Harness público** — corpus rotulado, juiz determinístico, placar reprodutível. ✔ (Lane A medida,
+   pré-registro antes da medição, `bench/RESULTS.md`)
+3. **Confronto publicado** — κ de um painel de leigos, ganho contra "sem agente", taxa de invocação,
+   gate humano medido. ← falta isto: os números que exigem **gente**, não código.
 
 ## Licença e créditos
 

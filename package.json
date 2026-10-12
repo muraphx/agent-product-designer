@@ -14,8 +14,12 @@
   "scripts": {
     "gates": "node gates/run.mjs",
     "fixtures": "node tests/build-fixtures.mjs",
-    "test": "node tests/build-fixtures.mjs && node tests/all.mjs",
+    "test": "node tests/build-fixtures.mjs && node tests/all.mjs && node tests/swap.mjs",
+    "test:swap": "node tests/swap.mjs",
     "example": "node gates/run.mjs examples/landing",
+    "bench": "node bench/run-lane-a.mjs",
+    "bench:quick": "node bench/run-lane-a.mjs --only=kernel,judge --out=bench/results/lane-a-quick.json",
+    "bench:self-check": "node bench/lib/metrics.mjs --self-check",
     "memory": "node bin/memory-server.mjs",
     "memory:selftest": "node bin/memory-server.mjs --selftest",
     "install:claude": "node install.mjs --client claude",

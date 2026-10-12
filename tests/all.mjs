@@ -5,6 +5,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseCapsStrict as parseCaps, loadCaps, CAP_KEYS } from '../gates/lib/caps.mjs';
@@ -274,6 +275,76 @@ console.log('\n# 12. as instrucoes nao citam arquivo que nao existe');
     .filter((p) => !p.includes('*') && !PROTOCOL.has(p));
   const missing = [...new Set(cited)].filter((p) => !fs.existsSync(path.join(ROOT, p)));
   check(`AGENTS.md: ${cited.length} caminhos citados existem`, missing.length === 0, missing.slice(0, 5).join(','));
+}
+
+console.log('\n# 13. a medicao e reproduzivel e o preregistro veio antes');
+{
+  const sha256 = (buf) => createHash('sha256').update(buf).digest('hex');
+  const node = (rel) => path.join(ROOT, ...rel.split('/'));
+
+  // (a) a convencao de metrica tem prova propria
+  const selfCheck = spawnSync(process.execPath, [node('bench/lib/metrics.mjs'), '--self-check'], { encoding: 'utf8' });
+  const selfTail = (selfCheck.stdout || '').trim().split('\n').slice(-1)[0];
+  check('metrics: --self-check sai 0', selfCheck.status === 0, `${selfTail} | ${(selfCheck.stderr || '').slice(0, 200)}`);
+
+  // (b) o corpus medido e o corpus registrado
+  const labeledPath = node('bench/corpus/labeled.jsonl');
+  const labeledRaw = fs.readFileSync(labeledPath);
+  const rows = labeledRaw.toString('utf8').trim().split(/\r?\n/).filter((l) => l.trim() !== '');
+  check('corpus: 48 paginas rotuladas', rows.length === 48, `${rows.length} linhas`);
+  const corpusSha = sha256(labeledRaw);
+  const vendored = fs.readFileSync(node('bench/VENDORED.md'), 'utf8');
+  check('corpus: sha256 do labeled.jsonl igual ao de bench/VENDORED.md', vendored.includes(corpusSha), corpusSha.slice(0, 16));
+
+  // (c) determinismo: o JSON nao pode carregar relogio, entao duas execucoes tem que bater byte a byte.
+  // Roda o subconjunto kernel+judge para nao pagar os ~200s do impeccable (CLI de terceiro via npx)
+  // em cada `npm test`. A lane completa e verificada na publicacao e o hash das duas execucoes
+  // completas fica em bench/RESULTS.md.
+  const laneJson = node('bench/results/lane-a.json');
+  const tmpOut = node('bench/results/.determinism.json');
+  const runLane = (args = []) => spawnSync(process.execPath, [node('bench/run-lane-a.mjs'), ...args], { encoding: 'utf8' });
+  const det = ['--only=kernel,judge', '--out=bench/results/.determinism.json'];
+  const first = runLane(det);
+  check('lane-a: primeira execucao deterministica sai 0', first.status === 0, (first.stderr || '').slice(0, 200));
+  const hashFirst = fs.existsSync(tmpOut) ? sha256(fs.readFileSync(tmpOut)) : null;
+  const second = runLane(det);
+  check('lane-a: segunda execucao deterministica sai 0', second.status === 0, (second.stderr || '').slice(0, 200));
+  const hashSecond = fs.existsSync(tmpOut) ? sha256(fs.readFileSync(tmpOut)) : null;
+  check('lane-a: duas execucoes produzem o mesmo JSON (H4)', !!hashFirst && hashFirst === hashSecond, `${String(hashFirst).slice(0, 12)} vs ${String(hashSecond).slice(0, 12)}`);
+  if (fs.existsSync(tmpOut)) fs.rmSync(tmpOut);
+  check('lane-a: o JSON publicado existe (lane completa ja foi medida)', fs.existsSync(laneJson));
+
+  const lane = JSON.parse(fs.readFileSync(laneJson, 'utf8'));
+  const allKeys = [];
+  const walkKeys = (value) => {
+    if (Array.isArray(value)) value.forEach(walkKeys);
+    else if (value && typeof value === 'object') {
+      for (const [k, v] of Object.entries(value)) {
+        allKeys.push(k);
+        walkKeys(v);
+      }
+    }
+  };
+  walkKeys(lane);
+  check('lane-a: nenhum campo de relogio no JSON', !allKeys.some((k) => /timestamp|elapsed|_at$/i.test(k)), allKeys.filter((k) => /timestamp|elapsed|_at$/i.test(k)).join(','));
+
+  // (d) o preregistro nomeia as metricas que o resultado publica (o prereg e em portugues:
+  //     cada metrica tem que ser nomeada na sua lingua, e o JSON tem que carregar a chave exata)
+  const prereg = fs.readFileSync(node('prereg/lane-a.md'), 'utf8');
+  const laneRaw = fs.readFileSync(laneJson, 'utf8');
+  const METRICS = {
+    precision: /precis[ãa]o|precision/i,
+    recall: /recall|revoca[çc][ãa]o|sensibilidade/i,
+    f1: /\bF1\b/i,
+    escape_rate: /escape|taxa de escape/i
+  };
+  for (const [key, named] of Object.entries(METRICS)) {
+    check(`lane-a: "${key}" do prereg aparece no resultado`, named.test(prereg) && laneRaw.includes(`"${key}"`));
+  }
+
+  check('lane-a: quatro adapters medidos', Array.isArray(lane.adapters) && lane.adapters.length === 4, `${lane.adapters && lane.adapters.length}`);
+  check('lane-a: adapter indisponivel nao vira zero', lane.adapters.every((a) => a.available === true || a.precision === null), JSON.stringify(lane.adapters.filter((a) => a.available === false).map((a) => [a.adapter, a.precision])));
+  check('lane-a: escape conta incomplete e error', fs.readFileSync(node('bench/run-lane-a.mjs'), 'utf8').includes("'incomplete'") && fs.readFileSync(node('bench/run-lane-a.mjs'), 'utf8').includes("'error'"));
 }
 
 console.log(`\n${pass} ok, ${failures.length} falhas`);
