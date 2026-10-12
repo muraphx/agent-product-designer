@@ -11,13 +11,13 @@ não tem o mecanismo.
 | Capacidade | Claude Code | Hermes Agent | Codex CLI / ChatGPT desktop | Cursor | Client que só lê `AGENTS.md` |
 |---|---|---|---|---|---|
 | Portões (CLI `node gates/run.mjs`) | verificado | verificado | verificado | verificado | verificado |
-| Suíte (`npm test`, 155 asserções) | verificado | verificado | verificado | verificado | verificado |
+| Suíte (`npm test`, 158 asserções) | verificado | verificado | verificado | verificado | verificado |
 | Agent Skills (`skills/`) | verificado: plugin instalado e habilitado, `claude plugin list` | verificado: 6 skills copiadas e relidas do diretório do profile | verificado: `--client chatgpt` copiou 8 skills para `~/.codex/skills` e releu cada uma | declarado: lê `~/.agents/skills` | declarado |
 | Kernel sempre-ativo (`AGENTS.md`) | **não funciona** (lê `CLAUDE.md`) | **não funciona** (lê skills + memória) | verificado: bloco anexado a `~/.codex/AGENTS.md` e sessão do host rodada com ele | declarado: lê `AGENTS.md` | verificado |
 | Memória MCP (`bin/memory-server.mjs`) | declarado em `.mcp.json` (`${CLAUDE_PLUGIN_ROOT}`); servidor verificado por fora, conexão na sessão **não verificada** | **não registrado** no profile: rodar à mão | **verificado**: `codex mcp list` lista `pd-memory`; `read_caps` + `record_decision` chamados de dentro do host gravaram em `decision-log/decisions.jsonl` | não registrado | não se aplica |
 | Slash commands / hooks | não embarcados (fora da Agent Plugins Spec 1.0.0) | não embarcados | não embarcados | não embarcados | não embarcados |
 
-Asserções: `npm test` (102) + `tests/swap.mjs` (30) + `tests/mcp-smoke.mjs` (23) = **155**.
+Asserções: `npm test` (105) + `tests/swap.mjs` (30) + `tests/mcp-smoke.mjs` (23) = **158**.
 
 ## O piso: o que funciona sem client nenhum
 

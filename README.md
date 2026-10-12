@@ -17,7 +17,7 @@ Sem `npx`? Clone e rode direto:
 git clone https://github.com/muraphx/agent-product-designer && cd agent-product-designer
 node install.mjs --client all        # claude | hermes | agents | codex | chatgpt
 node gates/run.mjs examples/landing  # veredito dos três portões
-npm test                             # 155 asserções
+npm test                             # 158 asserções
 ```
 
 Usando no **ChatGPT desktop**: passo a passo verificado em [`docs/chatgpt-desktop.md`](docs/chatgpt-desktop.md)
