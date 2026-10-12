@@ -232,7 +232,7 @@ function validate() {
   } else {
     warn('claude plugin validate', 'CLI ausente: validacao oficial pulada');
   }
-  const r = spawnSync(process.execPath, [path.join(ROOT, 'tests', 'all.mjs')], { encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [path.join(ROOT, 'tests', 'all.mjs')], { encoding: 'utf8', cwd: ROOT });
   const tail = (r.stdout || '').trim().split(/\r?\n/).slice(-1)[0];
   if (r.status === 0) report('testes de empacotamento', tail);
   else fail('testes de empacotamento', tail);

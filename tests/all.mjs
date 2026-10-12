@@ -302,8 +302,10 @@ console.log('\n# 13. a medicao e reproduzivel e o preregistro veio antes');
   // completas fica em bench/RESULTS.md.
   const laneJson = node('bench/results/lane-a.json');
   const tmpOut = node('bench/results/.determinism.json');
-  const runLane = (args = []) => spawnSync(process.execPath, [node('bench/run-lane-a.mjs'), ...args], { encoding: 'utf8' });
-  const det = ['--only=kernel,judge', '--out=bench/results/.determinism.json'];
+  // cwd explicito e --out absoluto: sem isso, quem chama de outro diretorio (npx/install.mjs
+  // --validate) faz a lane gravar o JSON relativo ao CWD do chamador e a comparacao le null vs null.
+  const runLane = (args = []) => spawnSync(process.execPath, [node('bench/run-lane-a.mjs'), ...args], { encoding: 'utf8', cwd: ROOT });
+  const det = ['--only=kernel,judge', `--out=${tmpOut}`];
   const first = runLane(det);
   check('lane-a: primeira execucao deterministica sai 0', first.status === 0, (first.stderr || '').slice(0, 200));
   const hashFirst = fs.existsSync(tmpOut) ? sha256(fs.readFileSync(tmpOut)) : null;

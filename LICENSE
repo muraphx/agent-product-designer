@@ -20,8 +20,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
-
-Skills de terceiros redistribuídas em skills/ mantêm suas próprias licenças
-(impeccable: Apache-2.0; hallmark: MIT; motion-design: MIT declarada).
-Ver NOTICE.md e vendor-licenses/.

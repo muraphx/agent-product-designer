@@ -8,7 +8,7 @@ Não vende gosto. Vende **prova**: estratégia escrita, artefato executável e r
 escolha a uma decisão registrada com fonte.
 
 ```bash
-npx --yes github:muraphx/agent-product-designer --client all   # quando o repo estiver publicado
+npx --yes github:muraphx/agent-product-designer --client all
 ```
 
 Sem `npx`? Clone e rode direto:
