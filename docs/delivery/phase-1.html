@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fase 1 — o kernel que recusa</title>
+<style>
+  :root {
+    --bg: #12110f;
+    --panel: #181614;
+    --ink: #ece7dd;
+    --muted: #9a9083;
+    --rule: #2b2723;
+    --accent: #c07a2e;
+    --ok: #7d9a5b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 17px/1.62 Inter, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 78ch; margin: 0 auto; padding: 4.5rem 1.5rem 4rem; }
+  h1, h2 { font-family: Newsreader, Georgia, serif; font-weight: 600; line-height: 1.15; margin: 0 0 .7rem; }
+  h1 { font-size: clamp(2.1rem, 5.4vw, 3.4rem); }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1rem; letter-spacing: .01em; margin: 0 0 .3rem; }
+  p { margin: 0 0 1rem; }
+  .kicker { font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+  .lede { color: var(--muted); font-size: 1.15rem; max-width: 62ch; }
+  section { border-top: 1px solid var(--rule); padding: 2.4rem 0; }
+  section:first-of-type { border-top: 0; padding-top: 0; }
+  code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em; }
+  code { background: var(--panel); border: 1px solid var(--rule); border-radius: 2px; padding: .05em .3em; }
+  pre {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 1.05rem 1.15rem; overflow-x: auto; margin: 0 0 1rem;
+  }
+  pre code { background: none; border: 0; padding: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 0 0 1rem; font-size: .95rem; }
+  th, td { text-align: left; padding: .55rem .7rem .55rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+  .num { font-family: ui-monospace, monospace; white-space: nowrap; }
+  .ok { color: var(--ok); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .cell { background: var(--panel); padding: .95rem 1rem; }
+  .cell b { display: block; font-family: Newsreader, Georgia, serif; font-size: 1.7rem; line-height: 1.1; }
+  .cell span { color: var(--muted); font-size: .84rem; }
+  .flag { border-left: 2px solid var(--accent); padding-left: 1rem; margin: 0 0 1.1rem; }
+  footer { color: var(--muted); font-size: .88rem; padding-top: 1.8rem; border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section>
+    <p class="kicker">Entrega · fase 1 de 3</p>
+    <h1>O kernel que recusa</h1>
+    <p class="lede">A tese aprovada — <strong>Prova Primeiro</strong> — virou código que barra a
+    própria entrega. Três regras duras agora são testes. Se o artefato tiver slop, não tiver rastro
+    ou estourar o teto, o agente não entrega: ele mostra a regra e a linha.</p>
+  </section>
+
+  <section>
+    <h2>Estado verificado agora</h2>
+    <div class="grid">
+      <div class="cell"><b>84</b><span>asserções passando</span></div>
+      <div class="cell"><b>3</b><span>portões bloqueantes</span></div>
+      <div class="cell"><b>0</b><span>falhas na suíte</span></div>
+      <div class="cell"><b>6</b><span>skills instaladas</span></div>
+      <div class="cell"><b>5</b><span>clients cobertos</span></div>
+      <div class="cell"><b>234</b><span>arquivos no commit</span></div>
+    </div>
+    <p class="mono" style="margin-top:1rem">
+      <span class="ok">PASS</span> r1 · <span class="ok">PASS</span> r2 · <span class="ok">PASS</span> r3 &nbsp;→&nbsp; exemplo: 0 violações, 0 incertezas
+    </p>
+  </section>
+
+  <section>
+    <h2>Os três portões, com o que cada um mede</h2>
+    <table>
+      <thead><tr><th>Portão</th><th>Regra dura</th><th>Recusa quando</th></tr></thead>
+      <tbody>
+        <tr><td class="num">r1</td><td>sem AI slop</td><td>gradiente na faixa violeta, emoji decorativo, brilho profundo, frase de catálogo, contraste abaixo de 4.5:1</td></tr>
+        <tr><td class="num">r2</td><td>sem decisão sem estratégia</td><td>token sem decisão registrada, decisão sem fonte, âncora de estratégia que não existe no <code>strategy.md</code></td></tr>
+        <tr><td class="num">r3</td><td>sem excessos</td><td>qualquer contagem acima do teto versionado: cores, accent, famílias, pesos, raios, sombras, durações, seções, palavras</td></tr>
+      </tbody>
+    </table>
+    <p>Terceiro estado, obrigatório: <code>incomplete</code>. Quando o detector não tem certeza, ele
+    <strong>não chuta</strong> — devolve <code>incomplete</code>, com a razão, e a dúvida chega até você.
+    Portão que finge certeza é o que este repo existe para combater.</p>
+    <pre><code>node gates/run.mjs examples/landing
+{"status":"pass"}       # entrega liberada, exit 0
+{"status":"fail"}       # entrega recusada, exit 1
+{"status":"incomplete"} # dúvida declarada — decisão humana</code></pre>
+  </section>
+
+  <section>
+    <h2>O que a fase 1 corrigiu de verdade</h2>
+    <div class="flag">
+      <h3>Skill vendorizada pela metade</h3>
+      <p><code>hallmark</code> tinha 66 KB de SKILL.md citando <strong>28 referências que não existiam</strong>
+      no disco. Skill que aponta para arquivo ausente é pior que skill ausente. Revendorizada completa
+      do upstream: 107 arquivos, SKILL.md byte-idêntico. Agora um teste percorre cada skill e falha se
+      qualquer referência citada não existir.</p>
+    </div>
+    <div class="flag">
+      <h3>Medição cega — a pior falha possível</h3>
+      <p>O contador de blocos lia <strong>1 seção onde havia 5</strong>: seções com atributo não fechavam a
+      contagem. Aprovação falsa por ponto cego. Corrigido, e o teste agora exige que a medição conte
+      5 seções no exemplo, filhos diretos e não netos, e que HTML desbalanceado não passe por bom.</p>
+    </div>
+    <div class="flag">
+      <h3>Memória que existia só no papel</h3>
+      <p><code>memory/taste-profile.json</code> definia accent violeta <code>#6366f1</code> e listava
+      "gradiente violeta de hero" como anti-padrão — no mesmo arquivo. Ninguém lia, porque nenhum client
+      carrega esses arquivos. Substituído por servidor MCP real: <code>record_decision</code> recusa
+      gravar decisão sem evidência, e é teste.</p>
+    </div>
+    <div class="flag">
+      <h3>Instalação que não confirma</h3>
+      <p>Instalador relê o destino depois de cada ação e imprime o caminho verificado. Nada é
+      sobrescrito sem <code>--force</code>. O validador oficial do Claude passou sem avisos, e o plugin
+      aparece como <strong>instalado e habilitado</strong>.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Números reais do exemplo publicado</h2>
+    <table>
+      <thead><tr><th>Métrica</th><th>Medido</th><th>Teto</th></tr></thead>
+      <tbody>
+        <tr><td>cores</td><td class="num">7</td><td class="num">12</td></tr>
+        <tr><td>accents de marca</td><td class="num">1</td><td class="num">1</td></tr>
+        <tr><td>famílias tipográficas</td><td class="num">2</td><td class="num">2</td></tr>
+        <tr><td>pesos</td><td class="num">2</td><td class="num">3</td></tr>
+        <tr><td>raios · sombras · durações</td><td class="num">2 · 2 · 2</td><td class="num">3 · 3 · 3</td></tr>
+        <tr><td>seções · elementos por bloco</td><td class="num">5 · 4</td><td class="num">9 · 14</td></tr>
+        <tr><td>palavras</td><td class="num">240</td><td class="num">1200</td></tr>
+        <tr><td>tokens sem decisão registrada</td><td class="num">0</td><td class="num">0</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>O que esta fase não prova</h2>
+    <p>Passar nos portões prova que o artefato não é genérico <em>por acidente</em>, que tem rastro e
+    que não estourou o teto. Não prova que é bom. Gosto continua sendo julgamento humano — seu.</p>
+    <p>O benchmark público contra o juiz determinístico ainda não foi rodado. As ameaças à validade
+    seguem pré-registradas, inclusive a que mata o projeto: <strong>se o benchmark não puder ser
+    publicado, a tese perde valor</strong>. E os binários que duas skills vendorizadas citam
+    (<code>npx impeccable</code>, scripts próprios) não estão empacotados aqui — o texto está completo,
+    o binário não.</p>
+  </section>
+
+  <section>
+    <h2>Próximo passo</h2>
+    <p>Fase 2: harness público — corpus rotulado, juiz determinístico rodando no corpus, placar
+    reproduzível. Depois o confronto publicado: F1 e escape contra o <code>impeccable</code>, κ do
+    painel de leigos, ganho contra "sem agente", taxa de invocação e o gate humano medido.</p>
+    <pre><code>cd agent-product-designer
+node install.mjs --client all      # claude | hermes | agents | codex
+npm test                          # 84 asserções
+node gates/run.mjs examples/landing</code></pre>
+  </section>
+
+  <footer>
+    <p>Commit <code>ae30864</code> · 234 arquivos · suíte 84/84 · <code>claude plugin validate</code> sem avisos.
+    Duas coisas que você pode decidir agora: aprovar a fase 1 e liberar a fase 2, ou mudar o corte.</p>
+  </footer>
+</main>
+</body>
+</html>
