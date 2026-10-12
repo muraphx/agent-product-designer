@@ -1,0 +1,10 @@
+# Este repo compara sha256 de bytes (bench/VENDORED.md, contrato de corpus, H4).
+# Com core.autocrlf=true um clone no Windows converte os HTML do corpus para CRLF, o
+# `bench/corpus/labeled.jsonl` reconstruido muda de hash e a suite falha no clone — nao por bug,
+# por fim de linha. Por isso: nenhuma conversao de eol, em nenhum cliente.
+* -text
+
+# Explicito para quem le (o `* -text` ja cobre): binarios e corpus entram byte a byte.
+*.png -diff
+*.jpg -diff
+*.jsonl -text
