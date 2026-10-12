@@ -10,7 +10,7 @@ resultado. Se os dois discordarem, o pré-registro ganha.
 | **H1** | F1 do juiz ≥ 2× o F1 do `impeccable` | 0,574 vs 0,124 (4,6×) | **confirmada** |
 | **H2** | taxa de escape de blocker do juiz ≤ 0,15 | 0,067 | **confirmada** |
 | **H3** | precisão dos portões deste repo ≥ 0,80 nos tells que declaram cobrir | 1,000 | **confirmada** |
-| **H4** | duas execuções produzem JSON byte-idêntico | 3 execuções, `595c71866674c924` | **confirmada** |
+| **H4** | duas execuções produzem JSON byte-idêntico | 6 execuções (3 originais + 2 em primeiro plano + 1 headless), `595c71866674c924` | **confirmada** |
 
 Condição que mata a tese (escape ≥ 0,25 **ou** F1 < 0,40): **não disparou**. A tese segue viva.
 
@@ -53,7 +53,7 @@ Relatório de máquina: `bench/results/lane-a.json`.
 | seed | `20261012` |
 | Node | `v24.12.0` (Windows 11) |
 | `impeccable` | 3.6.0, via `npx --yes impeccable` |
-| sha256 do JSON (3 execuções) | `595c71866674c924...` |
+| sha256 do JSON (6 execuções) | `595c71866674c924...` |
 
 Reprodução em Windows, sem TTY: chame o Node pelo **caminho absoluto**
 (`C:/nvm4w/nodejs/node.exe bench/run-lane-a.mjs`, visto neste host). Com o nome curto `node`, em
