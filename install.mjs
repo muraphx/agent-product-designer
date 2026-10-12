@@ -232,10 +232,22 @@ function validate() {
   } else {
     warn('claude plugin validate', 'CLI ausente: validacao oficial pulada');
   }
-  const r = spawnSync(process.execPath, [path.join(ROOT, 'tests', 'all.mjs')], { encoding: 'utf8', cwd: ROOT });
-  const tail = (r.stdout || '').trim().split(/\r?\n/).slice(-1)[0];
-  if (r.status === 0) report('testes de empacotamento', tail);
-  else fail('testes de empacotamento', tail);
+  // A suite depende de tests/fixtures/, que e gitignored e nasce de build-fixtures.mjs.
+  // Sem construir antes, todo alvo de fixture nao existe e os portoes sairam com exit 2 —
+  // foi assim que a validacao falhou num clone limpo do GitHub.
+  const suites = [
+    ['tests/build-fixtures.mjs', 'fixtures de teste'],
+    ['tests/all.mjs', 'testes de empacotamento'],
+    ['tests/swap.mjs', 'testes de troca de disciplina'],
+    ['tests/mcp-smoke.mjs', 'testes do MCP'],
+  ];
+  for (const [file, label] of suites) {
+    const r = spawnSync(process.execPath, [path.join(ROOT, ...file.split('/'))], { encoding: 'utf8', cwd: ROOT });
+    const out = (r.stdout || r.stderr || '').trim().split(/\r?\n/).filter(Boolean);
+    const tail = out.slice(-1)[0];
+    if (r.status === 0) report(label, tail || 'ok');
+    else fail(label, tail || `exit ${r.status}`);
+  }
 }
 
 const client = argOf('--client') || (has('--validate') ? null : 'all');
