@@ -11,10 +11,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import readline from 'node:readline';
+import { fileURLToPath } from 'node:url';
 import { loadCaps, flatCaps } from '../gates/lib/caps.mjs';
 
 const PROTOCOL = '2024-11-05';
 const SERVER = { name: 'pd-memory', version: '0.1.0' };
+const HERE = path.dirname(fileURLToPath(import.meta.url));
 
 function envPath(key, fallback) {
   const v = process.env[key];
@@ -22,9 +24,13 @@ function envPath(key, fallback) {
   return path.resolve(chosen);
 }
 
-const MEMORY_FILE = envPath('PD_MEMORY_FILE', 'decision-log/decisions.jsonl');
-const CAPS_FILE = envPath('PD_CAPS_FILE', 'budgets/caps.yaml');
+// Sem PD_WORKSPACE o host GUI (ChatGPT desktop) resolve o cwd errado: a memoria cairia em
+// qualquer lugar. Aqui o cwd e so o ultimo recurso, e memoria/teto derivam do workspace.
 const WORKSPACE = envPath('PD_WORKSPACE', process.cwd());
+const MEMORY_FILE = envPath('PD_MEMORY_FILE', path.join(WORKSPACE, 'decision-log', 'decisions.jsonl'));
+const WORKSPACE_CAPS = path.join(WORKSPACE, 'budgets', 'caps.yaml');
+// Workspace de cliente nao traz o teto do pacote: cai para o que veio junto do servidor.
+const CAPS_FILE = envPath('PD_CAPS_FILE', fs.existsSync(WORKSPACE_CAPS) ? WORKSPACE_CAPS : path.join(HERE, '..', 'budgets', 'caps.yaml'));
 
 const REQUIRED = ['id', 'decision', 'strategy_ref'];
 

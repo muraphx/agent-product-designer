@@ -5,7 +5,10 @@
 //   node install.mjs --client hermes     copia skills para o diretorio de skills do Hermes
 //   node install.mjs --client agents     diretorio portatil ~/.agents (qualquer client que leia AGENTS.md)
 //   node install.mjs --client codex      bloco de inclusao no ~/.codex/AGENTS.md
+//   node install.mjs --client chatgpt    ChatGPT desktop: MCP + skills + AGENTS.md (mesmo host do Codex)
 //   node install.mjs --validate          valida o empacotamento
+//
+// Opcoes: --workspace <dir> (workspace do MCP de memoria), --dry-run, --force.
 //
 // Contrato: toda acao imprime o caminho/comando exato e RE-LE o resultado para confirmar.
 // Nunca sobrescreve arquivo existente sem --force.
@@ -58,6 +61,8 @@ node <plugin>/gates/run.mjs <alvo>
 \`\`\`
 
 Entrega so passa com status \`pass\` (ou \`incomplete\` explicitamente aprovado por humano).
+Memoria de decisoes via MCP \`pd-memory\` (\`record_decision\`, \`list_decisions\`, \`coverage_gaps\`,
+\`read_caps\`): decisao sem \`strategy_ref\` ou sem \`evidence\` e recusada pela ferramenta.
 ${MARK_END}
 `;
 
@@ -113,6 +118,33 @@ function appendBlock(file, label) {
   else fail(label, `escrita nao confirmada em ${file}`);
 }
 
+// TOML: o host do ChatGPT desktop e o do Codex compartilham ~/.codex/config.toml, entao o bloco
+// precisa conviver com o que ja esta la (nao reescrevemos o arquivo inteiro).
+const TOML_START = '# agent-product-designer:start';
+const TOML_END = '# agent-product-designer:end';
+
+function upsertTomlBlock(file, label, block) {
+  const existing = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
+  const already = existing.includes(TOML_START);
+  if (already && !FORCE) {
+    report(label, `bloco ja presente em ${file} (use --force para regravar)`);
+    return;
+  }
+  const next = already
+    ? existing.replace(new RegExp(`${TOML_START}[\\s\\S]*?${TOML_END}`), block.trim())
+    : `${existing.trimEnd()}${existing.trim() ? '\n\n' : ''}${block.trim()}\n`;
+  if (DRY) {
+    report(label, `seria escrito em ${file}`);
+    return;
+  }
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  if (existing && !already && !fs.existsSync(`${file}.pd-bak`)) fs.copyFileSync(file, `${file}.pd-bak`);
+  fs.writeFileSync(file, next, 'utf8');
+  const back = fs.readFileSync(file, 'utf8');
+  if (back.includes(TOML_START) && back.includes('[mcp_servers.pd-memory]')) report(label, `verificado: ${file}`);
+  else fail(label, `escrita nao confirmada em ${file}`);
+}
+
 const which = (cmd) => {
   const r = spawnSync(process.platform === 'win32' ? 'where' : 'which', [cmd], { encoding: 'utf8' });
   return r.status === 0 ? (r.stdout.split(/\r?\n/)[0] || '').trim() : null;
@@ -145,6 +177,51 @@ function installClaude() {
   else fail('claude: plugin install', 'install retornou 0 mas nao aparece em `claude plugin list`');
 }
 
+// ChatGPT desktop e Codex CLI compartilham o host: config.toml, skills/ e AGENTS.md em ~/.codex.
+// O app nao le Agent Skills de pasta arbitraria nem tem sistema de plugin proprio — o que ele
+// consome e (1) MCP servers do config, (2) skills de ~/.codex/skills, (3) AGENTS.md global.
+function installChatgpt() {
+  const ws = path.resolve(argOf('--workspace') || ROOT);
+  const entry = path.join(ROOT, 'bin', 'memory-server.mjs');
+  const caps = path.join(ROOT, 'budgets', 'caps.yaml');
+  if (!fs.existsSync(entry)) {
+    fail('chatgpt: memory-server', `ausente: ${entry}`);
+    return;
+  }
+  if (DRY) {
+    report('chatgpt', `seria registrado ${entry} com workspace ${ws}`);
+    copySkills(path.join(HOME, '.codex', 'skills'), 'chatgpt');
+    appendBlock(path.join(HOME, '.codex', 'AGENTS.md'), 'chatgpt: AGENTS.md');
+    upsertTomlBlock(path.join(HOME, '.codex', 'config.toml'), 'chatgpt: MCP pd-memory', '');
+    return;
+  }
+  // cargoes o servidor em ~/.codex/config.toml; a leitura de volta prova que o TOML ficou valido.
+  const block = `${TOML_START}
+[mcp_servers.pd-memory]
+command = '${process.execPath}'
+args = ['${entry}']
+startup_timeout_sec = 30
+
+[mcp_servers.pd-memory.env]
+PD_WORKSPACE = '${ws}'
+PD_CAPS_FILE = '${caps}'
+${TOML_END}`;
+  upsertTomlBlock(path.join(HOME, '.codex', 'config.toml'), 'chatgpt: MCP pd-memory', block);
+  copySkills(path.join(HOME, '.codex', 'skills'), 'chatgpt');
+  appendBlock(path.join(HOME, '.codex', 'AGENTS.md'), 'chatgpt: AGENTS.md');
+
+  const cli = which('codex');
+  if (cli) {
+    const r = spawnSync('codex', ['mcp', 'list'], { encoding: 'utf8', timeout: 90000 });
+    const out = `${r.stdout || ''}${r.stderr || ''}`;
+    if (out.includes('pd-memory')) report('chatgpt: servidor visivel', 'verificado em `codex mcp list`');
+    else fail('chatgpt: servidor visivel', 'nao aparece em `codex mcp list`');
+  } else {
+    warn('chatgpt: CLI codex ausente', 'confirme em Settings → MCP servers dentro do app');
+  }
+  console.log(`  nota ChatGPT desktop: reinicie o app; o workspace do MCP e ${ws}`);
+}
+
 function validate() {
   const cli = which('claude');
   if (cli) {
@@ -171,6 +248,7 @@ if (client === 'all' || client === 'agents') {
   appendBlock(path.join(HOME, '.agents', 'AGENTS.md'), 'agents: AGENTS.md');
 }
 if (client === 'all' || client === 'codex') appendBlock(path.join(HOME, '.codex', 'AGENTS.md'), 'codex: AGENTS.md');
+if (client === 'chatgpt') installChatgpt();
 if (has('--validate') || client === 'all') validate();
 
 console.log(`\n${ok} acoes confirmadas, ${problems.length} problemas`);

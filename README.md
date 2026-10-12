@@ -15,10 +15,14 @@ Sem `npx`? Clone e rode direto:
 
 ```bash
 git clone https://github.com/muraphx/agent-product-designer && cd agent-product-designer
-node install.mjs --client all        # claude | hermes | agents | codex
+node install.mjs --client all        # claude | hermes | agents | codex | chatgpt
 node gates/run.mjs examples/landing  # veredito dos três portões
-npm test                             # 132 asserções
+npm test                             # 155 asserções
 ```
+
+Usando no **ChatGPT desktop**: passo a passo verificado em [`docs/chatgpt-desktop.md`](docs/chatgpt-desktop.md)
+— `node install.mjs --client chatgpt` grava a memória MCP em `~/.codex/config.toml`, as skills em
+`~/.codex/skills` e o kernel em `~/.codex/AGENTS.md`; reinicie o app e confira em `Settings → MCP servers`.
 
 ## Os três portões
 
@@ -43,23 +47,33 @@ node gates/run.mjs <alvo> --strict   # incerteza barra
 
 Código de saída: `0` = pass (ou incomplete sem `--strict`), `1` = fail ou incomplete com `--strict`.
 
+Sem Node no host (ex.: sandbox do ChatGPT web)? O mesmo veredito em Python stdlib-only:
+
+```bash
+python dist/chatgpt/gates.py <alvo>   # paridade contra o runner Node medida em dist/chatgpt/PARITY.md
+```
+
 ## Estrutura
 
 ```
 plugin.json            manifesto (Agent Plugins Spec 1.0.0)
 mcp.json / .mcp.json   memória MCP: spec e Claude, mesmo servidor
 AGENTS.md              kernel sempre-ativo (leia isto primeiro)
-install.mjs            instalador: --client claude|hermes|agents|codex|all
+install.mjs            instalador: --client claude|hermes|agents|codex|chatgpt|all
 budgets/caps.yaml      o teto numérico, com dono único por regra
 bin/memory-server.mjs  servidor MCP stdio: record_decision, list_decisions, coverage_gaps, read_caps
 gates/                 r1, r2, r3 + biblioteca de leitura determinística (caps.mjs, scan.mjs)
-skills/                design-process, strategy-trace, anti-slop (+ impeccable, hallmark, motion-design vendorizadas)
+dist/chatgpt/          port stdlib-only dos portões (gates.py) + paridade medida (PARITY.md)
+skills/                design-process, strategy-trace, anti-slop, product-designer
+                       (+ impeccable, hallmark, motion-design vendorizadas)
 examples/landing/      alvo de referência: página real que passa nos três portões
 tests/                 fixtures com UM defeito cada + suíte que prova acusação e silêncio
                        swap.mjs: troca skills/ e o teto por outra disciplina e exige que o kernel siga de pé
+                       mcp-smoke.mjs: sobe o servidor de memória e conversa MCP por stdio, de verdade
 prereg/lane-a.md       pré-registro do benchmark, congelado antes de medir
 bench/                 corpus rotulado, métricas, juiz e adapters medidos; RESULTS.md é o placar
 docs/delivery/phase-2/ artefato da fase 2: strategy.md + tokens + decisões + o relatório (que passa nos portões)
+docs/chatgpt-desktop.md como usar no ChatGPT desktop, com a saída real do instalador e da prova de ponta a ponta
 docs/degradation.md    o que cada client ganha e o que ele perde
 docs/research/         Double Diamond de pesquisa: 00 brief … 05 plano de entrega
 legacy/                esqueleto anterior + diagnóstico do que estava errado
@@ -72,6 +86,11 @@ decisão sem `id`, sem `decision`, sem `strategy_ref` ou sem `evidence[]` — a 
 mesmo número de cobertura que o portão `r2` usa sai de `coverage_gaps`, então memória e portão não
 podem divergir.
 
+`npm run test:mcp` sobe o servidor com `PD_WORKSPACE` apontando para um diretório temporário,
+completa o handshake, chama as ferramentas pelo protocolo e confere o arquivo gravado — 23 asserções.
+O workspace vem de `PD_WORKSPACE` (senão, do diretório atual): no ChatGPT desktop esse env é escrito
+pelo instalador, para a memória não cair em lugar imprevisível.
+
 Memória é dado do usuário: vive no diretório de dados do client, nunca no repositório. Nada de
 `SOUL.md`/`MEMORY.md` — foi medido que nenhum client lê esses arquivos.
 
@@ -80,7 +99,7 @@ Memória é dado do usuário: vive no diretório de dados do client, nunca no re
 | Client | Mecanismo |
 |---|---|
 | Claude Code | `.claude-plugin/marketplace.json` + `plugin.json` + `skills/` + `.mcp.json` |
-| Codex / ChatGPT | `AGENTS.md` + `skills/` (bloco de inclusão no `~/.codex/AGENTS.md`) |
+| ChatGPT desktop / Codex | `~/.codex/config.toml` (`[mcp_servers.pd-memory]`) + `~/.codex/skills/` + bloco em `~/.codex/AGENTS.md` |
 | Cursor | `AGENTS.md` + `skills/` |
 | Hermes Agent | `skills/` (copiadas para o diretório de skills do profile) |
 | Qualquer outro | `~/.agents/` (diretório portátil de Agent Skills) |
@@ -138,6 +157,8 @@ node gates/run.mjs docs/delivery/phase-2   # PASS (0 violações, 0 incertezas)
 - As skills `impeccable` e `hallmark` citam comandos (`npx impeccable`, scripts próprios) cujos
   binários **não** estão vendorizados aqui. O texto está completo; o binário não.
 - `motion-design` não traz arquivo de licença no pacote de origem (ver `vendor-status.json`).
+- **O port Python é do gate runner, não do agente.** No sandbox sem Node você tem julgamento e
+  veredito; não tem a memória MCP nem o benchmark.
 
 ## Fases
 

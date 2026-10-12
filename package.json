@@ -13,9 +13,13 @@
   },
   "scripts": {
     "gates": "node gates/run.mjs",
+    "gates:py": "python dist/chatgpt/gates.py",
+    "gates:py:self-check": "python dist/chatgpt/gates.py --self-check",
     "fixtures": "node tests/build-fixtures.mjs",
-    "test": "node tests/build-fixtures.mjs && node tests/all.mjs && node tests/swap.mjs",
+    "test": "node tests/build-fixtures.mjs && node tests/all.mjs && node tests/swap.mjs && node tests/mcp-smoke.mjs",
     "test:swap": "node tests/swap.mjs",
+    "test:mcp": "node tests/mcp-smoke.mjs",
+    "parity": "python dist/chatgpt/parity.py --md dist/chatgpt/PARITY.md",
     "example": "node gates/run.mjs examples/landing",
     "bench": "node bench/run-lane-a.mjs",
     "bench:quick": "node bench/run-lane-a.mjs --only=kernel,judge --out=bench/results/lane-a-quick.json",
@@ -25,6 +29,7 @@
     "install:claude": "node install.mjs --client claude",
     "install:hermes": "node install.mjs --client hermes",
     "install:agents": "node install.mjs --client agents",
+    "install:chatgpt": "node install.mjs --client chatgpt",
     "validate": "node install.mjs --validate"
   }
 }
